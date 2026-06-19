@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>repo-router</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#81551c",
+                        "primary-container": "#ffc480",
+                        "on-primary-container": "#794f16",
+                        "surface-main": "#FFFDF8",
+                        "surface-container": "#e9edff",
+                        "accent-warm": "#FFC480",
+                        "ink-black": "#111827",
+                        "outline": "#111827",
+                        "background": "#FFFDF8",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "display": ["Hanken Grotesk", "sans-serif"],
+                        "body": ["Hanken Grotesk", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background text-ink-black font-body min-h-screen flex flex-col items-center justify-center p-4 md:p-12;
+            }
+        }
+
+        .brutalist-card {
+            @apply bg-white border-[3px] border-ink-black rounded-xl shadow-[8px_8px_0px_0px_rgba(17,24,39,1)] transition-all;
+        }
+
+        .brutalist-input {
+            @apply bg-white border-[3px] border-ink-black rounded-lg px-6 py-4 text-lg font-medium focus:outline-none focus:ring-0 focus:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all placeholder:text-gray-400;
+        }
+
+        .brutalist-button {
+            @apply border-[3px] border-ink-black rounded-lg px-8 py-4 font-bold text-lg uppercase tracking-wider transition-all active:translate-x-1 active:translate-y-1 active:shadow-none disabled:opacity-50 disabled:cursor-not-allowed;
+        }
+
+        .toggle-btn {
+            @apply flex flex-col items-center justify-center p-6 border-[2px] border-ink-black rounded-lg bg-white text-ink-black font-semibold transition-all hover:bg-gray-50;
+        }
+        .toggle-btn.active {
+            @apply bg-accent-warm shadow-[4px_4px_0px_0px_rgba(17,24,39,1)];
+        }
+
+        .diff-container {
+            @apply overflow-hidden transition-all duration-300 max-h-0 opacity-0 mt-6;
+        }
+        .diff-container.visible {
+            @apply max-h-64 opacity-100;
+        }
+
+        .grid-pattern {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: radial-gradient(#111827 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.05;
+        }
+
+        .logo-mark {
+            @apply w-12 h-12 md:w-16 md:h-16 rounded-lg border-[3px] border-ink-black bg-accent-warm flex items-center justify-center shrink-0;
+        }
+    </style>
+</head>
+<body>
+<div class="grid-pattern"></div>
+<header class="mb-12 text-center">
+<div class="flex items-center justify-center gap-4 mb-4">
+<div class="logo-mark" aria-hidden="true">
+<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 18c-4.5 1.5-4.5-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.7 1.7 5.6 2 5.6 2a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 8.4c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V20"></path>
+</svg>
+</div>
+<h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tighter">
+            REPO<span class="text-primary">ROUTER</span>
+</h1>
+</div>
+<p class="text-gray-600 font-medium max-w-md mx-auto">
+        Swap <code>github.com</code> for your favorite developer tools instantly.
+    </p>
+</header>
+<main class="w-full max-w-2xl px-2">
+<div class="brutalist-card p-6 md:p-10">
+<div class="mb-8">
+<label class="block text-sm font-bold uppercase tracking-widest mb-3 text-gray-500" for="repo-input">Repository URL</label>
+<div class="relative group">
+<input autocomplete="off" autofocus="" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text"/>
+</div>
+</div>
+<div aria-label="Output mode" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" role="group">
+<button aria-pressed="true" class="toggle-btn active" id="toggle-mcp" type="button">
+<span class="font-bold">MCP Integration</span>
+<span class="text-xs font-mono text-gray-500 mt-1">gitmcp.io</span>
+</button>
+<button aria-pressed="false" class="toggle-btn" id="toggle-structure" type="button">
+<span class="font-bold">Directory Structure</span>
+<span class="text-xs font-mono text-gray-500 mt-1">gitingest.com</span>
+</button>
+</div>
+<div class="diff-container" id="diff-wrap">
+<div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white mb-6">
+<div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
+<span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Transformation Preview</span>
+<button class="flex items-center gap-1 text-[10px] font-bold uppercase hover:text-primary transition-colors" id="copy-btn" type="button">
+<span class="material-symbols-outlined !text-sm">content_copy</span>
+<span id="copy-text">Copy</span>
+</button>
+</div>
+<div class="p-4 font-mono text-sm break-all space-y-2">
+<div class="text-red-500 flex items-start gap-2" id="diff-old">
+<span class="shrink-0">-</span>
+<span></span>
+</div>
+<div class="text-green-600 font-bold flex items-start gap-2" id="diff-new">
+<span class="shrink-0">+</span>
+<span></span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-6">
+<button class="brutalist-button bg-accent-warm shadow-[6px_6px_0px_0px_rgba(17,24,39,1)] w-full md:w-auto" disabled="" id="submit-btn" type="button">
+                Run Route <span class="ml-2 font-mono">↵</span>
+</button>
+<span class="text-sm font-bold text-gray-400 italic" id="status-line">Waiting for input...</span>
+</div>
+</div>
+</main>
+<footer class="mt-12 max-w-lg text-center">
+<p class="text-xs text-gray-400 leading-relaxed">
+        Routes are processed locally in your browser. <br/>
+        Swaps <code>github.com</code> for specialized viewing endpoints.
+    </p>
+</footer>
+<script src="script.js"></script>
+</body></html>
