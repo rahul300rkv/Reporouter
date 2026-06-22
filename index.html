@@ -2,12 +2,107 @@
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>repo-router</title>
+<title>Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo</title>
+<meta content="Repo Router se apna GitHub repo link instantly gitmcp.io (MCP server) ya gitingest.com (directory structure) mein convert karo. Free, no signup, sab kuch browser mein local — Indian developers ke liye bana hua tool." name="description"/>
+<meta content="gitmcp, gitingest, github mcp server, github to mcp, mcp integration github, github directory structure viewer, github repo router, ai coding tools india, claude mcp github" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Rahul" name="author"/>
+<link href="https://reporouter.netlify.app/" rel="canonical"/>
+
+<meta content="website" property="og:type"/>
+<meta content="https://reporouter.netlify.app/" property="og:url"/>
+<meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" property="og:title"/>
+<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io ya gitingest.com pe redirect ho jao. Free aur 100% browser-local." property="og:description"/>
+<meta content="https://reporouter.netlify.app/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="en_IN" property="og:locale"/>
+
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" name="twitter:title"/>
+<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io ya gitingest.com pe redirect ho jao. Free aur 100% browser-local." name="twitter:description"/>
+<meta content="https://reporouter.netlify.app/og-image.png" name="twitter:image"/>
+
+<meta content="#FFFDF8" name="theme-color"/>
+
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Repo Router",
+  "url": "https://reporouter.netlify.app/",
+  "description": "GitHub repo link ko ek click mein gitmcp.io (MCP integration) ya gitingest.com (directory structure) mein convert karne wala free browser tool.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "GitMCP kya hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gitingest se kya milta hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Repo Router free hai kya, koi signup chahiye?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya mera code kahin upload ya store hota hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kya private repos ke saath kaam karega?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Repo Router sirf link redirect karta hai — private repos ke liye aapko gitmcp.io ya gitingest.com pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "MCP Integration aur Directory Structure mein kya difference hai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="grid-pattern"></div>
@@ -19,7 +114,7 @@
 </h1>
 </div>
 <p class="text-gray-600 font-medium max-w-md mx-auto">
-        Swap <code>github.com</code> for your favorite developer tools instantly.
+        GitHub <code>.com</code> ka link daalo, apne favorite developer tool pe instantly redirect ho jao.
     </p>
 </header>
 <main class="w-full max-w-2xl px-2">
@@ -67,10 +162,50 @@
 </div>
 </div>
 </main>
+<section class="w-full max-w-2xl px-2 mt-14" aria-labelledby="about-heading">
+<h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-4" id="about-heading">Repo Router Kya Hai?</h2>
+<p class="text-gray-700 leading-relaxed mb-4">
+        Agar aap ek developer ho aur roz <strong>GitHub</strong> repos explore karte ho, toh aapne already <code>gitmcp.io</code> aur <code>gitingest.com</code> ke baare mein suna hoga. Manually URL mein <code>github.com</code> ko replace karna thoda time-waste hai — isiliye <strong>Repo Router</strong> bana hai. Bas apna repo link paste karo, mode select karo, aur ek click mein seedha sahi jagah pohonch jao. Koi installation nahi, koi signup nahi — sab kuch aapke browser mein hi process hota hai.
+    </p>
+<p class="text-gray-700 leading-relaxed">
+        <strong>MCP Integration</strong> wale Claude, Cursor, ya kisi bhi AI coding assistant ke liye perfect hai jo aapke repo ko <em>Model Context Protocol</em> server ke through samajhna chahte hain. <strong>Directory Structure</strong> wala mode un developers ke liye hai jo kisi naye repo ka file-tree aur code jaldi se scan karna chahte hain — chahe woh ek naya open-source project ho ya office ka legacy codebase.
+    </p>
+</section>
+
+<section class="w-full max-w-2xl px-2 mt-14" aria-labelledby="faq-heading" id="faq">
+<h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-6" id="faq-heading">FAQ — Aksar Puche Jaane Wale Sawaal</h2>
+<div class="space-y-3">
+<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+<summary class="font-bold cursor-pointer list-none">GitMCP kya hota hai?</summary>
+<p class="text-gray-700 mt-3 leading-relaxed">GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein.</p>
+</details>
+<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+<summary class="font-bold cursor-pointer list-none">Gitingest se kya milta hai?</summary>
+<p class="text-gray-700 mt-3 leading-relaxed">Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai.</p>
+</details>
+<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+<summary class="font-bold cursor-pointer list-none">Repo Router free hai kya, koi signup chahiye?</summary>
+<p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao.</p>
+</details>
+<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+<summary class="font-bold cursor-pointer list-none">Kya mera code kahin upload ya store hota hai?</summary>
+<p class="text-gray-700 mt-3 leading-relaxed">Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata.</p>
+</details>
+<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+<summary class="font-bold cursor-pointer list-none">Kya private repos ke saath kaam karega?</summary>
+<p class="text-gray-700 mt-3 leading-relaxed">Repo Router sirf link redirect karta hai — private repos ke liye aapko gitmcp.io ya gitingest.com pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho.</p>
+</details>
+<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+<summary class="font-bold cursor-pointer list-none">MCP Integration aur Directory Structure mein kya difference hai?</summary>
+<p class="text-gray-700 mt-3 leading-relaxed">MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain.</p>
+</details>
+</div>
+</section>
+
 <footer class="mt-12 max-w-lg text-center">
 <p class="text-xs text-gray-400 leading-relaxed">
-        Routes are processed locally in your browser. <br/>
-        Swaps <code>github.com</code> for specialized viewing endpoints.
+        Sab kuch aapke browser mein local process hota hai, kahin upload nahi hota. <br/>
+        <code>github.com</code> ko specialized viewing endpoints se swap karta hai.
     </p>
 </footer>
 <script src="script.js"></script>
