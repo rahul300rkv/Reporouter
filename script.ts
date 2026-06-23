@@ -51,6 +51,10 @@ const els = {
   copyBtn: document.getElementById("copy-btn") as HTMLButtonElement,
   copyText: document.getElementById("copy-text") as HTMLElement,
   copyIcon: document.querySelector("#copy-btn .material-symbols-outlined") as HTMLElement,
+  resultPanel: document.getElementById("result-panel") as HTMLElement,
+  resultFrame: document.getElementById("result-frame") as HTMLIFrameElement,
+  resultUrl: document.getElementById("result-url") as HTMLElement,
+  resultOpenLink: document.getElementById("result-open-link") as HTMLAnchorElement,
 };
 
 let mode: Mode = "mcp";
@@ -108,7 +112,11 @@ function submit(): void {
     render();
     return;
   }
-  window.open(lastTransformed, "_blank", "noopener,noreferrer");
+  els.resultUrl.textContent = lastTransformed.replace("https://", "");
+  els.resultOpenLink.href = lastTransformed;
+  els.resultFrame.src = lastTransformed;
+  els.resultPanel.classList.remove("hidden");
+  els.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function copyResult(): void {

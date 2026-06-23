@@ -8,7 +8,7 @@
 <meta content="index, follow" name="robots"/>
 <meta content="Rahul" name="author"/>
 <link href="https://reporouter.netlify.app/" rel="canonical"/>
-<meta name="google-site-verification" content="7KwOim8YUbRHnxLcbSZCdvUMpO3XWaqCMORn3rDfA08" />
+
 <meta content="website" property="og:type"/>
 <meta content="https://reporouter.netlify.app/" property="og:url"/>
 <meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" property="og:title"/>
@@ -103,8 +103,6 @@
   ]
 }
 </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3532554351654388"
-     crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="grid-pattern"></div>
@@ -162,6 +160,19 @@
 </button>
 <span class="text-sm font-bold text-gray-400 italic" id="status-line">Waiting for input...</span>
 </div>
+</div>
+
+<div class="brutalist-card mt-8 hidden" id="result-panel">
+<div class="bg-gray-100 border-b-[3px] border-ink-black px-4 py-3 flex justify-between items-center rounded-t-xl">
+<span class="text-xs font-bold uppercase tracking-widest text-gray-600 break-all" id="result-url"></span>
+<a class="shrink-0 ml-3 text-xs font-bold uppercase hover:text-primary transition-colors whitespace-nowrap" href="#" id="result-open-link" rel="noopener noreferrer" target="_blank">Open ↗</a>
+</div>
+<div class="relative bg-white" style="height:70vh;">
+<iframe class="w-full h-full" id="result-frame" referrerpolicy="no-referrer" title="Repo Router result"></iframe>
+</div>
+<p class="text-[11px] text-gray-400 text-center p-2 leading-relaxed">
+            Agar yahan content load nahi ho raha, toh us site ne embedding block kiya hai — "Open ↗" use karo.
+        </p>
 </div>
 </main>
 <section class="w-full max-w-2xl px-2 mt-14" aria-labelledby="about-heading">

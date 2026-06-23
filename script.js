@@ -39,6 +39,10 @@ const els = {
     copyBtn: document.getElementById("copy-btn"),
     copyText: document.getElementById("copy-text"),
     copyIcon: document.querySelector("#copy-btn .material-symbols-outlined"),
+    resultPanel: document.getElementById("result-panel"),
+    resultFrame: document.getElementById("result-frame"),
+    resultUrl: document.getElementById("result-url"),
+    resultOpenLink: document.getElementById("result-open-link"),
 };
 let mode = "mcp";
 let lastTransformed = null;
@@ -87,7 +91,11 @@ function submit() {
         render();
         return;
     }
-    window.open(lastTransformed, "_blank", "noopener,noreferrer");
+    els.resultUrl.textContent = lastTransformed.replace("https://", "");
+    els.resultOpenLink.href = lastTransformed;
+    els.resultFrame.src = lastTransformed;
+    els.resultPanel.classList.remove("hidden");
+    els.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function copyResult() {
     if (!lastTransformed)
