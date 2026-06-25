@@ -106,120 +106,203 @@
 </head>
 <body>
 <div class="grid-pattern"></div>
-<header class="mb-12 text-center">
-<div class="flex items-center justify-center gap-4 mb-4">
-<svg alt="GitHub" aria-label="GitHub" class="w-12 h-12 md:w-16 md:h-16 text-ink-black" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A11.999 11.999 0 0 0 24 12c0-6.63-5.37-12-12-12Z"></path></svg>
-<h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tighter">
-            REPO<span class="text-primary">ROUTER</span>
-</h1>
-</div>
-<p class="text-gray-600 font-medium max-w-md mx-auto">
-        GitHub <code>.com</code> ka link daalo, apne favorite developer tool pe instantly redirect ho jao.
-    </p>
-</header>
-<main class="w-full max-w-2xl px-2">
-<div class="brutalist-card p-6 md:p-10">
-<div class="mb-8">
-<label class="block text-sm font-bold uppercase tracking-widest mb-3 text-gray-500" for="repo-input">Repository URL</label>
-<div class="relative group">
-<input autocomplete="off" autofocus="" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text"/>
-</div>
-</div>
-<div aria-label="Output mode" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" role="group">
-<button class="toggle-btn active" id="toggle-mcp" type="button">
-<span class="font-bold">MCP Integration</span>
-</button>
-<button class="toggle-btn" id="toggle-structure" type="button">
-<span class="font-bold">Directory Structure</span>
-</button>
-</div>
-<div class="diff-container" id="diff-wrap">
-<div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white mb-6">
-<div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
-<span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Transformation Preview</span>
-<button class="flex items-center gap-1 text-[10px] font-bold uppercase hover:text-primary transition-colors" id="copy-btn">
-<span class="material-symbols-outlined !text-sm">content_copy</span>
-<span id="copy-text">Copy</span>
-</button>
-</div>
-<div class="p-4 font-mono text-sm break-all space-y-2">
-<div class="text-red-500 flex items-start gap-2" id="diff-old">
-<span class="shrink-0">-</span>
-<span></span>
-</div>
-<div class="text-green-600 font-bold flex items-start gap-2" id="diff-new">
-<span class="shrink-0">+</span>
-<span></span>
-</div>
-</div>
-</div>
-</div>
-<div class="flex flex-col md:flex-row items-center gap-6">
-<button class="brutalist-button bg-accent-warm shadow-[6px_6px_0px_0px_rgba(17,24,39,1)] w-full md:w-auto" disabled="" id="submit-btn">
-                Run Route <span class="ml-2 font-mono">↵</span>
-</button>
-<span class="text-sm font-bold text-gray-400 italic" id="status-line">Waiting for input...</span>
-</div>
-</div>
 
-<div class="brutalist-card mt-8 hidden" id="result-panel">
-<div class="bg-gray-100 border-b-[3px] border-ink-black px-4 py-3 flex justify-between items-center rounded-t-xl">
-<span class="text-xs font-bold uppercase tracking-widest text-gray-600 break-all" id="result-url"></span>
-<a class="shrink-0 ml-3 text-xs font-bold uppercase hover:text-primary transition-colors whitespace-nowrap" href="#" id="result-open-link" rel="noopener noreferrer" target="_blank">Open ↗</a>
-</div>
-<div class="relative bg-white" style="height:70vh;">
-<iframe class="w-full h-full" id="result-frame" referrerpolicy="no-referrer" title="Repo Router result"></iframe>
-</div>
-<p class="text-[11px] text-gray-400 text-center p-2 leading-relaxed">
-            Agar yahan content load nahi ho raha, toh us site ne embedding block kiya hai — "Open ↗" use karo.
-        </p>
-</div>
+<header class="mb-12 text-center">
+  <div class="flex items-center justify-center gap-4 mb-4">
+    <svg alt="GitHub" aria-label="GitHub" class="w-12 h-12 md:w-16 md:h-16 text-ink-black" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A11.999 11.999 0 0 0 24 12c0-6.63-5.37-12-12-12Z"></path></svg>
+    <h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tighter">
+      REPO<span class="text-primary">ROUTER</span>
+    </h1>
+  </div>
+  <p class="text-gray-600 font-medium max-w-md mx-auto">
+    GitHub <code>.com</code> ka link daalo, apne favorite developer tool pe instantly redirect ho jao.
+  </p>
+</header>
+
+<main class="w-full max-w-2xl px-2">
+  <div class="brutalist-card p-6 md:p-10">
+
+    <!-- Input -->
+    <div class="mb-4">
+      <label class="block text-sm font-bold uppercase tracking-widest mb-3 text-gray-500" for="repo-input">Repository URL</label>
+      <div class="relative group">
+        <input autocomplete="off" autofocus="" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text"/>
+      </div>
+      <!-- Recent repos chips -->
+      <div class="flex flex-wrap gap-2 mt-3" id="recents-wrap"></div>
+    </div>
+
+    <!-- Destination buttons (4-way) -->
+    <div class="mb-2">
+      <div class="flex items-center justify-between mb-3">
+        <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Destination</span>
+        <button class="text-xs font-bold text-primary hover:underline flex items-center gap-1" id="surprise-btn" type="button" aria-label="Load a random trending GitHub repo">
+          🎲 Surprise me
+        </button>
+      </div>
+      <div aria-label="Output destination" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" role="group">
+        <button class="toggle-btn active flex flex-col items-start gap-0.5 py-3 px-3" data-mode="mcp" id="toggle-mcp" type="button" aria-pressed="true">
+          <span class="font-bold text-sm">MCP Server</span>
+          <span class="text-[10px] font-mono text-gray-400">gitmcp.io</span>
+        </button>
+        <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="structure" id="toggle-structure" type="button" aria-pressed="false">
+          <span class="font-bold text-sm">Dir Tree</span>
+          <span class="text-[10px] font-mono text-gray-400">gitingest.com</span>
+        </button>
+        <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="deepwiki" id="toggle-deepwiki" type="button" aria-pressed="false">
+          <span class="font-bold text-sm">DeepWiki</span>
+          <span class="text-[10px] font-mono text-gray-400">deepwiki.com</span>
+        </button>
+        <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="uithub" id="toggle-uithub" type="button" aria-pressed="false">
+          <span class="font-bold text-sm">UIthub</span>
+          <span class="text-[10px] font-mono text-gray-400">uithub.com</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Repo metadata preview -->
+    <div class="mb-4 hidden" id="meta-wrap" aria-live="polite"></div>
+
+    <!-- Transformation diff preview -->
+    <div class="diff-container" id="diff-wrap">
+      <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white mb-6">
+        <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Transformation Preview</span>
+          <button class="flex items-center gap-1 text-[10px] font-bold uppercase hover:text-primary transition-colors" id="copy-btn" type="button">
+            <span class="material-symbols-outlined !text-sm">content_copy</span>
+            <span id="copy-text">Copy</span>
+          </button>
+        </div>
+        <div class="p-4 font-mono text-sm break-all space-y-2">
+          <div class="text-red-500 flex items-start gap-2" id="diff-old">
+            <span class="shrink-0">-</span>
+            <span></span>
+          </div>
+          <div class="text-green-600 font-bold flex items-start gap-2" id="diff-new">
+            <span class="shrink-0">+</span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- README badge generator -->
+    <div class="hidden mb-6" id="badge-wrap">
+      <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white">
+        <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">README Badge — paste into your repo</span>
+          <button class="flex items-center gap-1 text-[10px] font-bold uppercase hover:text-primary transition-colors" id="badge-copy-btn" type="button">
+            <span class="material-symbols-outlined !text-sm">content_copy</span>
+            <span>Copy</span>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="flex items-center gap-3 mb-3">
+            <img alt="Open in RepoRouter badge preview" class="h-5" id="badge-img" src="https://img.shields.io/badge/Open%20in-RepoRouter-blue?logo=github"/>
+            <span class="text-[11px] text-gray-400">deep-links back here with your repo pre-filled</span>
+          </div>
+          <code class="block font-mono text-xs break-all text-gray-600 bg-gray-50 border border-gray-200 rounded p-2 leading-relaxed" id="badge-snippet"></code>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR code panel -->
+    <div class="hidden mb-6" id="qr-section">
+      <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white">
+        <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">QR Code — scan to open</span>
+        </div>
+        <div class="p-4 flex justify-center">
+          <div id="qr-canvas"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions row -->
+    <div class="flex flex-col md:flex-row items-center gap-3 flex-wrap">
+      <button class="brutalist-button bg-accent-warm shadow-[6px_6px_0px_0px_rgba(17,24,39,1)] w-full md:w-auto" disabled="" id="submit-btn" type="button">
+        Run Route <span class="ml-2 font-mono">↵</span>
+      </button>
+      <button class="flex items-center gap-1 text-[11px] font-bold uppercase hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed" disabled="" id="share-btn" hidden type="button">
+        <span class="material-symbols-outlined !text-sm">share</span>
+        Share
+      </button>
+      <button class="flex items-center gap-1 text-[11px] font-bold uppercase hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed" disabled="" id="qr-btn" hidden type="button">
+        <span class="material-symbols-outlined !text-sm">qr_code</span>
+        QR
+      </button>
+      <span class="text-sm font-bold text-gray-400 italic" id="status-line">Waiting for input...</span>
+    </div>
+
+  </div>
+
+  <!-- Result iframe panel -->
+  <div class="brutalist-card mt-8 hidden" id="result-panel">
+    <div class="bg-gray-100 border-b-[3px] border-ink-black px-4 py-3 flex justify-between items-center rounded-t-xl">
+      <span class="text-xs font-bold uppercase tracking-widest text-gray-600 break-all" id="result-url"></span>
+      <a class="shrink-0 ml-3 text-xs font-bold uppercase hover:text-primary transition-colors whitespace-nowrap" href="#" id="result-open-link" rel="noopener noreferrer" target="_blank">Open ↗</a>
+    </div>
+    <div class="relative bg-white" style="height:70vh;">
+      <iframe class="w-full h-full" id="result-frame" referrerpolicy="no-referrer" title="Repo Router result"></iframe>
+    </div>
+    <p class="text-[11px] text-gray-400 text-center p-2 leading-relaxed">
+      Agar yahan content load nahi ho raha, toh us site ne embedding block kiya hai — "Open ↗" use karo.
+    </p>
+  </div>
 </main>
+
 <section class="w-full max-w-2xl px-2 mt-14" aria-labelledby="about-heading">
-<h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-4" id="about-heading">Repo Router Kya Hai?</h2>
-<p class="text-gray-700 leading-relaxed mb-4">
-        Agar aap ek developer ho aur roz <strong>GitHub</strong> repos explore karte ho, toh aapne already <code>gitmcp.io</code> aur <code>gitingest.com</code> ke baare mein suna hoga. Manually URL mein <code>github.com</code> ko replace karna thoda time-waste hai — isiliye <strong>Repo Router</strong> bana hai. Bas apna repo link paste karo, mode select karo, aur ek click mein seedha sahi jagah pohonch jao. Koi installation nahi, koi signup nahi — sab kuch aapke browser mein hi process hota hai.
-    </p>
-<p class="text-gray-700 leading-relaxed">
-        <strong>MCP Integration</strong> wale Claude, Cursor, ya kisi bhi AI coding assistant ke liye perfect hai jo aapke repo ko <em>Model Context Protocol</em> server ke through samajhna chahte hain. <strong>Directory Structure</strong> wala mode un developers ke liye hai jo kisi naye repo ka file-tree aur code jaldi se scan karna chahte hain — chahe woh ek naya open-source project ho ya office ka legacy codebase.
-    </p>
+  <h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-4" id="about-heading">Repo Router Kya Hai?</h2>
+  <p class="text-gray-700 leading-relaxed mb-4">
+    Agar aap ek developer ho aur roz <strong>GitHub</strong> repos explore karte ho, toh aapne already <code>gitmcp.io</code>, <code>gitingest.com</code>, <code>deepwiki.com</code> aur <code>uithub.com</code> ke baare mein suna hoga. Manually URL mein <code>github.com</code> ko replace karna thoda time-waste hai — isiliye <strong>Repo Router</strong> bana hai. Bas apna repo link paste karo, destination select karo, aur ek click mein seedha sahi jagah pohonch jao. Koi installation nahi, koi signup nahi — sab kuch aapke browser mein hi process hota hai.
+  </p>
+  <p class="text-gray-700 leading-relaxed">
+    <strong>MCP Server</strong> Claude, Cursor, ya kisi bhi AI coding assistant ke liye perfect hai. <strong>Dir Tree</strong> poora codebase LLM-friendly format mein deta hai. <strong>DeepWiki</strong> AI-generated documentation banata hai. <strong>UIthub</strong> ek alternate LLM-context viewer hai. Aur ab aap apne README mein ek badge bhi laga sakte ho jo directly yahan deep-link karta hai!
+  </p>
 </section>
 
 <section class="w-full max-w-2xl px-2 mt-14" aria-labelledby="faq-heading" id="faq">
-<h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-6" id="faq-heading">FAQ — Aksar Puche Jaane Wale Sawaal</h2>
-<div class="space-y-3">
-<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-<summary class="font-bold cursor-pointer list-none">GitMCP kya hota hai?</summary>
-<p class="text-gray-700 mt-3 leading-relaxed">GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein.</p>
-</details>
-<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-<summary class="font-bold cursor-pointer list-none">Gitingest se kya milta hai?</summary>
-<p class="text-gray-700 mt-3 leading-relaxed">Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai.</p>
-</details>
-<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-<summary class="font-bold cursor-pointer list-none">Repo Router free hai kya, koi signup chahiye?</summary>
-<p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao.</p>
-</details>
-<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-<summary class="font-bold cursor-pointer list-none">Kya mera code kahin upload ya store hota hai?</summary>
-<p class="text-gray-700 mt-3 leading-relaxed">Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata.</p>
-</details>
-<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-<summary class="font-bold cursor-pointer list-none">Kya private repos ke saath kaam karega?</summary>
-<p class="text-gray-700 mt-3 leading-relaxed">Repo Router sirf link redirect karta hai — private repos ke liye aapko gitmcp.io ya gitingest.com pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho.</p>
-</details>
-<details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-<summary class="font-bold cursor-pointer list-none">MCP Integration aur Directory Structure mein kya difference hai?</summary>
-<p class="text-gray-700 mt-3 leading-relaxed">MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain.</p>
-</details>
-</div>
+  <h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-6" id="faq-heading">FAQ — Aksar Puche Jaane Wale Sawaal</h2>
+  <div class="space-y-3">
+    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+      <summary class="font-bold cursor-pointer list-none">GitMCP kya hota hai?</summary>
+      <p class="text-gray-700 mt-3 leading-relaxed">GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein.</p>
+    </details>
+    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+      <summary class="font-bold cursor-pointer list-none">Gitingest se kya milta hai?</summary>
+      <p class="text-gray-700 mt-3 leading-relaxed">Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai.</p>
+    </details>
+    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+      <summary class="font-bold cursor-pointer list-none">Repo Router free hai kya, koi signup chahiye?</summary>
+      <p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao.</p>
+    </details>
+    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+      <summary class="font-bold cursor-pointer list-none">Kya mera code kahin upload ya store hota hai?</summary>
+      <p class="text-gray-700 mt-3 leading-relaxed">Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata.</p>
+    </details>
+    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+      <summary class="font-bold cursor-pointer list-none">Kya private repos ke saath kaam karega?</summary>
+      <p class="text-gray-700 mt-3 leading-relaxed">Repo Router sirf link redirect karta hai — private repos ke liye aapko destination site pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho.</p>
+    </details>
+    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+      <summary class="font-bold cursor-pointer list-none">MCP Integration aur Directory Structure mein kya difference hai?</summary>
+      <p class="text-gray-700 mt-3 leading-relaxed">MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain.</p>
+    </details>
+    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
+      <summary class="font-bold cursor-pointer list-none">README badge kya hota hai aur kaise use karein?</summary>
+      <p class="text-gray-700 mt-3 leading-relaxed">Jab aap koi valid GitHub repo paste karte ho, Repo Router ek markdown badge snippet generate karta hai. Use apne repo ke README mein paste karo — badge click karne pe seedha Repo Router pe aa jaate hain, repo pre-filled ke saath. Ye aapke repo visitors ke liye ek shortcut ban jaata hai.</p>
+    </details>
+  </div>
 </section>
 
 <footer class="mt-12 max-w-lg text-center">
-<p class="text-xs text-gray-400 leading-relaxed">
-        Sab kuch aapke browser mein local process hota hai, kahin upload nahi hota. <br/>
-        <code>github.com</code> ko specialized viewing endpoints se swap karta hai.
-    </p>
+  <p class="text-xs text-gray-400 leading-relaxed">
+    Sab kuch aapke browser mein local process hota hai, kahin upload nahi hota. <br/>
+    <code>github.com</code> ko specialized viewing endpoints se swap karta hai.
+  </p>
 </footer>
+
+<!-- QRCode library (needed for QR feature) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="script.js"></script>
 </body></html>
