@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo</title>
-<meta content="Repo Router se apna GitHub repo link instantly gitmcp.io (MCP server) ya gitingest.com (directory structure) mein convert karo. Free, no signup, sab kuch browser mein local — Indian developers ke liye bana hua tool." name="description"/>
-<meta content="gitmcp, gitingest, github mcp server, github to mcp, mcp integration github, github directory structure viewer, github repo router, ai coding tools india, claude mcp github" name="keywords"/>
+<meta content="Repo Router se apna GitHub repo link instantly gitmcp.io (MCP server), gitingest.com (directory structure), deepwiki.com (AI docs) ya uithub.com mein convert karo. Free, no signup, sab kuch browser mein local — Indian developers ke liye bana hua tool. Plus MCP, GitMCP aur AI coding workflows ka pura guide." name="description"/>
+<meta content="gitmcp, gitingest, github mcp server, github to mcp, mcp integration github, github directory structure viewer, github repo router, ai coding tools india, claude mcp github, deepwiki, uithub, model context protocol, cursor mcp" name="keywords"/>
 <meta content="index, follow" name="robots"/>
 <meta content="Rahul" name="author"/>
 <link href="https://reporouter.netlify.app/" rel="canonical"/>
@@ -12,7 +13,7 @@
 <meta content="website" property="og:type"/>
 <meta content="https://reporouter.netlify.app/" property="og:url"/>
 <meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" property="og:title"/>
-<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io ya gitingest.com pe redirect ho jao. Free aur 100% browser-local." property="og:description"/>
+<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe redirect ho jao. Free aur 100% browser-local." property="og:description"/>
 <meta content="https://reporouter.netlify.app/og-image.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
@@ -20,7 +21,7 @@
 
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" name="twitter:title"/>
-<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io ya gitingest.com pe redirect ho jao. Free aur 100% browser-local." name="twitter:description"/>
+<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe redirect ho jao. Free aur 100% browser-local." name="twitter:description"/>
 <meta content="https://reporouter.netlify.app/og-image.png" name="twitter:image"/>
 
 <meta content="#FFFDF8" name="theme-color"/>
@@ -31,13 +32,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
 
+<!-- Original SoftwareApplication schema (unchanged) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Repo Router",
   "url": "https://reporouter.netlify.app/",
-  "description": "GitHub repo link ko ek click mein gitmcp.io (MCP integration) ya gitingest.com (directory structure) mein convert karne wala free browser tool.",
+  "description": "GitHub repo link ko ek click mein gitmcp.io (MCP integration), deepwiki.com (AI documentation), gitingest.com (directory structure) ya uithub.com mein convert karne wala free browser tool.",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
   "offers": {
@@ -47,212 +49,913 @@
   }
 }
 </script>
+
+<!-- Expanded FAQ schema (20+ questions) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "GitMCP kya hota hai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Gitingest se kya milta hai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Repo Router free hai kya, koi signup chahiye?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kya mera code kahin upload ya store hota hai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kya private repos ke saath kaam karega?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Repo Router sirf link redirect karta hai — private repos ke liye aapko gitmcp.io ya gitingest.com pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "MCP Integration aur Directory Structure mein kya difference hai?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain."
-      }
-    }
+    { "@type": "Question", "name": "GitMCP kya hota hai?", "acceptedAnswer": { "@type": "Answer", "text": "GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein." } },
+    { "@type": "Question", "name": "Gitingest se kya milta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai." } },
+    { "@type": "Question", "name": "Repo Router free hai kya, koi signup chahiye?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao." } },
+    { "@type": "Question", "name": "Kya mera code kahin upload ya store hota hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata." } },
+    { "@type": "Question", "name": "Kya private repos ke saath kaam karega?", "acceptedAnswer": { "@type": "Answer", "text": "Repo Router sirf link redirect karta hai — private repos ke liye aapko gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho." } },
+    { "@type": "Question", "name": "MCP Integration aur Directory Structure mein kya difference hai?", "acceptedAnswer": { "@type": "Answer", "text": "MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain." } },
+    { "@type": "Question", "name": "README badge kya hota hai aur kaise use karein?", "acceptedAnswer": { "@type": "Answer", "text": "Jab aap koi valid GitHub repo paste karte ho, Repo Router ek markdown badge snippet generate karta hai. Use apne repo ke README mein paste karo — badge click karne pe seedha Repo Router pe aa jaate hain, repo pre-filled ke saath." } },
+    { "@type": "Question", "name": "Model Context Protocol (MCP) kya hai?", "acceptedAnswer": { "@type": "Answer", "text": "MCP ek open protocol hai jo AI assistants ko external tools, data sources aur documentation ke saath structured tarike se connect karne deta hai, taaki assistant ko sirf training data pe depend na rehna pade." } },
+    { "@type": "Question", "name": "Claude MCP ka use kaise karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Claude jaise assistants MCP servers ko tools ke roop mein connect kar sakte hain, jisse woh live repository content query kar sakein, files dekh sakein aur zyada accurate, up-to-date jawaab de sakein." } },
+    { "@type": "Question", "name": "Cursor ke saath GitMCP kaise kaam karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Cursor mein aap GitMCP se generate hui MCP server URL ko apni AI tool settings mein add kar sakte hain, jisse Cursor us specific repository ka context directly access kar sake." } },
+    { "@type": "Question", "name": "DeepWiki kya karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "DeepWiki kisi bhi public repository ke liye AI-generated documentation aur explanations banata hai, jisse naye contributors codebase ko jaldi samajh sakein." } },
+    { "@type": "Question", "name": "UIthub kis liye useful hai?", "acceptedAnswer": { "@type": "Answer", "text": "UIthub repository ko ek alternate, LLM-context-friendly view mein present karta hai, jo bade codebases ko browse aur samajhne mein madad karta hai." } },
+    { "@type": "Question", "name": "Kya Repo Router repo ka data collect karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi, Repo Router sirf link ka format badalta hai (URL rewriting). Koi analytics, code, ya personal data collect ya store nahi kiya jaata." } },
+    { "@type": "Question", "name": "Kya Repo Router browser-only tool hai?", "acceptedAnswer": { "@type": "Answer", "text": "Haan. Saara URL parsing aur redirection logic client-side JavaScript mein chalta hai — koi backend server involved nahi hota, isliye processing turant hoti hai." } },
+    { "@type": "Question", "name": "Kya Repo Router kisi bhi browser mein kaam karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, Repo Router modern browsers (Chrome, Firefox, Edge, Safari) mein desktop aur mobile dono pe kaam karta hai, kyunki ye plain HTML, CSS aur JavaScript se bana hai." } },
+    { "@type": "Question", "name": "Kya Repo Router paid hai ya iska koi pricing plan hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi, Repo Router poori tarah free hai aur iska koi pricing tier nahi hai. Destination services (jaise GitMCP ya DeepWiki) ki apni alag terms ho sakti hain." } },
+    { "@type": "Question", "name": "Kya Repo Router open source hai?", "acceptedAnswer": { "@type": "Answer", "text": "Repo Router ka source code GitHub par available hai (footer mein link diya gaya hai), taaki koi bhi developer code review kar sake ya contribute kar sake." } },
+    { "@type": "Question", "name": "Kya Repo Router ka koi API hai?", "acceptedAnswer": { "@type": "Answer", "text": "Filhaal Repo Router ek simple frontend redirection tool hai, iska koi separate public API nahi hai. Aap README badge ke through deep-linking use kar sakte hain." } },
+    { "@type": "Question", "name": "Repo Router GitHub ke alawa aur platforms support karega?", "acceptedAnswer": { "@type": "Answer", "text": "Filhaal Repo Router sirf github.com repository links support karta hai. Future mein GitLab jaise platforms add karne ka plan ho sakta hai." } },
+    { "@type": "Question", "name": "Repo Router kitna fast hai?", "acceptedAnswer": { "@type": "Answer", "text": "Chunki koi server-side processing nahi hoti, redirection almost instant hota hai — sirf destination site ka apna load time lagta hai." } },
+    { "@type": "Question", "name": "Kya main Repo Router ko mobile pe use kar sakta hoon?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, page fully responsive hai aur mobile browsers pe bhi wahi functionality deta hai jo desktop pe milti hai." } },
+    { "@type": "Question", "name": "Agar destination site embed na ho toh kya karein?", "acceptedAnswer": { "@type": "Answer", "text": "Kuch sites security reasons se iframe embedding block karti hain. Aise mein result panel ke 'Open ↗' button se aap us site ko naye tab mein directly open kar sakte hain." } }
   ]
 }
 </script>
+
+<!-- BreadcrumbList schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Repo Router Tool", "item": "https://reporouter.netlify.app/#tool" },
+    { "@type": "ListItem", "position": 3, "name": "MCP & GitHub Guide", "item": "https://reporouter.netlify.app/#guide" }
+  ]
+}
+</script>
+
+<!-- HowTo schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "GitHub Repository ko AI-Ready Format mein Convert Kaise Karein",
+  "description": "Repo Router ka use karke kisi bhi public GitHub repository ko MCP server, AI documentation, directory structure ya alternate viewer format mein convert karne ke steps.",
+  "step": [
+    { "@type": "HowToStep", "name": "Paste GitHub URL", "text": "Repo Router ke input box mein apne GitHub repository ka link paste karein, jaise https://github.com/owner/repo." },
+    { "@type": "HowToStep", "name": "Choose Destination", "text": "Chaar options mein se ek chunein: MCP Server (gitmcp.io), Dir Tree (gitingest.com), DeepWiki (deepwiki.com) ya UIthub (uithub.com)." },
+    { "@type": "HowToStep", "name": "Preview Transformation", "text": "Transformation Preview mein dekhein ki original GitHub URL naye destination URL mein kaise convert ho raha hai, aur chahen toh README badge ya QR code generate karein." },
+    { "@type": "HowToStep", "name": "Open AI Tool", "text": "'Run Route' button dabayein — result panel mein destination site load ho jaayega, ya naye tab mein 'Open' se access karein." }
+  ]
+}
+</script>
+
   <meta name="google-site-verification" content="7KwOim8YUbRHnxLcbSZCdvUMpO3XWaqCMORn3rDfA08" />
+
+<style>
+  /* ===================================================================
+     Repo Router — supplemental design system for the new landing-page
+     sections. Namespaced with "rr-" so nothing here collides with the
+     original tool markup/classes, which keep using style.css untouched.
+     Palette + shape language matches the existing brutalist look:
+     cream background, thick ink-black borders, hard offset shadows,
+     Hanken Grotesk display type, JetBrains Mono for code/labels.
+     =================================================================== */
+  :root{
+    --rr-cream:#FFFDF8;
+    --rr-cream-2:#FAF6EC;
+    --rr-ink:#111827;
+    --rr-primary:#2F5FF6;
+    --rr-primary-dark:#1E3FC4;
+    --rr-warm:#FF9F5B;
+    --rr-warm-dark:#E8853D;
+    --rr-green:#16A34A;
+    --rr-shadow-sm: 4px 4px 0px 0px rgba(17,24,39,1);
+    --rr-shadow-md: 6px 6px 0px 0px rgba(17,24,39,1);
+    --rr-shadow-lg: 8px 8px 0px 0px rgba(17,24,39,1);
+  }
+
+  .rr-wrap{ width:100%; max-width:1100px; margin:0 auto; padding:0 1rem; }
+  .rr-section{ width:100%; padding:5rem 0; }
+  .rr-section-tight{ padding:3rem 0; }
+
+  .rr-eyebrow{
+    display:inline-flex; align-items:center; gap:.4rem;
+    font-family:'JetBrains Mono', monospace; font-size:.7rem; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--rr-primary-dark);
+    background:#fff; border:2px solid var(--rr-ink); border-radius:999px;
+    padding:.35rem .8rem; box-shadow:3px 3px 0px 0px rgba(17,24,39,1);
+  }
+
+  .rr-h2{ font-family:'Hanken Grotesk',sans-serif; font-weight:800; letter-spacing:-0.02em; font-size:clamp(1.75rem,3.5vw,2.75rem); color:var(--rr-ink); }
+  .rr-h3{ font-family:'Hanken Grotesk',sans-serif; font-weight:800; letter-spacing:-0.01em; font-size:1.15rem; color:var(--rr-ink); }
+  .rr-lede{ color:#4B5563; font-size:1.05rem; line-height:1.7; max-width:46rem; }
+
+  .rr-card{
+    background:#fff; border:2px solid var(--rr-ink); border-radius:14px;
+    box-shadow:var(--rr-shadow-sm); padding:1.5rem;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .rr-card:hover{ transform:translate(-2px,-2px); box-shadow:var(--rr-shadow-md); }
+
+  .rr-icon-badge{
+    width:48px; height:48px; border-radius:12px; border:2px solid var(--rr-ink);
+    display:flex; align-items:center; justify-content:center; background:var(--rr-cream-2);
+    box-shadow:3px 3px 0px 0px rgba(17,24,39,1); flex-shrink:0;
+  }
+  .rr-icon-badge .material-symbols-outlined{ font-size:24px; color:var(--rr-primary-dark); }
+
+  /* Hero */
+  .rr-hero{ padding-top:4rem; padding-bottom:3rem; text-align:center; }
+  .rr-hero-badge{ margin-bottom:1.25rem; }
+  .rr-hero h1{
+    font-family:'Hanken Grotesk',sans-serif; font-weight:800; letter-spacing:-0.03em;
+    font-size:clamp(2.1rem,5.5vw,3.6rem); line-height:1.08; color:var(--rr-ink);
+    max-width:44rem; margin:0 auto 1.1rem;
+  }
+  .rr-hero h1 .rr-accent{ color:var(--rr-primary); }
+  .rr-hero p.rr-sub{ color:#4B5563; font-size:1.15rem; line-height:1.6; max-width:38rem; margin:0 auto 2rem; }
+  .rr-hero-ctas{ display:flex; flex-wrap:wrap; gap:.85rem; justify-content:center; margin-bottom:3rem; }
+  .rr-btn-primary, .rr-btn-secondary{
+    font-family:'Hanken Grotesk',sans-serif; font-weight:700; font-size:.95rem;
+    padding:.85rem 1.6rem; border-radius:10px; border:2px solid var(--rr-ink);
+    box-shadow:var(--rr-shadow-sm); cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:.4rem;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .rr-btn-primary{ background:var(--rr-warm); color:var(--rr-ink); }
+  .rr-btn-secondary{ background:#fff; color:var(--rr-ink); }
+  .rr-btn-primary:hover, .rr-btn-secondary:hover{ transform:translate(-2px,-2px); box-shadow:var(--rr-shadow-md); }
+
+  .rr-hero-visual{ position:relative; max-width:640px; margin:0 auto; }
+  .rr-flow{
+    display:flex; align-items:center; justify-content:center; gap:.6rem; flex-wrap:wrap;
+    font-family:'JetBrains Mono',monospace; font-size:.8rem; font-weight:600;
+  }
+  .rr-flow-chip{
+    border:2px solid var(--rr-ink); background:#fff; border-radius:8px; padding:.5rem .9rem;
+    box-shadow:3px 3px 0px 0px rgba(17,24,39,1); white-space:nowrap;
+  }
+  .rr-flow-chip.rr-flow-active{ background:var(--rr-primary); color:#fff; }
+  .rr-flow-arrow{ color:var(--rr-ink); font-weight:700; animation:rr-pulse 1.8s ease-in-out infinite; }
+  @keyframes rr-pulse{ 0%,100%{ opacity:.35 } 50%{ opacity:1 } }
+  @media (prefers-reduced-motion: reduce){ .rr-flow-arrow{ animation:none; opacity:1; } }
+
+  /* Trusted-by strip */
+  .rr-trust-strip{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+    gap:1.5rem 2.5rem; padding:1.75rem 1rem; border-top:2px solid var(--rr-ink); border-bottom:2px solid var(--rr-ink);
+    background:var(--rr-cream-2);
+  }
+  .rr-trust-item{
+    font-family:'Hanken Grotesk',sans-serif; font-weight:700; font-size:1rem; color:#6B7280;
+    display:flex; align-items:center; gap:.4rem; filter:grayscale(1); opacity:.75;
+  }
+  .rr-trust-item .material-symbols-outlined{ font-size:20px; }
+
+  /* Feature grid */
+  .rr-grid-2{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+  .rr-grid-4{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+  .rr-grid-3{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+  .rr-grid-6{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+  @media (min-width:640px){ .rr-grid-2{ grid-template-columns:repeat(2,1fr); } .rr-grid-4{ grid-template-columns:repeat(2,1fr); } .rr-grid-3{ grid-template-columns:repeat(2,1fr); } .rr-grid-6{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:900px){ .rr-grid-4{ grid-template-columns:repeat(4,1fr); } .rr-grid-3{ grid-template-columns:repeat(3,1fr); } .rr-grid-6{ grid-template-columns:repeat(3,1fr); } }
+
+  /* Tool section wrapper */
+  .rr-tool-frame{
+    background:linear-gradient(180deg, rgba(255,159,91,.14), rgba(47,95,246,.08));
+    border:2px solid var(--rr-ink); border-radius:22px; padding:2.5rem 1rem;
+    backdrop-filter:blur(2px);
+  }
+
+  /* Steps */
+  .rr-steps{ display:grid; grid-template-columns:1fr; gap:1.5rem; position:relative; }
+  @media (min-width:900px){ .rr-steps{ grid-template-columns:repeat(4,1fr); } }
+  .rr-step{ text-align:left; }
+  .rr-step-num{
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.75rem; color:#fff;
+    background:var(--rr-ink); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    margin-bottom:.75rem;
+  }
+
+  /* Comparison table */
+  .rr-table-wrap{ overflow-x:auto; border:2px solid var(--rr-ink); border-radius:14px; box-shadow:var(--rr-shadow-sm); background:#fff; }
+  table.rr-table{ width:100%; border-collapse:collapse; font-size:.85rem; min-width:720px; }
+  table.rr-table th, table.rr-table td{ padding:.85rem 1rem; text-align:left; border-bottom:1px solid #E5E7EB; border-right:1px solid #E5E7EB; vertical-align:top; }
+  table.rr-table th{ background:var(--rr-cream-2); font-family:'Hanken Grotesk',sans-serif; font-weight:800; color:var(--rr-ink); position:sticky; top:0; }
+  table.rr-table tr:last-child td{ border-bottom:none; }
+  table.rr-table td:last-child, table.rr-table th:last-child{ border-right:none; }
+  table.rr-table td:first-child, table.rr-table th:first-child{ font-weight:700; background:var(--rr-cream-2); }
+
+  /* Educational guide */
+  .rr-guide{ background:var(--rr-cream-2); border-top:2px solid var(--rr-ink); border-bottom:2px solid var(--rr-ink); }
+  .rr-guide-inner{ display:grid; grid-template-columns:1fr; gap:2.5rem; }
+  @media (min-width:960px){ .rr-guide-inner{ grid-template-columns:230px 1fr; } }
+  .rr-toc{ position:sticky; top:1.5rem; align-self:start; background:#fff; border:2px solid var(--rr-ink); border-radius:12px; padding:1rem; box-shadow:var(--rr-shadow-sm); }
+  .rr-toc-title{ font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#9CA3AF; margin-bottom:.6rem; }
+  .rr-toc a{ display:block; font-size:.85rem; color:#374151; text-decoration:none; padding:.3rem 0; border-left:2px solid transparent; padding-left:.6rem; }
+  .rr-toc a:hover{ color:var(--rr-primary-dark); border-left-color:var(--rr-primary); }
+  .rr-article{ max-width:44rem; }
+  .rr-article h2{ font-family:'Hanken Grotesk',sans-serif; font-weight:800; font-size:1.5rem; color:var(--rr-ink); margin:2.4rem 0 .9rem; letter-spacing:-0.01em; scroll-margin-top:1.5rem; }
+  .rr-article h2:first-child{ margin-top:0; }
+  .rr-article h3{ font-family:'Hanken Grotesk',sans-serif; font-weight:700; font-size:1.1rem; color:var(--rr-ink); margin:1.6rem 0 .6rem; }
+  .rr-article p{ color:#374151; line-height:1.75; margin-bottom:1rem; font-size:.98rem; }
+  .rr-article ul, .rr-article ol{ color:#374151; line-height:1.75; margin:0 0 1.1rem 1.3rem; }
+  .rr-article li{ margin-bottom:.4rem; }
+  .rr-article strong{ color:var(--rr-ink); }
+
+  .rr-callout{
+    border:2px solid var(--rr-ink); border-left:6px solid var(--rr-primary); background:#fff;
+    border-radius:10px; padding:1rem 1.2rem; margin:1.4rem 0; box-shadow:var(--rr-shadow-sm);
+    font-size:.92rem; color:#374151;
+  }
+  .rr-callout.rr-callout-warm{ border-left-color:var(--rr-warm); }
+  .rr-callout-label{ font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; color:var(--rr-primary-dark); margin-bottom:.35rem; display:block; }
+  .rr-callout.rr-callout-warm .rr-callout-label{ color:var(--rr-warm-dark); }
+
+  .rr-code{
+    font-family:'JetBrains Mono',monospace; font-size:.8rem; background:var(--rr-ink); color:#F9FAFB;
+    border-radius:10px; padding:1rem 1.1rem; overflow-x:auto; margin:1.2rem 0; line-height:1.6;
+    box-shadow:var(--rr-shadow-sm);
+  }
+
+  .rr-diagram{ display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:.5rem; margin:1.5rem 0; padding:1.25rem; background:#fff; border:2px solid var(--rr-ink); border-radius:12px; }
+  .rr-diagram-box{ border:2px solid var(--rr-ink); border-radius:8px; padding:.55rem .9rem; font-family:'JetBrains Mono',monospace; font-size:.75rem; font-weight:600; background:var(--rr-cream); }
+  .rr-diagram-box.rr-diagram-mid{ background:var(--rr-primary); color:#fff; }
+  .rr-diagram-arrow{ font-weight:700; color:var(--rr-ink); }
+
+  /* Examples */
+  .rr-example{ background:#fff; border:2px solid var(--rr-ink); border-radius:12px; padding:1rem 1.1rem; box-shadow:var(--rr-shadow-sm); }
+  .rr-example-row{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:.78rem; }
+  .rr-example-from{ color:#6B7280; }
+  .rr-example-to{ color:var(--rr-primary-dark); font-weight:700; }
+  .rr-example-tag{ font-family:'Hanken Grotesk',sans-serif; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; background:var(--rr-warm); border:1.5px solid var(--rr-ink); border-radius:999px; padding:.15rem .55rem; }
+
+  /* FAQ accordion (new sections reuse original <details> look) */
+  .rr-faq-cat{ font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--rr-primary-dark); margin:1.75rem 0 .6rem; }
+  .rr-faq-cat:first-child{ margin-top:0; }
+
+  /* Related resources */
+  .rr-resource-card{ display:flex; flex-direction:column; gap:.5rem; height:100%; }
+  .rr-resource-badge{ font-family:'JetBrains Mono',monospace; font-size:.65rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#9CA3AF; }
+
+  /* CTA */
+  .rr-cta{
+    text-align:center; border:2px solid var(--rr-ink); border-radius:22px; padding:3.5rem 1.5rem;
+    background:radial-gradient(circle at 50% 0%, rgba(47,95,246,.12), transparent 60%), var(--rr-cream-2);
+    box-shadow:var(--rr-shadow-md);
+  }
+
+  /* Footer */
+  .rr-footer{ border-top:2px solid var(--rr-ink); background:var(--rr-ink); color:#D1D5DB; padding:3rem 0 1.5rem; }
+  .rr-footer-grid{ display:grid; grid-template-columns:1fr; gap:2rem; margin-bottom:2rem; }
+  @media (min-width:640px){ .rr-footer-grid{ grid-template-columns:repeat(4,1fr); } }
+  .rr-footer h4{ color:#fff; font-family:'Hanken Grotesk',sans-serif; font-weight:700; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:.9rem; }
+  .rr-footer a{ display:block; color:#9CA3AF; text-decoration:none; font-size:.9rem; margin-bottom:.55rem; }
+  .rr-footer a:hover{ color:#fff; }
+  .rr-footer-bottom{ border-top:1px solid #374151; padding-top:1.25rem; display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; justify-content:space-between; font-size:.78rem; color:#6B7280; }
+
+  .rr-visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+  /* Preserve keyboard focus visibility everywhere new */
+  .rr-btn-primary:focus-visible, .rr-btn-secondary:focus-visible, .rr-toc a:focus-visible, .rr-footer a:focus-visible{
+    outline:3px solid var(--rr-primary); outline-offset:2px;
+  }
+</style>
 </head>
 <body>
 <div class="grid-pattern"></div>
 
-<header class="mb-12 text-center">
-  <div class="flex items-center justify-center gap-4 mb-4">
-    <svg alt="GitHub" aria-label="GitHub" class="w-12 h-12 md:w-16 md:h-16 text-ink-black" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A11.999 11.999 0 0 0 24 12c0-6.63-5.37-12-12-12Z"></path></svg>
-    <h1 class="font-display text-5xl md:text-6xl font-extrabold tracking-tighter">
-      REPO<span class="text-primary">ROUTER</span>
-    </h1>
+<nav aria-label="Primary" class="rr-visually-hidden">
+  <a href="#tool">Tool</a>
+  <a href="#platforms">Platforms</a>
+  <a href="#guide">Guide</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<main>
+
+<!-- ===================== 1. HERO ===================== -->
+<header class="rr-hero rr-wrap" aria-labelledby="hero-heading">
+  <div class="rr-hero-badge">
+    <span class="rr-eyebrow"><span class="material-symbols-outlined" style="font-size:14px;">bolt</span> Free · No signup · Runs in your browser</span>
   </div>
-  <p class="text-gray-600 font-medium max-w-md mx-auto">
-    GitHub <code>.com</code> ka link daalo, apne favorite developer tool pe instantly redirect ho jao.
-  </p>
+  <div class="flex items-center justify-center gap-4 mb-6">
+    <svg alt="GitHub" aria-label="GitHub" class="w-10 h-10 md:w-12 md:h-12 text-ink-black" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A11.999 11.999 0 0 0 24 12c0-6.63-5.37-12-12-12Z"></path></svg>
+    <span class="font-display text-3xl md:text-4xl font-extrabold tracking-tighter">REPO<span class="text-primary">ROUTER</span></span>
+  </div>
+
+  <h1 id="hero-heading">Convert Any GitHub Repository Into <span class="rr-accent">AI-Ready Formats</span> Instantly</h1>
+  <p class="rr-sub">Generate GitMCP, Gitingest, DeepWiki and UIthub links in one click. Perfect for Claude, Cursor, ChatGPT and modern AI coding workflows.</p>
+
+  <div class="rr-hero-ctas">
+    <a class="rr-btn-primary" href="#tool">Try Repo Router <span class="material-symbols-outlined" style="font-size:18px;">arrow_downward</span></a>
+    <a class="rr-btn-secondary" href="#how-it-works">Learn How It Works</a>
+  </div>
+
+  <div class="rr-hero-visual" aria-hidden="true">
+    <div class="rr-flow">
+      <span class="rr-flow-chip">github.com/owner/repo</span>
+      <span class="rr-flow-arrow">→</span>
+      <span class="rr-flow-chip rr-flow-active">gitmcp.io</span>
+      <span class="rr-flow-arrow">·</span>
+      <span class="rr-flow-chip">deepwiki.com</span>
+      <span class="rr-flow-arrow">·</span>
+      <span class="rr-flow-chip">gitingest.com</span>
+      <span class="rr-flow-arrow">·</span>
+      <span class="rr-flow-chip">uithub.com</span>
+    </div>
+  </div>
 </header>
 
-<main class="w-full max-w-2xl px-2">
-  <div class="brutalist-card p-6 md:p-10">
+<!-- ===================== 2. TRUSTED BY ===================== -->
+<section aria-label="Works alongside popular AI coding tools" class="rr-trust-strip">
+  <span class="rr-trust-item"><span class="material-symbols-outlined">smart_toy</span> Claude</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">terminal</span> Cursor</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">chat</span> ChatGPT</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">code</span> GitHub</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">edit_note</span> VS Code</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">air</span> Windsurf</span>
+</section>
 
-    <!-- Input -->
-    <div class="mb-4">
-      <label class="block text-sm font-bold uppercase tracking-widest mb-3 text-gray-500" for="repo-input">Repository URL</label>
-      <div class="relative group">
-        <input autocomplete="off" autofocus="" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text"/>
-      </div>
-      <!-- Recent repos chips -->
-      <div class="flex flex-wrap gap-2 mt-3" id="recents-wrap"></div>
+<!-- ===================== 3. WHY REPO ROUTER ===================== -->
+<section aria-labelledby="why-heading" class="rr-section">
+  <div class="rr-wrap">
+    <span class="rr-eyebrow">Why Repo Router</span>
+    <h2 class="rr-h2 mt-3 mb-3" id="why-heading">Ek link, sahi jagah, bina friction ke</h2>
+    <p class="rr-lede mb-10">Manually URL mein <code>github.com</code> ko replace karna chhota kaam lagta hai, lekin din mein 20-30 baar karna time waste karta hai. Repo Router wahi kaam ek click mein karta hai.</p>
+
+    <div class="rr-grid-4">
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">bolt</span></div>
+        <h3 class="rr-h3 mb-2">One-click conversion</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Link paste karo, destination chuno, "Run Route" dabao — koi manual URL editing nahi karni padti.</p>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">smart_toy</span></div>
+        <h3 class="rr-h3 mb-2">AI-ready repositories</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Claude, Cursor aur doosre AI coding assistants ke liye repository ko turant consumable format mein le jao.</p>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">lock</span></div>
+        <h3 class="rr-h3 mb-2">Browser-only processing</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Koi server, koi backend nahi. Saara URL transformation aapke browser mein locally hota hai.</p>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">rocket_launch</span></div>
+        <h3 class="rr-h3 mb-2">Zero signup</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Koi account, koi email, koi password nahi. Open karo aur seedha use karo.</p>
+      </article>
     </div>
-
-    <!-- Destination buttons (4-way) -->
-    <div class="mb-2">
-      <div class="flex items-center justify-between mb-3">
-        <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Destination</span>
-        <button class="text-xs font-bold text-primary hover:underline flex items-center gap-1" id="surprise-btn" type="button" aria-label="Load a random trending GitHub repo">
-          🎲 Surprise me
-        </button>
-      </div>
-      <div aria-label="Output destination" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" role="group">
-        <button class="toggle-btn active flex flex-col items-start gap-0.5 py-3 px-3" data-mode="mcp" id="toggle-mcp" type="button" aria-pressed="true">
-          <span class="font-bold text-sm">MCP Server</span>
-          <span class="text-[10px] font-mono text-gray-400">gitmcp.io</span>
-        </button>
-        <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="structure" id="toggle-structure" type="button" aria-pressed="false">
-          <span class="font-bold text-sm">Dir Tree</span>
-          <span class="text-[10px] font-mono text-gray-400">gitingest.com</span>
-        </button>
-        <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="deepwiki" id="toggle-deepwiki" type="button" aria-pressed="false">
-          <span class="font-bold text-sm">DeepWiki</span>
-          <span class="text-[10px] font-mono text-gray-400">deepwiki.com</span>
-        </button>
-        <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="uithub" id="toggle-uithub" type="button" aria-pressed="false">
-          <span class="font-bold text-sm">UIthub</span>
-          <span class="text-[10px] font-mono text-gray-400">uithub.com</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Repo metadata preview -->
-    <div class="mb-4 hidden" id="meta-wrap" aria-live="polite"></div>
-
-    <!-- Transformation diff preview -->
-    <div class="diff-container" id="diff-wrap">
-      <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white mb-6">
-        <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
-          <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Transformation Preview</span>
-          <button class="flex items-center gap-1 text-[10px] font-bold uppercase hover:text-primary transition-colors" id="copy-btn" type="button">
-            <span class="material-symbols-outlined !text-sm">content_copy</span>
-            <span id="copy-text">Copy</span>
-          </button>
-        </div>
-        <div class="p-4 font-mono text-sm break-all space-y-2">
-          <div class="text-red-500 flex items-start gap-2" id="diff-old">
-            <span class="shrink-0">-</span>
-            <span></span>
-          </div>
-          <div class="text-green-600 font-bold flex items-start gap-2" id="diff-new">
-            <span class="shrink-0">+</span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- README badge generator -->
-    <div class="hidden mb-6" id="badge-wrap">
-      <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white">
-        <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
-          <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">README Badge — paste into your repo</span>
-          <button class="flex items-center gap-1 text-[10px] font-bold uppercase hover:text-primary transition-colors" id="badge-copy-btn" type="button">
-            <span class="material-symbols-outlined !text-sm">content_copy</span>
-            <span>Copy</span>
-          </button>
-        </div>
-        <div class="p-4">
-          <div class="flex items-center gap-3 mb-3">
-            <img alt="Open in RepoRouter badge preview" class="h-5" id="badge-img" src="https://img.shields.io/badge/Open%20in-RepoRouter-blue?logo=github"/>
-            <span class="text-[11px] text-gray-400">deep-links back here with your repo pre-filled</span>
-          </div>
-          <code class="block font-mono text-xs break-all text-gray-600 bg-gray-50 border border-gray-200 rounded p-2 leading-relaxed" id="badge-snippet"></code>
-        </div>
-      </div>
-    </div>
-
-    <!-- QR code panel -->
-    <div class="hidden mb-6" id="qr-section">
-      <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white">
-        <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2">
-          <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">QR Code — scan to open</span>
-        </div>
-        <div class="p-4 flex justify-center">
-          <div id="qr-canvas"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Actions row -->
-    <div class="flex flex-col md:flex-row items-center gap-3 flex-wrap">
-      <button class="brutalist-button bg-accent-warm shadow-[6px_6px_0px_0px_rgba(17,24,39,1)] w-full md:w-auto" disabled="" id="submit-btn" type="button">
-        Run Route <span class="ml-2 font-mono">↵</span>
-      </button>
-      <button class="flex items-center gap-1 text-[11px] font-bold uppercase hover:text-primary transition-colors" id="share-btn" hidden type="button">
-        <span class="material-symbols-outlined !text-sm">share</span>
-        Share
-      </button>
-      <button class="flex items-center gap-1 text-[11px] font-bold uppercase hover:text-primary transition-colors" id="qr-btn" hidden type="button">
-        <span class="material-symbols-outlined !text-sm">qr_code</span>
-        QR
-      </button>
-      <span class="text-sm font-bold text-gray-400 italic" id="status-line">Waiting for input...</span>
-    </div>
-
   </div>
+</section>
 
-  <!-- Result iframe panel -->
-  <div class="brutalist-card mt-8 hidden" id="result-panel">
-    <div class="bg-gray-100 border-b-[3px] border-ink-black px-4 py-3 flex justify-between items-center rounded-t-xl">
-      <span class="text-xs font-bold uppercase tracking-widest text-gray-600 break-all" id="result-url"></span>
-      <a class="shrink-0 ml-3 text-xs font-bold uppercase hover:text-primary transition-colors whitespace-nowrap" href="#" id="result-open-link" rel="noopener noreferrer" target="_blank">Open ↗</a>
+<!-- ===================== 4. TOOL SECTION (ORIGINAL MARKUP — UNCHANGED) ===================== -->
+<section aria-labelledby="tool-heading" class="rr-section rr-section-tight" id="tool">
+  <div class="rr-wrap">
+    <div class="text-center mb-8">
+      <span class="rr-eyebrow">The Tool</span>
+      <h2 class="rr-h2 mt-3" id="tool-heading">Apna repo yahan route karo</h2>
     </div>
-    <div class="relative bg-white" style="height:70vh;">
-      <iframe class="w-full h-full" id="result-frame" referrerpolicy="no-referrer" title="Repo Router result"></iframe>
-    </div>
-    <p class="text-[11px] text-gray-400 text-center p-2 leading-relaxed">
-      Agar yahan content load nahi ho raha, toh us site ne embedding block kiya hai — "Open ↗" use karo.
-    </p>
+
+    <div class="rr-tool-frame">
+      <div class="w-full max-w-2xl mx-auto px-2">
+        <div class="brutalist-card p-6 md:p-10">
+
+<!-- Input -->
+<div class="mb-4">
+  <label class="block text-sm font-bold uppercase tracking-widest mb-3 text-gray-500" for="repo-input">Repository URL</label>
+  <div class="relative group">
+    <input autocomplete="off" autofocus="" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text"/>
   </div>
+  <!-- Recent repos chips -->
+  <div class="flex flex-wrap gap-2 mt-3" id="recents-wrap"></div>
+</div>
+
+<!-- Destination buttons (4-way) -->
+<div class="mb-2">
+  <div class="flex items-center justify-between mb-3">
+    <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Destination</span>
+    <button class="text-xs font-bold text-primary hover:underline flex items-center gap-1" id="surprise-btn" type="button" aria-label="Load a random trending GitHub repo">
+      🎲 Surprise me
+    </button>
+  </div>
+  <div aria-label="Output destination" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6" role="group">
+    <button class="toggle-btn active flex flex-col items-start gap-0.5 py-3 px-3" data-mode="mcp" id="toggle-mcp" type="button" aria-pressed="true">
+      <span class="font-bold text-sm">MCP Server</span>
+      <span class="text-[10px] font-mono text-gray-400">gitmcp.io</span>
+    </button>
+    <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="structure" id="toggle-structure" type="button" aria-pressed="false">
+      <span class="font-bold text-sm">Dir Tree</span>
+      <span class="text-[10px] font-mono text-gray-400">gitingest.com</span>
+    </button>
+    <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="deepwiki" id="toggle-deepwiki" type="button" aria-pressed="false">
+      <span class="font-bold text-sm">DeepWiki</span>
+      <span class="text-[10px] font-mono text-gray-400">deepwiki.com</span>
+    </button>
+    <button class="toggle-btn flex flex-col items-start gap-0.5 py-3 px-3" data-mode="uithub" id="toggle-uithub" type="button" aria-pressed="false">
+      <span class="font-bold text-sm">UIthub</span>
+      <span class="text-[10px] font-mono text-gray-400">uithub.com</span>
+    </button>
+  </div>
+</div>
+
+<!-- Repo metadata preview -->
+<div class="mb-4 hidden" id="meta-wrap" aria-live="polite"></div>
+
+<!-- Transformation diff preview -->
+<div class="diff-container" id="diff-wrap">
+  <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white mb-6">
+    <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Transformation Preview</span>
+      <button class="flex items-center gap-1 text-[10px] font-bold uppercase hover:text-primary transition-colors" id="copy-btn" type="button">
+        <span class="material-symbols-outlined !text-sm">content_copy</span>
+        <span id="copy-text">Copy</span>
+      </button>
+    </div>
+    <div class="p-4 font-mono text-sm break-all space-y-2">
+      <div class="text-red-500 flex items-start gap-2" id="diff-old">
+        <span class="shrink-0">-</span>
+        <span></span>
+      </div>
+      <div class="text-green-600 font-bold flex items-start gap-2" id="diff-new">
+        <span class="shrink-0">+</span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- README badge generator -->
+<div class="hidden mb-6" id="badge-wrap">
+  <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white">
+    <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">README Badge — paste into your repo</span>
+      <button class="flex items-center gap-1 text-[10px] font-bold uppercase hover:text-primary transition-colors" id="badge-copy-btn" type="button">
+        <span class="material-symbols-outlined !text-sm">content_copy</span>
+        <span>Copy</span>
+      </button>
+    </div>
+    <div class="p-4">
+      <div class="flex items-center gap-3 mb-3">
+        <img alt="Open in RepoRouter badge preview" class="h-5" id="badge-img" src="https://img.shields.io/badge/Open%20in-RepoRouter-blue?logo=github"/>
+        <span class="text-[11px] text-gray-400">deep-links back here with your repo pre-filled</span>
+      </div>
+      <code class="block font-mono text-xs break-all text-gray-600 bg-gray-50 border border-gray-200 rounded p-2 leading-relaxed" id="badge-snippet"></code>
+    </div>
+  </div>
+</div>
+
+<!-- QR code panel -->
+<div class="hidden mb-6" id="qr-section">
+  <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white">
+    <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">QR Code — scan to open</span>
+    </div>
+    <div class="p-4 flex justify-center">
+      <div id="qr-canvas"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Actions row -->
+<div class="flex flex-col md:flex-row items-center gap-3 flex-wrap">
+  <button class="brutalist-button bg-accent-warm shadow-[6px_6px_0px_0px_rgba(17,24,39,1)] w-full md:w-auto" disabled="" id="submit-btn" type="button">
+    Run Route <span class="ml-2 font-mono">↵</span>
+  </button>
+  <button class="flex items-center gap-1 text-[11px] font-bold uppercase hover:text-primary transition-colors" id="share-btn" hidden type="button">
+    <span class="material-symbols-outlined !text-sm">share</span>
+    Share
+  </button>
+  <button class="flex items-center gap-1 text-[11px] font-bold uppercase hover:text-primary transition-colors" id="qr-btn" hidden type="button">
+    <span class="material-symbols-outlined !text-sm">qr_code</span>
+    QR
+  </button>
+  <span class="text-sm font-bold text-gray-400 italic" id="status-line">Waiting for input...</span>
+</div>
+
+        </div>
+
+        <!-- Result iframe panel -->
+        <div class="brutalist-card mt-8 hidden" id="result-panel">
+          <div class="bg-gray-100 border-b-[3px] border-ink-black px-4 py-3 flex justify-between items-center rounded-t-xl">
+            <span class="text-xs font-bold uppercase tracking-widest text-gray-600 break-all" id="result-url"></span>
+            <a class="shrink-0 ml-3 text-xs font-bold uppercase hover:text-primary transition-colors whitespace-nowrap" href="#" id="result-open-link" rel="noopener noreferrer" target="_blank">Open ↗</a>
+          </div>
+          <div class="relative bg-white" style="height:70vh;">
+            <iframe class="w-full h-full" id="result-frame" referrerpolicy="no-referrer" title="Repo Router result"></iframe>
+          </div>
+          <p class="text-[11px] text-gray-400 text-center p-2 leading-relaxed">
+            Agar yahan content load nahi ho raha, toh us site ne embedding block kiya hai — "Open ↗" use karo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. HOW IT WORKS ===================== -->
+<section aria-labelledby="how-heading" class="rr-section" id="how-it-works">
+  <div class="rr-wrap">
+    <span class="rr-eyebrow">How It Works</span>
+    <h2 class="rr-h2 mt-3 mb-10" id="how-heading">Chaar steps, ek destination</h2>
+    <ol class="rr-steps" style="list-style:none; padding:0;">
+      <li class="rr-step rr-card">
+        <span class="rr-step-num">1</span>
+        <h3 class="rr-h3 mb-1">Paste GitHub URL</h3>
+        <p class="text-sm text-gray-600">Apni repository ka link input box mein daalo — koi formatting zaroorat nahi.</p>
+      </li>
+      <li class="rr-step rr-card">
+        <span class="rr-step-num">2</span>
+        <h3 class="rr-h3 mb-1">Choose Destination</h3>
+        <p class="text-sm text-gray-600">MCP Server, Dir Tree, DeepWiki ya UIthub mein se apni need ke hisaab se select karo.</p>
+      </li>
+      <li class="rr-step rr-card">
+        <span class="rr-step-num">3</span>
+        <h3 class="rr-h3 mb-1">Preview Transformation</h3>
+        <p class="text-sm text-gray-600">Live diff mein dekho URL kaise badal raha hai, aur badge ya QR bhi generate kar lo.</p>
+      </li>
+      <li class="rr-step rr-card">
+        <span class="rr-step-num">4</span>
+        <h3 class="rr-h3 mb-1">Open AI Tool</h3>
+        <p class="text-sm text-gray-600">"Run Route" dabao — destination inline load ho jaata hai, ya naye tab mein khol lo.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== 6. SUPPORTED PLATFORMS ===================== -->
+<section aria-labelledby="platforms-heading" class="rr-section rr-section-tight" id="platforms">
+  <div class="rr-wrap">
+    <span class="rr-eyebrow">Supported Platforms</span>
+    <h2 class="rr-h2 mt-3 mb-10" id="platforms-heading">Chaar destinations, chaar alag use case</h2>
+    <div class="rr-grid-4">
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">hub</span></div>
+        <h3 class="rr-h3 mb-2">GitMCP</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-2">Repository ko ek MCP server mein badalta hai jise Claude ya Cursor jaise AI assistants tool ke through query kar sakte hain.</p>
+        <span class="rr-example-tag">MCP server</span> <span class="rr-example-tag">Claude</span> <span class="rr-example-tag">Cursor</span>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">auto_awesome</span></div>
+        <h3 class="rr-h3 mb-2">DeepWiki</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-2">Repository ke liye AI-generated documentation aur explanations banata hai — naye contributors ke liye onboarding easy ho jaati hai.</p>
+        <span class="rr-example-tag">AI docs</span> <span class="rr-example-tag">Onboarding</span>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">account_tree</span></div>
+        <h3 class="rr-h3 mb-2">Gitingest</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-2">Poori repository ka directory structure aur file content ek clean, LLM-friendly text format mein deta hai.</p>
+        <span class="rr-example-tag">Directory tree</span> <span class="rr-example-tag">LLM-friendly</span>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">visibility</span></div>
+        <h3 class="rr-h3 mb-2">UIthub</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-2">Repository ko ek alternate, navigation-friendly view mein present karta hai — bade codebases browse karne ke liye handy.</p>
+        <span class="rr-example-tag">Alt viewer</span> <span class="rr-example-tag">Navigation</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7. COMPARISON TABLE ===================== -->
+<section aria-labelledby="compare-heading" class="rr-section rr-section-tight">
+  <div class="rr-wrap">
+    <span class="rr-eyebrow">Compare</span>
+    <h2 class="rr-h2 mt-3 mb-8" id="compare-heading">GitHub vs GitMCP vs DeepWiki vs Gitingest vs UIthub</h2>
+    <div class="rr-table-wrap">
+      <table class="rr-table">
+        <thead>
+          <tr><th scope="col">Feature</th><th scope="col">GitHub</th><th scope="col">GitMCP</th><th scope="col">DeepWiki</th><th scope="col">Gitingest</th><th scope="col">UIthub</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Purpose</th><td>Code hosting &amp; collaboration</td><td>AI tool context via MCP</td><td>AI-generated documentation</td><td>Flat text/directory export</td><td>Alternate code viewer</td></tr>
+          <tr><th scope="row">AI Support</th><td>Indirect</td><td>Native (MCP protocol)</td><td>Native (AI-written docs)</td><td>Good (LLM-ready text)</td><td>Good (LLM-context view)</td></tr>
+          <tr><th scope="row">Documentation</th><td>Manual README</td><td>N/A — live querying</td><td>Auto-generated wiki</td><td>N/A</td><td>N/A</td></tr>
+          <tr><th scope="row">Directory Tree</th><td>Standard file browser</td><td>N/A</td><td>Summarised structure</td><td>Full plain-text tree</td><td>Enhanced browser view</td></tr>
+          <tr><th scope="row">Repository Navigation</th><td>Standard</td><td>Query-based</td><td>Guided/explained</td><td>Text-based</td><td>Visual/enhanced</td></tr>
+          <tr><th scope="row">Ease of Use</th><td>Familiar to all devs</td><td>Needs MCP-aware client</td><td>Very easy, read-only</td><td>Very easy, copy-paste</td><td>Easy, browser-based</td></tr>
+          <tr><th scope="row">Best Use Case</th><td>Hosting your own code</td><td>Connecting Claude/Cursor to a repo</td><td>Understanding an unfamiliar project</td><td>Feeding a repo into an LLM prompt</td><td>Skimming a large codebase</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. USE CASES ===================== -->
+<section aria-labelledby="usecases-heading" class="rr-section">
+  <div class="rr-wrap">
+    <span class="rr-eyebrow">Who It's For</span>
+    <h2 class="rr-h2 mt-3 mb-10" id="usecases-heading">Use cases</h2>
+    <div class="rr-grid-6">
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">smart_toy</span></div>
+        <h3 class="rr-h3 mb-2">AI Developers</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Jab aap Claude ya Cursor jaise assistants ke saath kaam karte ho aur unhe kisi specific repository ka live context dena chahte ho, GitMCP route sabse tez raasta hai. Ek click mein MCP server URL mil jaata hai jise aap directly apne AI tool ki settings mein daal sakte ho, bina manual configuration likhe.</p>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">diversity_3</span></div>
+        <h3 class="rr-h3 mb-2">Open Source Contributors</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Naye open-source project mein contribute karne se pehle codebase samajhna sabse bada hurdle hota hai. DeepWiki ya Gitingest route se aap architecture, folder structure aur key files ka overview minutes mein pa sakte ho, hours nahi.</p>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">school</span></div>
+        <h3 class="rr-h3 mb-2">Students</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Real-world codebases padhna best learning method hai. Students UIthub ya Gitingest ka use karke production-grade projects ko structured, readable format mein explore kar sakte hain — bina local setup ke jhanjhat ke.</p>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">science</span></div>
+        <h3 class="rr-h3 mb-2">Researchers</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Academic ya industry researchers jo multiple repositories compare kar rahe hain, unke liye Gitingest ka text export particularly useful hai — poora codebase ek single, searchable document ban jaata hai jo notes aur citations ke saath easily manage ho sakta hai.</p>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">rate_review</span></div>
+        <h3 class="rr-h3 mb-2">Code Review</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Bade pull requests ya unfamiliar repos review karte waqt UIthub ka enhanced view aur DeepWiki ke explanations context switching kam karte hain, jisse reviewer jaldi aur confidently feedback de sakta hai.</p>
+      </article>
+      <article class="rr-card">
+        <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">travel_explore</span></div>
+        <h3 class="rr-h3 mb-2">Learning New Repositories</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">Naye team mein join karne par ya kisi legacy project ko inherit karne par, Repo Router se aap turant sabse relevant format (docs, structure, ya AI-queryable context) select karke onboarding time significantly kam kar sakte ho.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 9. EDUCATIONAL GUIDE ===================== -->
+<section aria-labelledby="guide-heading" class="rr-guide" id="guide">
+  <div class="rr-wrap rr-section">
+    <span class="rr-eyebrow">In-Depth Guide</span>
+    <h2 class="rr-h2 mt-3 mb-2" id="guide-heading">MCP, GitMCP aur AI-Ready Repositories — Poora Guide</h2>
+    <p class="rr-lede mb-10">Repo Router, Model Context Protocol aur AI coding workflows ko samajhne ke liye ek complete, practical reference.</p>
+
+    <div class="rr-guide-inner">
+      <aside class="rr-toc" aria-label="Guide contents">
+        <div class="rr-toc-title">On this page</div>
+        <a href="#g-what-is-rr">What is Repo Router?</a>
+        <a href="#g-what-is-gitmcp">What is GitMCP?</a>
+        <a href="#g-what-is-mcp">What is MCP?</a>
+        <a href="#g-claude-mcp">How Claude uses MCP</a>
+        <a href="#g-why-context">Why AI tools need context</a>
+        <a href="#g-gitmcp-vs-deepwiki">GitMCP vs DeepWiki</a>
+        <a href="#g-deepwiki-vs-gitingest">DeepWiki vs Gitingest</a>
+        <a href="#g-docs-practices">Documentation best practices</a>
+        <a href="#g-benefits">Benefits for AI Developers</a>
+        <a href="#g-security">Security &amp; Privacy</a>
+        <a href="#g-architecture">Browser-only architecture</a>
+        <a href="#g-workflows">Common workflows</a>
+        <a href="#g-best-practices">Best practices</a>
+      </aside>
+
+      <article class="rr-article">
+
+        <h2 id="g-what-is-rr">What is Repo Router?</h2>
+        <p>Repo Router ek chhota, focused utility hai jiska ek hi kaam hai: kisi bhi <code>github.com</code> repository URL ko us format mein convert karna jo aapko chahiye — chaahe woh AI assistant ke liye query-able MCP server ho, human-readable AI documentation ho, plain-text directory export ho, ya ek alternate browsing experience ho. Yeh ek "URL router" hai, koi hosting service nahi — aapka code kahin bhi upload nahi hota, sirf link ka format badalta hai.</p>
+        <p>Idea simple hai: developers roz-roz manually <code>github.com</code> ko <code>gitmcp.io</code>, <code>deepwiki.com</code>, <code>gitingest.com</code> ya <code>uithub.com</code> se replace karte hain. Yeh chhota, repetitive task hai jo automate ho sakta hai — aur Repo Router bilkul yehi karta hai, bina kisi backend ya tracking ke.</p>
+
+        <h2 id="g-what-is-gitmcp">What is GitMCP?</h2>
+        <p>GitMCP ek service hai jo kisi bhi public GitHub repository ko turant ek Model Context Protocol (MCP) server mein expose kar deta hai. Iska matlab hai ki aap koi extra setup, hosting, ya code changes kiye bina apni repository ko AI assistants ke liye "queryable" bana sakte ho. Jab aap GitMCP URL ko apne AI tool (jaise Claude Desktop ya Cursor) mein connector ke roop mein add karte ho, tool us repository ki files, structure aur content ko real-time mein reference kar sakta hai.</p>
+        <p>Yeh especially useful hota hai un repositories ke liye jinki documentation kam hai ya jo actively evolve ho rahi hain — kyunki AI assistant ko hamesha latest source of truth milta hai, kisi purani training data pe depend nahi karna padta.</p>
+
+        <h2 id="g-what-is-mcp">What is Model Context Protocol (MCP)?</h2>
+        <p>Model Context Protocol (MCP) ek open standard hai jo define karta hai ki AI models external tools, data sources aur services ke saath structured tarike se kaise interact karein. Isse pehle, har AI tool integration ko custom, one-off code likhna padta tha. MCP ek common "language" provide karta hai jisse koi bhi tool ya data source ek consistent interface ke through AI assistants ko available ho sake.</p>
+        <p>Practically, MCP servers "resources" (jaise files ya documents) aur "tools" (jaise search ya query functions) expose karte hain, jinhe koi bhi MCP-compatible client — chahe woh chat assistant ho ya code editor — discover aur use kar sakta hai.</p>
+        <div class="rr-callout">
+          <span class="rr-callout-label">Simple analogy</span>
+          MCP ko ek "USB-C port" ki tarah socho — jaise ek single physical connector alag-alag devices ko ek standard tarike se jodta hai, MCP alag-alag AI models ko alag-alag tools aur data sources se ek standard tarike se jodta hai.
+        </div>
+
+        <h2 id="g-claude-mcp">How Claude uses MCP</h2>
+        <p>Claude jaise assistants MCP ko ek connector layer ki tarah use karte hain. Jab koi MCP server (jaise GitMCP se generate hua) Claude ke saath connect kiya jaata hai, Claude us server ke exposed tools ko "dekh" sakta hai aur zaroorat padne par unhe call kar sakta hai — jaise "is repository mein authentication logic kahan hai" jaisa sawaal poochne par relevant files search karna.</p>
+        <p>Isse jawaab zyada accurate aur grounded hote hain, kyunki Claude sirf apni training memory pe depend nahi karta — woh actual, current repository content reference kar raha hota hai.</p>
+        <div class="rr-diagram" role="img" aria-label="Diagram showing Claude connecting to an MCP server which reads a GitHub repository">
+          <span class="rr-diagram-box">Claude / Cursor</span>
+          <span class="rr-diagram-arrow">⇄</span>
+          <span class="rr-diagram-box rr-diagram-mid">MCP Server (GitMCP)</span>
+          <span class="rr-diagram-arrow">⇄</span>
+          <span class="rr-diagram-box">GitHub Repository</span>
+        </div>
+
+        <h2 id="g-why-context">Why AI coding tools need repository context</h2>
+        <p>Language models ki training data ek fixed point tak hi hoti hai — matlab naye libraries, updated APIs, ya aapka khud ka private/recent code unhe pata nahi hota. Bina live context ke, AI assistant purani ya generic suggestions de sakta hai jo aapke actual codebase se match nahi karti.</p>
+        <p>Repository context dene se — chahe MCP ke through ho ya ek flat text export ke through — assistant ko yeh milta hai:</p>
+        <ul>
+          <li>Aapke project ki actual folder structure aur naming conventions</li>
+          <li>Real function signatures, types aur dependencies</li>
+          <li>Project-specific patterns jo generic training data mein nahi hote</li>
+          <li>Latest changes jo abhi hui hon, training cutoff ke baad</li>
+        </ul>
+
+        <h2 id="g-gitmcp-vs-deepwiki">GitMCP vs DeepWiki</h2>
+        <p>Dono tools AI ko repository samajhne mein madad karte hain, lekin different tareeke se. GitMCP ek <strong>live, query-based</strong> connection banata hai — AI assistant tool call karke specific information fetch karta hai, jab zaroorat ho. DeepWiki iske ulta, ek <strong>pre-generated, human-readable documentation</strong> layer banata hai jise koi bhi (AI ya insaan) directly padh sakta hai.</p>
+        <p>Simple rule: agar aapko apne AI coding assistant ko ek repository se directly "connect" karna hai, GitMCP better fit hai. Agar aapko khud (ya kisi naye contributor ko) ek unfamiliar project explain karna hai, DeepWiki zyada useful hoga.</p>
+
+        <h2 id="g-deepwiki-vs-gitingest">DeepWiki vs Gitingest</h2>
+        <p>DeepWiki aur Gitingest dono documentation-adjacent hain, lekin output ka format alag hai. DeepWiki narrative explanations aur summaries generate karta hai — jaise koi guide likh raha ho. Gitingest iske vipreet, poori repository ka raw structure aur file content ek single, structured text block mein deta hai, jise directly kisi LLM prompt mein paste kiya ja sake.</p>
+        <p>Agar aapko explanation chahiye, DeepWiki choose karo. Agar aapko raw, complete context chahiye jo aap khud kisi prompt mein feed karna chahte ho, Gitingest choose karo.</p>
+
+        <h2 id="g-docs-practices">Repository documentation best practices</h2>
+        <p>Chahe aap in AI tools ka use karein ya nahi, kuch documentation practices har repository ke liye helpful hote hain:</p>
+        <ol>
+          <li>Ek clear, up-to-date <code>README.md</code> maintain karo jisme project ka purpose, setup steps aur folder overview ho.</li>
+          <li>Consistent naming conventions use karo, taaki structure predictable rahe — AI aur insaan dono ke liye.</li>
+          <li>Large files ya generated assets ko <code>.gitignore</code> mein rakho, taaki text-export tools noise skip kar sakein.</li>
+          <li>Important architectural decisions ko inline comments ya ek <code>docs/</code> folder mein record karo.</li>
+        </ol>
+
+        <h2 id="g-benefits">Benefits for AI Developers</h2>
+        <p>AI-assisted development karne wale developers ke liye, repository ko easily "AI-consumable" banana ek real productivity lever hai. Isse code review faster hota hai, onboarding time kam hota hai, aur AI-generated suggestions repository ke actual conventions ke saath better align hote hain — jisse manual correction ki zaroorat kam padti hai.</p>
+
+        <h2 id="g-security">Security and Privacy</h2>
+        <div class="rr-callout rr-callout-warm">
+          <span class="rr-callout-label">Important</span>
+          Repo Router sirf URL format badalta hai. Yeh aapki repository ka code kabhi fetch, store, ya upload nahi karta. Actual content access — aur uski security/permissions — poori tarah destination service (GitMCP, DeepWiki, Gitingest, UIthub) aur GitHub ke access controls par depend karta hai.
+        </div>
+        <p>Private repositories ke liye, aapko destination site par unke instructions ke mutabik authenticate karna hoga — Repo Router iska koi hissa nahi hai aur na hi kisi credential ko handle karta hai.</p>
+
+        <h2 id="g-architecture">Browser-only architecture</h2>
+        <p>Repo Router poori tarah client-side chalta hai. Jab aap ek URL paste karte ho, JavaScript locally us string ko parse karta hai (owner aur repo name nikaal ke), phir select ki gayi destination ke pattern ke hisaab se naya URL construct karta hai. Yeh process milliseconds mein hota hai kyunki koi network round-trip involved nahi hota is step ke liye.</p>
+        <div class="rr-code">// Simplified transformation logic
+const [ , owner, repo ] = url.match(/github\.com\/([^/]+)\/([^/]+)/);
+const destinations = {
+  mcp:       `https://gitmcp.io/${owner}/${repo}`,
+  structure: `https://gitingest.com/${owner}/${repo}`,
+  deepwiki:  `https://deepwiki.com/${owner}/${repo}`,
+  uithub:    `https://uithub.com/${owner}/${repo}`,
+};</div>
+
+        <h2 id="g-workflows">Common workflows</h2>
+        <p>Kuch typical tareeke jisse developers Repo Router use karte hain:</p>
+        <ul>
+          <li><strong>Quick AI connect:</strong> Ek naye repository ke liye MCP link generate karo aur seedha Claude Desktop settings mein paste karo.</li>
+          <li><strong>Pre-review skim:</strong> Kisi bade PR ko review karne se pehle UIthub mein poora structure jaldi scan karo.</li>
+          <li><strong>Prompt feeding:</strong> Gitingest se poori repo text nikaal ke ek single LLM prompt mein paste karo, jab context window bada ho.</li>
+          <li><strong>Fast onboarding:</strong> Kisi naye project mein join karte waqt DeepWiki se pehle high-level overview padho.</li>
+        </ul>
+
+        <h2 id="g-best-practices">Best practices when using AI-repository tools</h2>
+        <p>In tools ka best use tab hota hai jab aap sahi tool ko sahi task ke liye choose karo — jaisa comparison table upar dikhaya gaya hai. Bade repositories ke liye, agar poora Gitingest export context window se bada ho jaaye, toh relevant sub-folders pe focus karna better rehta hai. Aur AI-generated explanations (DeepWiki se) ko hamesha original source code ke saath cross-check karna acchi practice hai, kyunki AI summaries occasionally galat ho sakti hain.</p>
+
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 10. EXAMPLES ===================== -->
+<section aria-labelledby="examples-heading" class="rr-section">
+  <div class="rr-wrap">
+    <span class="rr-eyebrow">Examples</span>
+    <h2 class="rr-h2 mt-3 mb-10" id="examples-heading">Kuch example transformations</h2>
+    <div class="rr-grid-2">
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">MCP Server</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/vercel/next.js</span><span>→</span><span class="rr-example-to">gitmcp.io/vercel/next.js</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">DeepWiki</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/facebook/react</span><span>→</span><span class="rr-example-to">deepwiki.com/facebook/react</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">Dir Tree</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/microsoft/vscode</span><span>→</span><span class="rr-example-to">gitingest.com/microsoft/vscode</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">UIthub</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/tensorflow/tensorflow</span><span>→</span><span class="rr-example-to">uithub.com/tensorflow/tensorflow</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">MCP Server</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/django/django</span><span>→</span><span class="rr-example-to">gitmcp.io/django/django</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">DeepWiki</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/sveltejs/svelte</span><span>→</span><span class="rr-example-to">deepwiki.com/sveltejs/svelte</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">Dir Tree</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/huggingface/transformers</span><span>→</span><span class="rr-example-to">gitingest.com/huggingface/transformers</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">MCP Server</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/langchain-ai/langchain</span><span>→</span><span class="rr-example-to">gitmcp.io/langchain-ai/langchain</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">UIthub</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/supabase/supabase</span><span>→</span><span class="rr-example-to">uithub.com/supabase/supabase</span></div>
+      </div>
+      <div class="rr-example"><span class="rr-example-tag mb-2" style="display:inline-block;">DeepWiki</span>
+        <div class="rr-example-row"><span class="rr-example-from">github.com/torvalds/linux</span><span>→</span><span class="rr-example-to">deepwiki.com/torvalds/linux</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 11. FAQ ===================== -->
+<section aria-labelledby="faq-heading" class="rr-section rr-section-tight" id="faq">
+  <div class="rr-wrap" style="max-width:46rem;">
+    <span class="rr-eyebrow">FAQ</span>
+    <h2 class="rr-h2 mt-3 mb-8" id="faq-heading">Aksar Puche Jaane Wale Sawaal</h2>
+
+    <div class="rr-faq-cat">Tool ke baare mein</div>
+    <div class="space-y-3">
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Repo Router free hai kya, koi signup chahiye?</summary><p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya mera code kahin upload ya store hota hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router browser-only tool hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Haan. Saara URL parsing aur redirection logic client-side JavaScript mein chalta hai — koi backend server involved nahi hota, isliye processing turant hoti hai.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router paid hai ya iska koi pricing plan hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Nahi, Repo Router poori tarah free hai aur iska koi pricing tier nahi hai. Destination services ki apni alag terms ho sakti hain.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router open source hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Repo Router ka source code GitHub par available hai (footer mein link diya gaya hai), taaki koi bhi developer code review kar sake ya contribute kar sake.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router ka koi API hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Filhaal Repo Router ek simple frontend redirection tool hai, iska koi separate public API nahi hai. README badge ke through deep-linking use kar sakte hain.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">README badge kya hota hai aur kaise use karein?</summary><p class="text-gray-700 mt-3 leading-relaxed">Jab aap koi valid GitHub repo paste karte ho, Repo Router ek markdown badge snippet generate karta hai. Use apne repo ke README mein paste karo — badge click karne pe seedha Repo Router pe aa jaate hain, repo pre-filled ke saath.</p></details>
+    </div>
+
+    <div class="rr-faq-cat">GitMCP, DeepWiki, Gitingest &amp; UIthub</div>
+    <div class="space-y-3">
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">GitMCP kya hota hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Gitingest se kya milta hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">DeepWiki kya karta hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">DeepWiki kisi bhi public repository ke liye AI-generated documentation aur explanations banata hai, jisse naye contributors codebase ko jaldi samajh sakein.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">UIthub kis liye useful hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">UIthub repository ko ek alternate, LLM-context-friendly view mein present karta hai, jo bade codebases ko browse aur samajhne mein madad karta hai.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">MCP Integration aur Directory Structure mein kya difference hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">MCP Integration (gitmcp.io) AI assistants ke liye hai jo repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout samajhna chahte hain.</p></details>
+    </div>
+
+    <div class="rr-faq-cat">Claude, Cursor &amp; MCP</div>
+    <div class="space-y-3">
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Model Context Protocol (MCP) kya hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">MCP ek open protocol hai jo AI assistants ko external tools, data sources aur documentation ke saath structured tarike se connect karne deta hai, taaki assistant sirf training data pe depend na rahe.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Claude MCP ka use kaise karta hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Claude jaise assistants MCP servers ko tools ke roop mein connect kar sakte hain, jisse woh live repository content query kar sakein aur zyada accurate, up-to-date jawaab de sakein.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Cursor ke saath GitMCP kaise kaam karta hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Cursor mein aap GitMCP se generate hui MCP server URL ko apni AI tool settings mein add kar sakte hain, jisse Cursor us repository ka context directly access kar sake.</p></details>
+    </div>
+
+    <div class="rr-faq-cat">Privacy, Security &amp; Compatibility</div>
+    <div class="space-y-3">
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya private repos ke saath kaam karega?</summary><p class="text-gray-700 mt-3 leading-relaxed">Repo Router sirf link redirect karta hai — private repos ke liye aapko destination site (GitMCP, DeepWiki, Gitingest, UIthub) pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router repo ka data collect karta hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Nahi, Repo Router sirf link ka format badalta hai. Koi analytics, code, ya personal data collect ya store nahi kiya jaata.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router kisi bhi browser mein kaam karta hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router modern browsers (Chrome, Firefox, Edge, Safari) mein desktop aur mobile dono pe kaam karta hai.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Repo Router GitHub ke alawa aur platforms support karega?</summary><p class="text-gray-700 mt-3 leading-relaxed">Filhaal Repo Router sirf github.com repository links support karta hai. Future mein GitLab jaise platforms add karne ka plan ho sakta hai.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Repo Router kitna fast hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Chunki koi server-side processing nahi hoti, redirection almost instant hota hai — sirf destination site ka apna load time lagta hai.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Agar destination site embed na ho toh kya karein?</summary><p class="text-gray-700 mt-3 leading-relaxed">Kuch sites security reasons se iframe embedding block karti hain. Aise mein result panel ke "Open ↗" button se aap us site ko naye tab mein directly open kar sakte hain.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 12. RELATED RESOURCES ===================== -->
+<section aria-labelledby="resources-heading" class="rr-section rr-section-tight">
+  <div class="rr-wrap">
+    <span class="rr-eyebrow">Keep Learning</span>
+    <h2 class="rr-h2 mt-3 mb-8" id="resources-heading">Related resources</h2>
+    <div class="rr-grid-4">
+      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">What is MCP?</h3><p class="text-sm text-gray-600">Model Context Protocol ka deep-dive explainer.</p></div>
+      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">GitMCP Guide</h3><p class="text-sm text-gray-600">GitMCP ko step-by-step setup karne ka guide.</p></div>
+      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">DeepWiki Tutorial</h3><p class="text-sm text-gray-600">DeepWiki se documentation generate karna seekho.</p></div>
+      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">Cursor + MCP</h3><p class="text-sm text-gray-600">Cursor mein MCP servers connect karne ka tarika.</p></div>
+      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">Claude Desktop Setup</h3><p class="text-sm text-gray-600">Claude Desktop mein connectors configure karna.</p></div>
+      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">AI Coding Workflow</h3><p class="text-sm text-gray-600">End-to-end AI-assisted coding workflow.</p></div>
+      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">GitHub Repo Documentation</h3><p class="text-sm text-gray-600">Repository documentation likhne ke best practices.</p></div>
+      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">Best AI Developer Tools</h3><p class="text-sm text-gray-600">2026 ke top AI-assisted development tools.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 13. CTA ===================== -->
+<section aria-labelledby="cta-heading" class="rr-section">
+  <div class="rr-wrap">
+    <div class="rr-cta">
+      <h2 class="rr-h2 mb-3" id="cta-heading">Start Exploring GitHub Repositories Smarter</h2>
+      <p class="rr-lede mx-auto mb-8">Ek link paste karo, sahi format choose karo, aur turant apne AI workflow mein wapas aa jao.</p>
+      <div class="rr-hero-ctas" style="margin-bottom:0;">
+        <a class="rr-btn-primary" href="#tool">Try Repo Router</a>
+        <a class="rr-btn-secondary" href="https://github.com" rel="noopener noreferrer" target="_blank">View GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<section class="w-full max-w-2xl px-2 mt-14" aria-labelledby="about-heading">
+<!-- ===================== 14. FOOTER ===================== -->
+<footer class="rr-footer">
+  <div class="rr-wrap">
+    <div class="rr-footer-grid">
+      <div>
+        <h4>Repo Router</h4>
+        <p style="color:#9CA3AF; font-size:.85rem; line-height:1.6; max-width:16rem;">GitHub repo links ko instantly AI-ready formats mein convert karne wala free, browser-only tool.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about-heading">About</a>
+        <a href="mailto:hello@reporouter.netlify.app">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="#guide">Guide</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Sitemap</a>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <a href="https://github.com" rel="noopener noreferrer" target="_blank">GitHub Repo</a>
+        <a href="#tool">Open Tool</a>
+      </div>
+    </div>
+    <div class="rr-footer-bottom">
+      <span>© 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: August 2026</span>
+    </div>
+  </div>
+</footer>
+
+<section class="w-full max-w-2xl px-2 mt-14 mx-auto" aria-labelledby="about-heading">
   <h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-4" id="about-heading">Repo Router Kya Hai?</h2>
   <p class="text-gray-700 leading-relaxed mb-4">
     Agar aap ek developer ho aur roz <strong>GitHub</strong> repos explore karte ho, toh aapne already <code>gitmcp.io</code>, <code>gitingest.com</code>, <code>deepwiki.com</code> aur <code>uithub.com</code> ke baare mein suna hoga. Manually URL mein <code>github.com</code> ko replace karna thoda time-waste hai — isiliye <strong>Repo Router</strong> bana hai. Bas apna repo link paste karo, destination select karo, aur ek click mein seedha sahi jagah pohonch jao. Koi installation nahi, koi signup nahi — sab kuch aapke browser mein hi process hota hai.
@@ -262,48 +965,9 @@
   </p>
 </section>
 
-<section class="w-full max-w-2xl px-2 mt-14" aria-labelledby="faq-heading" id="faq">
-  <h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-6" id="faq-heading">FAQ — Aksar Puche Jaane Wale Sawaal</h2>
-  <div class="space-y-3">
-    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-      <summary class="font-bold cursor-pointer list-none">GitMCP kya hota hai?</summary>
-      <p class="text-gray-700 mt-3 leading-relaxed">GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein.</p>
-    </details>
-    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-      <summary class="font-bold cursor-pointer list-none">Gitingest se kya milta hai?</summary>
-      <p class="text-gray-700 mt-3 leading-relaxed">Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai.</p>
-    </details>
-    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-      <summary class="font-bold cursor-pointer list-none">Repo Router free hai kya, koi signup chahiye?</summary>
-      <p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao.</p>
-    </details>
-    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-      <summary class="font-bold cursor-pointer list-none">Kya mera code kahin upload ya store hota hai?</summary>
-      <p class="text-gray-700 mt-3 leading-relaxed">Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata.</p>
-    </details>
-    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-      <summary class="font-bold cursor-pointer list-none">Kya private repos ke saath kaam karega?</summary>
-      <p class="text-gray-700 mt-3 leading-relaxed">Repo Router sirf link redirect karta hai — private repos ke liye aapko destination site pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho.</p>
-    </details>
-    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-      <summary class="font-bold cursor-pointer list-none">MCP Integration aur Directory Structure mein kya difference hai?</summary>
-      <p class="text-gray-700 mt-3 leading-relaxed">MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain.</p>
-    </details>
-    <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all">
-      <summary class="font-bold cursor-pointer list-none">README badge kya hota hai aur kaise use karein?</summary>
-      <p class="text-gray-700 mt-3 leading-relaxed">Jab aap koi valid GitHub repo paste karte ho, Repo Router ek markdown badge snippet generate karta hai. Use apne repo ke README mein paste karo — badge click karne pe seedha Repo Router pe aa jaate hain, repo pre-filled ke saath. Ye aapke repo visitors ke liye ek shortcut ban jaata hai.</p>
-    </details>
-  </div>
-</section>
-
-<footer class="mt-12 max-w-lg text-center">
-  <p class="text-xs text-gray-400 leading-relaxed">
-    Sab kuch aapke browser mein local process hota hai, kahin upload nahi hota. <br/>
-    <code>github.com</code> ko specialized viewing endpoints se swap karta hai.
-  </p>
-</footer>
-
 <!-- QRCode library (needed for QR feature) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="script.js"></script>
-</body></html>
+
+</body>
+</html>
