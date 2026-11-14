@@ -1,0 +1,9 @@
+{
+  "name": "single-file-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required'"
+  }
+}
