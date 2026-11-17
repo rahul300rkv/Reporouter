@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>GitMCP Guide: Turn Any GitHub Repository Into an MCP Server | Repo Router</title>
+<meta name="description" content="How GitMCP works, the URL formats it uses, how to add it to an AI client, what it is good at, and where it falls short."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/gitmcp-guide/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="GitMCP Guide: Turn Any GitHub Repository Into an MCP Server"/>
+<meta property="og:description" content="How GitMCP works, the URL formats it uses, how to add it to an AI client, what it is good at, and where it falls short."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/gitmcp-guide/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GitMCP Guide: Turn Any GitHub Repository Into an MCP Server", "description": "How GitMCP works, the URL formats it uses, how to add it to an AI client, what it is good at, and where it falls short.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/gitmcp-guide/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "GitMCP guide", "item": "https://reporouter.netlify.app/guides/gitmcp-guide/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">GitMCP guide</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>GitMCP Guide: Turn Any GitHub Repository Into an MCP Server</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>7 min read</span></p>
+<div class="prose">
+
+<p class="lede">GitMCP is a free, open-source service that exposes a public GitHub repository as a remote MCP server. Your AI assistant can then read that repository's documentation and search its code without you pasting anything.</p>
+
+<h2>What GitMCP does</h2>
+<p>You point an MCP-capable client at a GitMCP URL for a repository. The service reads the repository's documentation, such as the README, files in a docs folder and an <code>llms.txt</code> file when one exists, and offers tools that let the assistant fetch and search that material. There is nothing to install and no API key to create, because the server runs remotely at <a href="https://gitmcp.io" rel="noopener noreferrer" target="_blank">gitmcp.io</a>.</p>
+
+<h2>URL formats</h2>
+<p>The pattern mirrors GitHub, so it is easy to remember:</p>
+<ul>
+<li><code>https://gitmcp.io/owner/repo</code> targets one specific repository.</li>
+<li><code>https://owner.gitmcp.io/repo</code> targets a repository published as a GitHub Pages site.</li>
+<li><code>https://gitmcp.io/docs</code> is a generic endpoint where the assistant chooses the repository during the conversation.</li>
+</ul>
+<p>Repo Router performs the first conversion automatically: paste <code>https://github.com/owner/repo</code>, choose <strong>MCP Server</strong>, and you get the matching <code>gitmcp.io</code> address.</p>
+
+<h2>Adding it to a client</h2>
+<p>Clients that support remote servers by URL need only a short entry. A typical configuration looks like this:</p>
+<pre><code>{
+  "mcpServers": {
+    "my-library-docs": {
+      "url": "https://gitmcp.io/owner/repo"
+    }
+  }
+}</code></pre>
+<p>Some clients only launch local processes. For those, a small bridge package called <code>mcp-remote</code> can connect to a remote URL:</p>
+<pre><code>{
+  "mcpServers": {
+    "my-library-docs": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://gitmcp.io/owner/repo"]
+    }
+  }
+}</code></pre>
+<p>Exact file locations and field names differ by client. Our guides for <a href="/guides/cursor-mcp-setup/">Cursor</a> and <a href="/guides/claude-desktop-mcp-setup/">Claude Desktop</a> show both in context.</p>
+
+<h2>What the tools do</h2>
+<p>Names vary by repository and version, but the capabilities fall into four groups:</p>
+<ul>
+<li><strong>Fetch documentation:</strong> pull the main documentation for the repository.</li>
+<li><strong>Search documentation:</strong> look up a topic inside that documentation.</li>
+<li><strong>Search code:</strong> find matching code in the repository.</li>
+<li><strong>Fetch a referenced URL:</strong> follow a link mentioned in the documentation.</li>
+</ul>
+
+<h2>When GitMCP helps most</h2>
+<ul>
+<li><strong>New or fast-moving libraries</strong> that your model may not know well.</li>
+<li><strong>Niche packages</strong> with little coverage in public training data.</li>
+<li><strong>API-heavy work</strong> where a wrong method name wastes time.</li>
+</ul>
+
+<h2>Limitations</h2>
+<ul>
+<li>It is designed for public repositories.</li>
+<li>Answer quality depends on the repository's documentation. A bare README gives thin results.</li>
+<li>Search is retrieval, not a full static analysis of the whole codebase. For deep architectural questions, combine it with <a href="/guides/deepwiki-tutorial/">DeepWiki</a> or a <a href="/guides/gitingest-guide/">Gitingest digest</a>.</li>
+<li>As with any retrieved content, verify important details against the source.</li>
+</ul>
+
+<div class="callout"><strong class="label">Tip</strong>Name the tool in your prompt the first time, for example: "Use the my-library-docs server to check how pagination works, then write the example." Assistants are more likely to call a tool when told which one.</div>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/what-is-mcp/"><h3>What is MCP?</h3><p>Model Context Protocol explained: clients, servers, tools, resources and prompts.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/cursor-mcp-setup/"><h3>Cursor + MCP</h3><p>Add GitMCP or any remote MCP server to Cursor and confirm it works.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/gitmcp-vs-deepwiki-vs-gitingest/"><h3>Tool comparison</h3><p>A decision guide for choosing between the four tools Repo Router connects.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

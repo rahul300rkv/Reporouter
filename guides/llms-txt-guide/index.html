@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>What Is llms.txt? How to Make Your Docs Easy for AI to Read | Repo Router</title>
+<meta name="description" content="Learn what the llms.txt convention is, how to structure the file, where to put it, and how it helps AI tools find your best documentation."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/llms-txt-guide/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="What Is llms.txt? How to Make Your Docs Easy for AI to Read"/>
+<meta property="og:description" content="Learn what the llms.txt convention is, how to structure the file, where to put it, and how it helps AI tools find your best documentation."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/llms-txt-guide/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What Is llms.txt? How to Make Your Docs Easy for AI to Read", "description": "Learn what the llms.txt convention is, how to structure the file, where to put it, and how it helps AI tools find your best documentation.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/llms-txt-guide/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "llms.txt guide", "item": "https://reporouter.netlify.app/guides/llms-txt-guide/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">llms.txt guide</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>What Is llms.txt? How to Make Your Docs Easy for AI to Read</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>5 min read</span></p>
+<div class="prose">
+
+<p class="lede">A website is built for human eyes: navigation, scripts, banners. A language model wants the useful text with as little noise as possible. The <code>llms.txt</code> convention gives AI tools a clean starting point.</p>
+
+<h2>What it is</h2>
+<p><code>llms.txt</code> is a community proposal, put forward in 2024, for a Markdown file placed at the root of a website or repository. It acts like a curated table of contents for models: a short summary of the project and a list of links to the most important pages. It is a convention rather than an official web standard, and support varies between tools.</p>
+
+<h2>The format</h2>
+<p>The file uses ordinary Markdown with a predictable shape:</p>
+<ol>
+<li>A single <code>#</code> heading with the project name.</li>
+<li>A blockquote containing a one- or two-sentence summary.</li>
+<li>Optional paragraphs of context.</li>
+<li>One or more <code>##</code> sections, each containing a list of links with short descriptions.</li>
+</ol>
+
+<h2>Example</h2>
+<pre><code># Acme Parser
+
+&gt; Acme Parser is a fast JSON and YAML parsing library for Python 3.10+.
+
+Notes: configuration uses environment variables prefixed ACME_.
+
+## Docs
+- [Quickstart](https://example.com/docs/quickstart.md): install and first parse
+- [API reference](https://example.com/docs/api.md): all public functions
+
+## Optional
+- [Changelog](https://example.com/CHANGELOG.md): release history</code></pre>
+
+<h2>Where to put it</h2>
+<ul>
+<li><strong>Website:</strong> at <code>/llms.txt</code>, so it loads at the top of the domain.</li>
+<li><strong>Repository:</strong> in the repository root, where tools that read repositories can find it.</li>
+</ul>
+<p>Some projects also publish a larger <code>llms-full.txt</code> that contains the complete documentation text in one file, for tools that prefer a single download.</p>
+
+<h2>How it helps</h2>
+<p>Retrieval tools can use the file to decide which pages deserve attention, so answers rely on your best material instead of random pages. Documentation servers such as <a href="/guides/gitmcp-guide/">GitMCP</a> can make use of it when it exists in a repository.</p>
+
+<h2>Writing a good one</h2>
+<ul>
+<li>Link to <strong>clean, text-first pages</strong>, ideally Markdown versions.</li>
+<li>Write <strong>specific descriptions</strong> so a model can decide what to open.</li>
+<li>Keep it <strong>short</strong>. It is an index, not the documentation itself.</li>
+<li>Put secondary material under an Optional section.</li>
+<li>Update it when pages move or are deleted.</li>
+</ul>
+
+<h2>Don't expect miracles</h2>
+<p>It will not fix unclear documentation, and not every AI tool reads it. Think of it as a low-cost improvement that sits alongside a good README and architecture notes, as covered in our <a href="/guides/github-repo-documentation/">repository documentation guide</a>.</p>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/github-repo-documentation/"><h3>Repo documentation</h3><p>README, architecture notes, llms.txt and AGENTS.md: what to write and why.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/gitmcp-guide/"><h3>GitMCP guide</h3><p>Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/deepwiki-tutorial/"><h3>DeepWiki tutorial</h3><p>Use DeepWiki to understand an unfamiliar codebase quickly, and verify what it says.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

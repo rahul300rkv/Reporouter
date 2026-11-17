@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>How to Document a GitHub Repository for Humans and AI Assistants | Repo Router</title>
+<meta name="description" content="Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/github-repo-documentation/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="How to Document a GitHub Repository for Humans and AI Assistants"/>
+<meta property="og:description" content="Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/github-repo-documentation/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Document a GitHub Repository for Humans and AI Assistants", "description": "Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/github-repo-documentation/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "Repo documentation", "item": "https://reporouter.netlify.app/guides/github-repo-documentation/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">Repo documentation</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>How to Document a GitHub Repository for Humans and AI Assistants</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>7 min read</span></p>
+<div class="prose">
+
+<p class="lede">Good documentation has always saved time for people. It now also decides how well AI tools can explain and modify your code, because they read the same files you do.</p>
+
+<h2>The README: your front door</h2>
+<p>A strong README answers five questions quickly:</p>
+<ol>
+<li><strong>What is this?</strong> One or two plain sentences.</li>
+<li><strong>Why would I use it?</strong> The problem it solves and who it is for.</li>
+<li><strong>How do I install it?</strong> Copy-pasteable commands with the supported versions.</li>
+<li><strong>How do I use it?</strong> A minimal working example that really runs.</li>
+<li><strong>Where do I go next?</strong> Links to deeper docs, issues and the license.</li>
+</ol>
+
+<h2>Architecture notes</h2>
+<p>Create an <code>ARCHITECTURE.md</code> or a section in <code>docs/</code> that explains the shape of the project: main folders, how a request or command flows through the code, and the key design decisions with their reasons. One page is usually enough. This is the single most valuable file for newcomers and for tools that summarize your repository.</p>
+
+<h2>Contribution guide</h2>
+<p>Explain how to set up a development environment, run tests, follow code style and submit a change. If a command is needed to run the checks, write it out in full.</p>
+
+<h2>Instructions for AI coding tools</h2>
+<p>Several coding assistants read a plain-text instructions file from the repository root. A common convention is <code>AGENTS.md</code>, and some tools also have their own rule files. Useful content includes:</p>
+<ul>
+<li>The exact commands to build, test and lint.</li>
+<li>Language and framework versions.</li>
+<li>Naming and formatting conventions.</li>
+<li>Areas that must not be edited, such as generated code.</li>
+</ul>
+<p>Keep it short and factual. Long, vague instructions are ignored in practice.</p>
+
+<h2>Make docs machine-friendly</h2>
+<ul>
+<li>Use <strong>descriptive headings</strong> and keep one topic per section.</li>
+<li>Prefer <strong>plain Markdown</strong> over images of text or diagrams without captions.</li>
+<li>Add an <a href="/guides/llms-txt-guide/"><code>llms.txt</code></a> file that points to your best pages.</li>
+<li>Write <strong>code examples that run</strong> and show their expected output.</li>
+</ul>
+
+<h2>Inside the code</h2>
+<p>Docstrings and comments should explain intent and constraints, not restate the code. Name things clearly, because names are documentation that cannot go out of date as easily as prose.</p>
+
+<h2>Keep it alive</h2>
+<ul>
+<li>Update docs in the same pull request as the behavior change.</li>
+<li>Keep a changelog so users and tools see what changed between versions.</li>
+<li>Delete outdated pages instead of leaving them to mislead readers.</li>
+</ul>
+
+<div class="callout"><strong class="label">Try it</strong>Paste your repository into <a href="/">Repo Router</a>, open it in DeepWiki or GitMCP, and ask a newcomer's question. Where the answer is wrong or thin, your documentation has a gap.</div>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/llms-txt-guide/"><h3>llms.txt guide</h3><p>A short Markdown file that points AI tools to your most useful pages.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/deepwiki-tutorial/"><h3>DeepWiki tutorial</h3><p>Use DeepWiki to understand an unfamiliar codebase quickly, and verify what it says.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/ai-coding-workflow/"><h3>AI coding workflow</h3><p>A six-stage workflow for using AI on real code without losing control of quality.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

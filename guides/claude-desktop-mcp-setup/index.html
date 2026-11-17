@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>Claude Desktop Setup: Connect MCP Servers Step by Step | Repo Router</title>
+<meta name="description" content="How to connect an MCP server such as GitMCP to Claude Desktop using the config file, with file locations, an example, and troubleshooting tips."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/claude-desktop-mcp-setup/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="Claude Desktop Setup: Connect MCP Servers Step by Step"/>
+<meta property="og:description" content="How to connect an MCP server such as GitMCP to Claude Desktop using the config file, with file locations, an example, and troubleshooting tips."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/claude-desktop-mcp-setup/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claude Desktop Setup: Connect MCP Servers Step by Step", "description": "How to connect an MCP server such as GitMCP to Claude Desktop using the config file, with file locations, an example, and troubleshooting tips.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/claude-desktop-mcp-setup/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "Claude Desktop setup", "item": "https://reporouter.netlify.app/guides/claude-desktop-mcp-setup/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">Claude Desktop setup</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>Claude Desktop Setup: Connect MCP Servers Step by Step</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>6 min read</span></p>
+<div class="prose">
+
+<p class="lede">Claude Desktop can connect to MCP servers so that Claude can read documentation or use tools during a conversation. The classic method is a JSON config file, which this guide walks through.</p>
+
+<div class="callout warn"><strong class="label">Note</strong>Anthropic has also been adding a built-in way to add remote servers through the app's connector settings on some plans. If you see that option in Settings, it can be simpler than editing a file. Check Anthropic's help pages for current availability.</div>
+
+<h2>Before you start</h2>
+<ul>
+<li>Install the Claude Desktop app and sign in.</li>
+<li>Install <strong>Node.js</strong> if you plan to use the <code>npx</code> method below. Run <code>node --version</code> in a terminal to confirm.</li>
+<li>Get your server URL from <a href="/">Repo Router</a>, for example <code>https://gitmcp.io/owner/repo</code>.</li>
+</ul>
+
+<h2>Step 1: open the config file</h2>
+<p>In the app, open Settings, go to the Developer section and choose the option to edit the config. This opens the folder containing <code>claude_desktop_config.json</code>. By default it lives here:</p>
+<ul>
+<li><strong>macOS:</strong> <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></li>
+<li><strong>Windows:</strong> <code>%APPDATA%\Claude\claude_desktop_config.json</code></li>
+</ul>
+
+<h2>Step 2: add a server</h2>
+<p>Because the config file launches local processes, remote servers are connected through the <code>mcp-remote</code> bridge:</p>
+<pre><code>{
+  "mcpServers": {
+    "project-docs": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://gitmcp.io/owner/repo"]
+    }
+  }
+}</code></pre>
+<p>If the file already has other servers, add your entry inside the existing <code>mcpServers</code> object and separate entries with commas.</p>
+
+<h2>Step 3: restart completely</h2>
+<p>Quit Claude Desktop fully, not just close the window, then open it again. The app reads the file at startup.</p>
+
+<h2>Step 4: check that it works</h2>
+<ol>
+<li>Start a new chat and look for the tools or connector indicator near the message box.</li>
+<li>Open it and confirm your server and its tools appear.</li>
+<li>Ask a question that needs the documentation, naming the server: "Using project-docs, explain how configuration files are loaded."</li>
+<li>Approve the tool call if the app asks for permission.</li>
+</ol>
+
+<h2>Troubleshooting</h2>
+<ul>
+<li><strong>Nothing appears:</strong> validate the JSON. Trailing commas and smart quotes are the usual culprits.</li>
+<li><strong>"npx not found":</strong> install Node.js, then restart the app so it picks up the updated path.</li>
+<li><strong>Server starts then drops:</strong> check the app's log files, which are typically in a <code>Logs/Claude</code> folder on macOS and a <code>logs</code> folder next to the config on Windows.</li>
+<li><strong>Claude does not use the tool:</strong> mention the server by name, and make sure it is enabled for the chat.</li>
+</ul>
+
+<h2>Permissions</h2>
+<p>Claude asks before running most tool calls. Read the request before you approve it, and prefer read-only servers for documentation lookups. The <a href="/guides/mcp-security-privacy/">security checklist</a> explains what to look for.</p>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/what-is-mcp/"><h3>What is MCP?</h3><p>Model Context Protocol explained: clients, servers, tools, resources and prompts.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/gitmcp-guide/"><h3>GitMCP guide</h3><p>Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/mcp-security-privacy/"><h3>MCP security checklist</h3><p>What to check before connecting an MCP server or pasting code into an AI tool.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

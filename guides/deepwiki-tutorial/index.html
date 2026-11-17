@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>DeepWiki Tutorial: AI-Generated Documentation for Any Repository | Repo Router</title>
+<meta name="description" content="Learn how to use DeepWiki to get an AI-generated wiki for a GitHub repository, when it is useful, and how to check its answers."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/deepwiki-tutorial/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="DeepWiki Tutorial: AI-Generated Documentation for Any Repository"/>
+<meta property="og:description" content="Learn how to use DeepWiki to get an AI-generated wiki for a GitHub repository, when it is useful, and how to check its answers."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/deepwiki-tutorial/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DeepWiki Tutorial: AI-Generated Documentation for Any Repository", "description": "Learn how to use DeepWiki to get an AI-generated wiki for a GitHub repository, when it is useful, and how to check its answers.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/deepwiki-tutorial/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "DeepWiki tutorial", "item": "https://reporouter.netlify.app/guides/deepwiki-tutorial/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">DeepWiki tutorial</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>DeepWiki Tutorial: AI-Generated Documentation for Any Repository</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>6 min read</span></p>
+<div class="prose">
+
+<p class="lede">Opening an unfamiliar repository can feel like walking into a warehouse with no signs. DeepWiki generates a structured, wiki-style overview of a GitHub repository so you can find your bearings in minutes rather than hours.</p>
+
+<h2>What DeepWiki is</h2>
+<p>DeepWiki, from the team behind the Devin coding agent, analyzes a repository and produces browsable documentation: an architecture summary, pages for major components, diagrams where useful, and a chat box where you can ask questions about the code. It lives at <a href="https://deepwiki.com" rel="noopener noreferrer" target="_blank">deepwiki.com</a>.</p>
+
+<h2>How to open a repository</h2>
+<ol>
+<li>Take any public GitHub address, such as <code>https://github.com/owner/repo</code>.</li>
+<li>Replace <code>github.com</code> with <code>deepwiki.com</code> to get <code>https://deepwiki.com/owner/repo</code>.</li>
+<li>If the repository has not been indexed before, allow some time for generation.</li>
+</ol>
+<p>Repo Router does the substitution for you: choose the <strong>DeepWiki</strong> destination and press Run Route.</p>
+
+<h2>A practical reading order</h2>
+<ol>
+<li><strong>Start with the overview page.</strong> Note the stated purpose, main languages and top-level modules.</li>
+<li><strong>Read the architecture or system sections.</strong> Look for how data flows between modules and where entry points are.</li>
+<li><strong>Open one component page</strong> that matches your task, for example authentication or the build system.</li>
+<li><strong>Ask targeted questions in the chat</strong>, such as "Where is request validation performed?"</li>
+<li><strong>Jump to the real files on GitHub</strong> that DeepWiki points to, and read them yourself.</li>
+</ol>
+
+<h2>Good uses</h2>
+<ul>
+<li><strong>Onboarding</strong> to a new team's codebase.</li>
+<li><strong>Evaluating a dependency</strong> before adding it, to see how it is structured and how active its design is.</li>
+<li><strong>Finding where to make a change</strong> in an open-source project before opening a pull request.</li>
+<li><strong>Writing an issue</strong> that references the right modules.</li>
+</ul>
+
+<h2>Check what it tells you</h2>
+<p>The wiki is generated by AI. That makes it fast, and it also means mistakes are possible. Treat it as a map, not as ground truth:</p>
+<ul>
+<li>Confirm any claim that matters by opening the cited file.</li>
+<li>Remember that generated pages can lag behind recent commits.</li>
+<li>Behavior of private repositories and account features depends on DeepWiki's current offering, so check their site rather than assuming.</li>
+</ul>
+
+<div class="callout"><strong class="label">Why documentation quality still matters</strong>Generated wikis lean on what the repository already contains. Clear READMEs, meaningful names and a short architecture note noticeably improve the result. See <a href="/guides/github-repo-documentation/">how to document a repository for humans and AI</a>.</div>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/gitmcp-vs-deepwiki-vs-gitingest/"><h3>Tool comparison</h3><p>A decision guide for choosing between the four tools Repo Router connects.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/ai-coding-workflow/"><h3>AI coding workflow</h3><p>A six-stage workflow for using AI on real code without losing control of quality.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/github-repo-documentation/"><h3>Repo documentation</h3><p>README, architecture notes, llms.txt and AGENTS.md: what to write and why.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

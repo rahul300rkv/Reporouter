@@ -322,18 +322,24 @@
     outline:3px solid var(--rr-primary); outline-offset:2px;
   }
 </style>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
 </head>
-<body>
+<body class="home">
 <div class="grid-pattern"></div>
 
-<nav aria-label="Primary" class="rr-visually-hidden">
-  <a href="#tool">Tool</a>
-  <a href="#platforms">Platforms</a>
-  <a href="#guide">Guide</a>
-  <a href="#faq">FAQ</a>
-</nav>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/" aria-current="page">Tool</a><a href="/guides/">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<main>
+<main id="main">
 
 <!-- ===================== 1. HERO ===================== -->
 <header class="rr-hero rr-wrap" aria-labelledby="hero-heading">
@@ -426,7 +432,7 @@
 <div class="mb-4">
   <label class="block text-sm font-bold uppercase tracking-widest mb-3 text-gray-500" for="repo-input">Repository URL</label>
   <div class="relative group">
-    <input autocomplete="off" autofocus="" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text"/>
+    <input autocomplete="off" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text"/>
   </div>
   <!-- Recent repos chips -->
   <div class="flex flex-wrap gap-2 mt-3" id="recents-wrap"></div>
@@ -890,17 +896,18 @@ const destinations = {
 <section aria-labelledby="resources-heading" class="rr-section rr-section-tight">
   <div class="rr-wrap">
     <span class="rr-eyebrow">Keep Learning</span>
-    <h2 class="rr-h2 mt-3 mb-8" id="resources-heading">Related resources</h2>
+    <h2 class="rr-h2 mt-3 mb-8" id="resources-heading">Guides &amp; resources</h2>
     <div class="rr-grid-4">
-      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">What is MCP?</h3><p class="text-sm text-gray-600">Model Context Protocol ka deep-dive explainer.</p></div>
-      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">GitMCP Guide</h3><p class="text-sm text-gray-600">GitMCP ko step-by-step setup karne ka guide.</p></div>
-      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">DeepWiki Tutorial</h3><p class="text-sm text-gray-600">DeepWiki se documentation generate karna seekho.</p></div>
-      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">Cursor + MCP</h3><p class="text-sm text-gray-600">Cursor mein MCP servers connect karne ka tarika.</p></div>
-      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">Claude Desktop Setup</h3><p class="text-sm text-gray-600">Claude Desktop mein connectors configure karna.</p></div>
-      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">AI Coding Workflow</h3><p class="text-sm text-gray-600">End-to-end AI-assisted coding workflow.</p></div>
-      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">GitHub Repo Documentation</h3><p class="text-sm text-gray-600">Repository documentation likhne ke best practices.</p></div>
-      <div class="rr-card rr-resource-card"><span class="rr-resource-badge">Coming soon</span><h3 class="rr-h3">Best AI Developer Tools</h3><p class="text-sm text-gray-600">2026 ke top AI-assisted development tools.</p></div>
+      <a class="rr-card rr-resource-card" href="/guides/what-is-mcp/"><span class="rr-resource-badge">Guide &middot; 6 min</span><h3 class="rr-h3">What is MCP?</h3><p class="text-sm text-gray-600">Model Context Protocol explained: clients, servers, tools, resources and prompts.</p><span class="rr-more">Read guide &rarr;</span></a>
+      <a class="rr-card rr-resource-card" href="/guides/gitmcp-guide/"><span class="rr-resource-badge">Guide &middot; 7 min</span><h3 class="rr-h3">GitMCP Guide</h3><p class="text-sm text-gray-600">Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="rr-more">Read guide &rarr;</span></a>
+      <a class="rr-card rr-resource-card" href="/guides/deepwiki-tutorial/"><span class="rr-resource-badge">Guide &middot; 6 min</span><h3 class="rr-h3">DeepWiki Tutorial</h3><p class="text-sm text-gray-600">Use DeepWiki to understand an unfamiliar codebase quickly, and verify what it says.</p><span class="rr-more">Read guide &rarr;</span></a>
+      <a class="rr-card rr-resource-card" href="/guides/cursor-mcp-setup/"><span class="rr-resource-badge">Guide &middot; 6 min</span><h3 class="rr-h3">Cursor + MCP</h3><p class="text-sm text-gray-600">Add GitMCP or any remote MCP server to Cursor and confirm it works.</p><span class="rr-more">Read guide &rarr;</span></a>
+      <a class="rr-card rr-resource-card" href="/guides/claude-desktop-mcp-setup/"><span class="rr-resource-badge">Guide &middot; 6 min</span><h3 class="rr-h3">Claude Desktop Setup</h3><p class="text-sm text-gray-600">Edit the Claude Desktop config, add a server, restart, and check it works.</p><span class="rr-more">Read guide &rarr;</span></a>
+      <a class="rr-card rr-resource-card" href="/guides/ai-coding-workflow/"><span class="rr-resource-badge">Guide &middot; 7 min</span><h3 class="rr-h3">AI Coding Workflow</h3><p class="text-sm text-gray-600">A six-stage workflow for using AI on real code without losing control of quality.</p><span class="rr-more">Read guide &rarr;</span></a>
+      <a class="rr-card rr-resource-card" href="/guides/github-repo-documentation/"><span class="rr-resource-badge">Guide &middot; 7 min</span><h3 class="rr-h3">GitHub Repo Documentation</h3><p class="text-sm text-gray-600">README, architecture notes, llms.txt and AGENTS.md: what to write and why.</p><span class="rr-more">Read guide &rarr;</span></a>
+      <a class="rr-card rr-resource-card" href="/guides/best-ai-developer-tools/"><span class="rr-resource-badge">Guide &middot; 7 min</span><h3 class="rr-h3">Best AI Developer Tools</h3><p class="text-sm text-gray-600">Editors, agents, chat assistants and repo tools: what each is for and how to pick.</p><span class="rr-more">Read guide &rarr;</span></a>
     </div>
+    <p style="margin-top:1.5rem"><a class="rr-btn-secondary" href="/guides/">Browse all guides</a> <a class="rr-btn-secondary" href="/guides/mcp-security-privacy/">MCP security checklist</a></p>
   </div>
 </section>
 
@@ -918,52 +925,59 @@ const destinations = {
   </div>
 </section>
 
+<section class="home-about" aria-labelledby="about-heading">
+  <h2 id="about-heading">Repo Router Kya Hai?</h2>
+  <p>
+    Agar aap ek developer ho aur roz <strong>GitHub</strong> repos explore karte ho, toh aapne already <code>gitmcp.io</code>, <code>gitingest.com</code>, <code>deepwiki.com</code> aur <code>uithub.com</code> ke baare mein suna hoga. Manually URL mein <code>github.com</code> ko replace karna thoda time-waste hai — isiliye <strong>Repo Router</strong> bana hai. Bas apna repo link paste karo, destination select karo, aur ek click mein seedha sahi jagah pohonch jao. Koi installation nahi, koi signup nahi — sab kuch aapke browser mein hi process hota hai.
+  </p>
+  <p>
+    <strong>MCP Server</strong> Claude, Cursor, ya kisi bhi AI coding assistant ke liye perfect hai. <strong>Dir Tree</strong> poora codebase LLM-friendly format mein deta hai. <strong>DeepWiki</strong> AI-generated documentation banata hai. <strong>UIthub</strong> ek alternate LLM-context viewer hai. Aur ab aap apne README mein ek badge bhi laga sakte ho jo directly yahan deep-link karta hai!
+  </p>
+
+  <p>Learn more <a href="/about/">about the project</a>, read the <a href="/guides/how-to-use-repo-router/">full walkthrough</a> or check the <a href="/privacy-policy/">privacy policy</a>.</p>
+</section>
+
 </main>
 
-<!-- ===================== 14. FOOTER ===================== -->
-<footer class="rr-footer">
-  <div class="rr-wrap">
-    <div class="rr-footer-grid">
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
       <div>
-        <h4>Repo Router</h4>
-        <p style="color:#9CA3AF; font-size:.85rem; line-height:1.6; max-width:16rem;">GitHub repo links ko instantly AI-ready formats mein convert karne wala free, browser-only tool.</p>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
       </div>
       <div>
-        <h4>Company</h4>
-        <a href="#about-heading">About</a>
-        <a href="mailto:hello@reporouter.netlify.app">Contact</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms</a>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
       </div>
       <div>
-        <h4>Resources</h4>
-        <a href="#guide">Guide</a>
-        <a href="#faq">FAQ</a>
-        <a href="#">Disclaimer</a>
-        <a href="#">Sitemap</a>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
       </div>
       <div>
-        <h4>Project</h4>
-        <a href="https://github.com" rel="noopener noreferrer" target="_blank">GitHub Repo</a>
-        <a href="#tool">Open Tool</a>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
       </div>
     </div>
-    <div class="rr-footer-bottom">
-      <span>© 2026 Repo Router. All rights reserved.</span>
-      <span>Last updated: August 2026</span>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
     </div>
   </div>
 </footer>
 
-<section class="w-full max-w-2xl px-2 mt-14 mx-auto" aria-labelledby="about-heading">
-  <h2 class="font-display text-2xl md:text-3xl font-extrabold tracking-tight mb-4" id="about-heading">Repo Router Kya Hai?</h2>
-  <p class="text-gray-700 leading-relaxed mb-4">
-    Agar aap ek developer ho aur roz <strong>GitHub</strong> repos explore karte ho, toh aapne already <code>gitmcp.io</code>, <code>gitingest.com</code>, <code>deepwiki.com</code> aur <code>uithub.com</code> ke baare mein suna hoga. Manually URL mein <code>github.com</code> ko replace karna thoda time-waste hai — isiliye <strong>Repo Router</strong> bana hai. Bas apna repo link paste karo, destination select karo, aur ek click mein seedha sahi jagah pohonch jao. Koi installation nahi, koi signup nahi — sab kuch aapke browser mein hi process hota hai.
-  </p>
-  <p class="text-gray-700 leading-relaxed">
-    <strong>MCP Server</strong> Claude, Cursor, ya kisi bhi AI coding assistant ke liye perfect hai. <strong>Dir Tree</strong> poora codebase LLM-friendly format mein deta hai. <strong>DeepWiki</strong> AI-generated documentation banata hai. <strong>UIthub</strong> ek alternate LLM-context viewer hai. Aur ab aap apne README mein ek badge bhi laga sakte ho jo directly yahan deep-link karta hai!
-  </p>
-</section>
 
 <!-- QRCode library (needed for QR feature) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>What Is the Model Context Protocol (MCP)? A Plain-English Guide | Repo Router</title>
+<meta name="description" content="A plain-English explanation of the Model Context Protocol: what problem it solves, how clients and servers talk, and why it matters for coding with AI."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/what-is-mcp/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="What Is the Model Context Protocol (MCP)? A Plain-English Guide"/>
+<meta property="og:description" content="A plain-English explanation of the Model Context Protocol: what problem it solves, how clients and servers talk, and why it matters for coding with AI."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/what-is-mcp/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What Is the Model Context Protocol (MCP)? A Plain-English Guide", "description": "A plain-English explanation of the Model Context Protocol: what problem it solves, how clients and servers talk, and why it matters for coding with AI.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/what-is-mcp/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "What is MCP?", "item": "https://reporouter.netlify.app/guides/what-is-mcp/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">What is MCP?</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>What Is the Model Context Protocol (MCP)? A Plain-English Guide</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>6 min read</span></p>
+<div class="prose">
+
+<p class="lede">AI assistants are good at language but blind to your world. They do not know what is in your repository, your documentation or your database unless you paste it in. The Model Context Protocol, usually shortened to MCP, is a standard way to fix that.</p>
+
+<h2>The problem MCP solves</h2>
+<p>Before MCP, every connection between an AI app and an outside system was custom work. If you wanted an assistant to read GitHub, search a wiki and query a database, each pairing needed its own integration. With several assistants and several data sources, the number of integrations multiplied quickly.</p>
+<p>MCP replaces that tangle with one shared protocol. A data source or tool is wrapped once as an <strong>MCP server</strong>. Any AI application that speaks MCP, called an <strong>MCP client</strong>, can then use it without bespoke code.</p>
+
+<h2>Where MCP came from</h2>
+<p>Anthropic introduced MCP as an open standard in November 2024. It is published openly, with specifications, SDKs and reference servers, and it has since been adopted by many AI tools and editors, not only Anthropic's own. The official documentation lives at <a href="https://modelcontextprotocol.io" rel="noopener noreferrer" target="_blank">modelcontextprotocol.io</a>.</p>
+
+<h2>The moving parts</h2>
+<ul>
+<li><strong>Host:</strong> the application you actually use, such as a desktop chat app or a code editor.</li>
+<li><strong>Client:</strong> the connector inside the host that keeps a connection open to one server.</li>
+<li><strong>Server:</strong> a small program that exposes capabilities, for example "search this repo's docs".</li>
+</ul>
+<p>Messages between client and server use JSON-RPC. Servers can run on your own machine (the host starts them as a local process and talks over standard input and output) or remotely over HTTP. Remote servers are what make tools like GitMCP convenient, because there is nothing to install.</p>
+
+<h2>What a server can offer</h2>
+<p>MCP defines three main building blocks:</p>
+<ul>
+<li><strong>Tools:</strong> actions the model can choose to call, like "search code" or "create an issue". Tools can have side effects.</li>
+<li><strong>Resources:</strong> data the model or the app can read, such as a file, a document or a database row.</li>
+<li><strong>Prompts:</strong> reusable templates a user can trigger, for example a standard code-review request.</li>
+</ul>
+
+<h2>A worked example</h2>
+<p>Suppose you ask your editor's assistant: "How does authentication work in this library?" With a documentation server connected, the flow looks like this:</p>
+<ol>
+<li>The client asks the server which tools it has, and passes those descriptions to the model.</li>
+<li>The model decides a search tool is relevant and requests a call with a query such as "authentication".</li>
+<li>The client runs the call, the server returns matching documentation and code snippets.</li>
+<li>The model writes an answer based on that returned material instead of guessing from memory.</li>
+</ol>
+<p>The result is an answer tied to the real repository, which is far less likely to invent function names that do not exist.</p>
+
+<h2>Why MCP matters for developers</h2>
+<p>Models have a training cutoff. A library released or changed after that cutoff may be missing or misremembered. MCP lets an assistant fetch current documentation on demand. It also lets you reuse the same server across editors and chat apps instead of rebuilding the integration each time.</p>
+
+<h2>Limits worth knowing</h2>
+<ul>
+<li>Every connected tool adds description text to the model's context, so connecting dozens of servers can crowd out useful space.</li>
+<li>A server is code that may run with your permissions. Treat unfamiliar servers with the same care as any software you install. Our <a href="/guides/mcp-security-privacy/">MCP security checklist</a> covers this.</li>
+<li>Retrieval is only as good as the source. A repository with weak documentation gives weak answers.</li>
+</ul>
+
+<h2>Next steps</h2>
+<p>If you work with GitHub repositories, the quickest hands-on introduction is <a href="/guides/gitmcp-guide/">GitMCP</a>, which turns a repository into a remote MCP server. Repo Router builds the right URL for you: paste a repo link and pick the MCP Server option.</p>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/gitmcp-guide/"><h3>GitMCP guide</h3><p>Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/mcp-security-privacy/"><h3>MCP security checklist</h3><p>What to check before connecting an MCP server or pasting code into an AI tool.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/claude-desktop-mcp-setup/"><h3>Claude Desktop setup</h3><p>Edit the Claude Desktop config, add a server, restart, and check it works.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

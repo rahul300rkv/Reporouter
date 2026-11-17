@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>UIthub Guide: Browse and Filter Repository Code for LLM Context | Repo Router</title>
+<meta name="description" content="What UIthub is, how its GitHub URL trick works, how to filter files, and when it is a better fit than a full digest."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/uithub-guide/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="UIthub Guide: Browse and Filter Repository Code for LLM Context"/>
+<meta property="og:description" content="What UIthub is, how its GitHub URL trick works, how to filter files, and when it is a better fit than a full digest."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/uithub-guide/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "UIthub Guide: Browse and Filter Repository Code for LLM Context", "description": "What UIthub is, how its GitHub URL trick works, how to filter files, and when it is a better fit than a full digest.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/uithub-guide/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "UIthub guide", "item": "https://reporouter.netlify.app/guides/uithub-guide/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">UIthub guide</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>UIthub Guide: Browse and Filter Repository Code for LLM Context</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>5 min read</span></p>
+<div class="prose">
+
+<p class="lede">UIthub sits between a plain GitHub page and a full text digest. It lets you look at a repository's files together, narrow them down, and copy exactly the part you want to give to an AI model.</p>
+
+<h2>The URL shortcut</h2>
+<p>Take any GitHub repository address and change the domain from <code>github.com</code> to <code>uithub.com</code>, keeping the rest of the path. <code>https://github.com/owner/repo</code> becomes <code>https://uithub.com/owner/repo</code>. Paths that point to a subfolder carry over, so you can start from the exact directory you care about. Repo Router's <strong>UIthub</strong> option applies this change for you.</p>
+
+<h2>What you get</h2>
+<ul>
+<li>A combined view of the repository's files, rather than one file per page.</li>
+<li>Filtering controls to narrow the view, for example by folder or file extension.</li>
+<li>A way to copy or download the result as text so it can be given to a language model.</li>
+</ul>
+<p>The tool evolves, so check <a href="https://uithub.com" rel="noopener noreferrer" target="_blank">uithub.com</a> for its current options.</p>
+
+<h2>When to choose UIthub</h2>
+<ul>
+<li><strong>You know which folder matters.</strong> Starting from a subfolder URL keeps the context small.</li>
+<li><strong>You want to skim first.</strong> Seeing files together makes it easy to decide what to include.</li>
+<li><strong>You need a quick copy-paste</strong> into a chat tool that cannot use MCP.</li>
+</ul>
+
+<h2>A simple filtering routine</h2>
+<ol>
+<li>Open the repository root and identify the folder related to your task.</li>
+<li>Restrict the view to that folder, and to the languages you need.</li>
+<li>Remove tests or fixtures if they are not relevant, or keep only the tests for the module in question.</li>
+<li>Check the size indicator against your model's limits, then copy.</li>
+</ol>
+
+<h2>Compared with a digest</h2>
+<p>A <a href="/guides/gitingest-guide/">Gitingest digest</a> is more of a whole-project snapshot with a tree at the top, while UIthub is more interactive for choosing a slice. Neither replaces reading the real code when a decision matters. If your assistant supports MCP, <a href="/guides/gitmcp-guide/">GitMCP</a> avoids copying altogether.</p>
+
+<div class="callout warn"><strong class="label">Reminder</strong>Anything you copy into an AI chat leaves your machine. Exclude secrets, customer data and proprietary code you are not allowed to share.</div>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/gitingest-guide/"><h3>Gitingest guide</h3><p>Create a single-file text digest of a repo, and keep it small enough to be useful.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/gitmcp-vs-deepwiki-vs-gitingest/"><h3>Tool comparison</h3><p>A decision guide for choosing between the four tools Repo Router connects.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/ai-coding-workflow/"><h3>AI coding workflow</h3><p>A six-stage workflow for using AI on real code without losing control of quality.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

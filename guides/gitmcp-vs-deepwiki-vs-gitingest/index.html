@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>GitMCP vs DeepWiki vs Gitingest vs UIthub: Which One Should You Use? | Repo Router</title>
+<meta name="description" content="A side-by-side comparison of GitMCP, DeepWiki, Gitingest and UIthub, with a simple decision guide for choosing between them."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/gitmcp-vs-deepwiki-vs-gitingest/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="GitMCP vs DeepWiki vs Gitingest vs UIthub: Which One Should You Use?"/>
+<meta property="og:description" content="A side-by-side comparison of GitMCP, DeepWiki, Gitingest and UIthub, with a simple decision guide for choosing between them."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/gitmcp-vs-deepwiki-vs-gitingest/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GitMCP vs DeepWiki vs Gitingest vs UIthub: Which One Should You Use?", "description": "A side-by-side comparison of GitMCP, DeepWiki, Gitingest and UIthub, with a simple decision guide for choosing between them.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/gitmcp-vs-deepwiki-vs-gitingest/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "Tool comparison", "item": "https://reporouter.netlify.app/guides/gitmcp-vs-deepwiki-vs-gitingest/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">Tool comparison</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>GitMCP vs DeepWiki vs Gitingest vs UIthub: Which One Should You Use?</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>5 min read</span></p>
+<div class="prose">
+
+<p class="lede">The four destinations Repo Router connects to solve related problems in different ways. This page compares them so you can pick quickly.</p>
+
+<h2>The short answer</h2>
+<ul>
+<li>Want your <strong>assistant to look things up by itself</strong>? Use <strong>GitMCP</strong>.</li>
+<li>Want to <strong>understand a codebase as a human</strong>? Use <strong>DeepWiki</strong>.</li>
+<li>Want to <strong>paste a whole project</strong> into a chat? Use <strong>Gitingest</strong>.</li>
+<li>Want to <strong>pick and copy a slice</strong> of a project? Use <strong>UIthub</strong>.</li>
+</ul>
+
+<h2>Side-by-side</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Tool</th><th>What you get</th><th>Live or snapshot</th><th>Best for</th><th>Main caveat</th></tr></thead>
+<tbody>
+<tr><td>GitMCP</td><td>A remote MCP server exposing a repo's docs and code search</td><td>Live, fetched per question</td><td>Assistants in editors and chat apps that support MCP</td><td>Needs an MCP-capable client; quality tracks documentation</td></tr>
+<tr><td>DeepWiki</td><td>A generated wiki with architecture pages and Q&amp;A</td><td>Generated, may lag recent commits</td><td>Learning an unfamiliar codebase</td><td>AI-generated, so verify against source</td></tr>
+<tr><td>Gitingest</td><td>One text digest: tree plus file contents</td><td>Snapshot at generation time</td><td>Pasting a project or module into any chat</td><td>Can be too large without filtering</td></tr>
+<tr><td>UIthub</td><td>A filterable combined view you can copy as text</td><td>Snapshot at copy time</td><td>Choosing exactly which folders or file types to share</td><td>Manual selection takes a little effort</td></tr>
+</tbody></table></div>
+
+<h2>Choosing by situation</h2>
+<h3>"I'm using a library I barely know"</h3>
+<p>Connect <a href="/guides/gitmcp-guide/">GitMCP</a> so the assistant consults real documentation instead of guessing.</p>
+<h3>"I just inherited a repository"</h3>
+<p>Start with <a href="/guides/deepwiki-tutorial/">DeepWiki</a> for the map, then open key files directly.</p>
+<h3>"I need a bug fixed in a small project"</h3>
+<p>Create a filtered <a href="/guides/gitingest-guide/">Gitingest digest</a> and paste it with a clear description of the bug.</p>
+<h3>"I only care about one folder"</h3>
+<p>Use <a href="/guides/uithub-guide/">UIthub</a> from that subfolder's URL and copy that slice.</p>
+
+<h2>Using them together</h2>
+<p>They are not rivals. A common sequence is DeepWiki to understand the layout, UIthub or Gitingest to hand the model the specific code, and GitMCP running in the background so the assistant can look up documentation as needed. Repo Router keeps the repository in one place while you switch destinations, so trying each one costs only a click.</p>
+
+<div class="callout"><strong class="label">Rule of thumb</strong>Use MCP when the assistant should fetch on its own, use a digest when you want to control exactly what it sees.</div>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/gitmcp-guide/"><h3>GitMCP guide</h3><p>Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/deepwiki-tutorial/"><h3>DeepWiki tutorial</h3><p>Use DeepWiki to understand an unfamiliar codebase quickly, and verify what it says.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/ai-coding-workflow/"><h3>AI coding workflow</h3><p>A six-stage workflow for using AI on real code without losing control of quality.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

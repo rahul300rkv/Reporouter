@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>An AI-Assisted Coding Workflow That Actually Works | Repo Router</title>
+<meta name="description" content="A practical end-to-end workflow for coding with AI: orient, ground, plan, implement in small steps, verify, and review."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/guides/ai-coding-workflow/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="An AI-Assisted Coding Workflow That Actually Works"/>
+<meta property="og:description" content="A practical end-to-end workflow for coding with AI: orient, ground, plan, implement in small steps, verify, and review."/>
+<meta property="og:url" content="https://reporouter.netlify.app/guides/ai-coding-workflow/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "An AI-Assisted Coding Workflow That Actually Works", "description": "A practical end-to-end workflow for coding with AI: orient, ground, plan, implement in small steps, verify, and review.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/ai-coding-workflow/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "AI coding workflow", "item": "https://reporouter.netlify.app/guides/ai-coding-workflow/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/guides/" aria-current="page">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">AI coding workflow</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Guide</span>
+<h1>An AI-Assisted Coding Workflow That Actually Works</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>7 min read</span></p>
+<div class="prose">
+
+<p class="lede">AI coding assistants are strongest when you give them good context and weakest when you hand over a vague wish. This workflow keeps you in charge while letting the assistant do the typing.</p>
+
+<h2>1. Orient</h2>
+<p>Before asking for code, understand the territory. If the repository is new to you, generate an overview with <a href="/guides/deepwiki-tutorial/">DeepWiki</a> and read the entry points yourself. Write two or three sentences describing the area you will change. If you cannot, you are not ready to delegate.</p>
+
+<h2>2. Ground the assistant</h2>
+<p>Give the assistant real information rather than trusting its memory:</p>
+<ul>
+<li>Connect <a href="/guides/gitmcp-guide/">GitMCP</a> for libraries you use, so documentation is fetched on demand.</li>
+<li>For a self-contained module, hand over a filtered <a href="/guides/gitingest-guide/">digest</a> of just that code.</li>
+<li>Add a short rules or <code>AGENTS.md</code> file stating your conventions: language version, formatting, test command, folders to avoid.</li>
+</ul>
+
+<h2>3. Plan before coding</h2>
+<p>Ask for a plan first: which files will change, what the approach is, and what could break. Reading a plan takes a minute and catches wrong assumptions before they turn into forty changed lines. Edit the plan, then approve it.</p>
+
+<h2>4. Implement in small steps</h2>
+<p>Request one change at a time and review each diff. Small steps make errors obvious and make it easy to revert. A useful prompt pattern:</p>
+<pre><code>Implement step 1 only: add the RateLimiter class in src/auth/limiter.ts.
+Do not touch other files. Show me the diff and wait.</code></pre>
+
+<h2>5. Verify</h2>
+<ul>
+<li><strong>Run the tests,</strong> and ask the assistant to add tests for new behavior.</li>
+<li><strong>Run the linter and type checker.</strong></li>
+<li><strong>Try it manually</strong> for anything user-facing.</li>
+<li><strong>Check dependencies:</strong> confirm any new package exists, is maintained and is actually needed.</li>
+</ul>
+
+<h2>6. Review like it is someone else's pull request</h2>
+<p>You are accountable for the code that ships. Read the final diff, look for unrelated edits, deleted tests, hard-coded secrets and unexplained complexity. Ask the assistant to explain anything you do not follow, and rewrite what you cannot defend.</p>
+
+<h2>Common failure modes</h2>
+<ul>
+<li><strong>Context overload:</strong> pasting an entire repository when the task touches two files.</li>
+<li><strong>Outdated APIs:</strong> code written for an old library version. Grounding with current docs reduces this.</li>
+<li><strong>Silent scope creep:</strong> the assistant "improves" unrelated files. State what must not change.</li>
+<li><strong>Skipping tests:</strong> confident-looking code that has never run.</li>
+</ul>
+
+<div class="callout"><strong class="label">Checklist</strong>Do I understand the area? Does the assistant have current docs? Did I read the plan? Are the steps small? Did tests pass? Did I read the final diff?</div>
+
+</div>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/gitmcp-vs-deepwiki-vs-gitingest/"><h3>Tool comparison</h3><p>A decision guide for choosing between the four tools Repo Router connects.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/best-ai-developer-tools/"><h3>AI developer tools</h3><p>Editors, agents, chat assistants and repo tools: what each is for and how to pick.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/github-repo-documentation/"><h3>Repo documentation</h3><p>README, architecture notes, llms.txt and AGENTS.md: what to write and why.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
+<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>Last updated: November 17, 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
