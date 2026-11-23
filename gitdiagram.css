@@ -1,0 +1,8 @@
+/* GitDiagram architecture tab */
+.gitdiagram-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin:1rem 0}
+.gitdiagram-toolbar button,.gitdiagram-toolbar a{border:2px solid #111827;border-radius:8px;padding:.65rem .85rem;background:#fff;color:#111827;font:700 .95rem 'Hanken Grotesk',sans-serif;cursor:pointer;text-decoration:none}
+.gitdiagram-toolbar button:disabled{opacity:.5;cursor:not-allowed}
+#gitdiagram-summary{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.96rem;line-height:1.6}
+#gitdiagram-graphic{overflow:auto;border:2px solid #e5e7eb;border-radius:10px;background:#fff;padding:1rem;min-height:80px}
+#gitdiagram-graphic svg{display:block;min-width:600px;max-width:100%;height:auto;margin:auto}
+#gitdiagram-source{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.78rem;max-height:270px;overflow:auto;border:1px solid #e5e7eb;padding:.75rem;background:#f9fafb}

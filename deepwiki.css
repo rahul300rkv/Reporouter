@@ -1,0 +1,9 @@
+/* Phase 2 DeepWiki integration: intentionally consistent with Explorer styles */
+#explorer-panel .deepwiki-controls{display:flex;flex-wrap:wrap;gap:.75rem;margin:1rem 0}
+#explorer-panel .deepwiki-controls button{min-height:44px;border:2px solid #111827;border-radius:9px;padding:.6rem .9rem;background:#fff;font:inherit;font-weight:700;cursor:pointer}
+#explorer-panel .deepwiki-controls button:first-child{background:#ff9f5b}
+#explorer-panel .deepwiki-controls button:disabled{opacity:.6;cursor:wait}
+#explorer-panel #deepwiki-question{display:block;width:100%;min-height:48px;border:2px solid #111827;padding:.75rem;border-radius:9px;font:inherit}
+#explorer-panel #deepwiki-output{white-space:pre-wrap;overflow-wrap:anywhere;overflow:auto;max-height:700px;min-height:180px;background:#fff;border:2px solid #111827;border-radius:9px;padding:1rem;font:inherit;line-height:1.6;tab-size:2}
+#explorer-panel #deepwiki-status[data-error="true"]{color:#a11b1b}
+#explorer-panel .deepwiki-note{font-size:.9rem;color:#4b5563;line-height:1.5}

@@ -125,13 +125,19 @@ let lastTransformed = null;
 let copyResetTimer;
 let qrVisible = false;
 
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (ch) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[ch]));
+}
+
 // --- Recents rendering ------------------------------------------------
 
 function renderRecents() {
   const recents = getRecents();
   if (!recents.length) { els.recents.innerHTML = ""; return; }
   els.recents.innerHTML =
-    recents.map((r) => `<button class="recent-chip" data-repo="${r}">${r}</button>`).join("") +
+    recents.map((r) => `<button class="recent-chip" data-repo="${escapeHtml(r)}">${escapeHtml(r)}</button>`).join("") +
     `<button class="recent-chip recent-chip--clear" id="clear-recents">✕ clear</button>`;
 
   els.recents.querySelectorAll("[data-repo]").forEach((btn) => {
@@ -157,11 +163,11 @@ function renderMeta(data) {
   els.metaWrap.hidden = false;
   els.metaWrap.innerHTML = `
     <div class="repo-meta">
-      <span class="meta-name">${data.full_name}</span>
+      <span class="meta-name">${escapeHtml(data.full_name)}</span>
       <span class="meta-item"><span class="material-symbols-outlined" aria-hidden="true">star</span>${fmtNum(data.stargazers_count)}</span>
-      ${data.language ? `<span class="meta-item">${langColor}${data.language}</span>` : ""}
+      ${data.language ? `<span class="meta-item">${langColor}${escapeHtml(data.language)}</span>` : ""}
       <span class="meta-item"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>${updated}</span>
-      ${data.description ? `<span class="meta-desc" title="${data.description}">${data.description}</span>` : ""}
+      ${data.description ? `<span class="meta-desc" title="${escapeHtml(data.description)}">${escapeHtml(data.description)}</span>` : ""}
     </div>`;
 }
 
@@ -267,9 +273,15 @@ function submit() {
   renderRecents();
   els.resultUrl.textContent = lastTransformed.replace("https://", "");
   els.resultOpenLink.href = lastTransformed;
-  els.resultFrame.src = lastTransformed;
-  els.resultPanel.classList.remove("hidden");
-  els.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  // First-party explorer replaces the blocked iframe; preserve external fallback URL.
+  els.resultFrame.removeAttribute("src");
+  els.resultPanel.classList.add("hidden");
+  if (window.RepoRouterExplorer) {
+    window.RepoRouterExplorer.open(currentParsed, lastTransformed);
+  } else {
+    els.resultPanel.classList.remove("hidden");
+    els.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 // --- Copy result URL --------------------------------------------------
@@ -369,5 +381,5 @@ document.getElementById("badge-copy-btn")?.addEventListener("click", copyBadge);
 // --- Init -------------------------------------------------------------
 
 renderRecents();
-readUrlParams();
 setMode("mcp");
+readUrlParams();

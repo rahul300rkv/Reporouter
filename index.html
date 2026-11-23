@@ -13,7 +13,7 @@
 <meta content="website" property="og:type"/>
 <meta content="https://reporouter.netlify.app/" property="og:url"/>
 <meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" property="og:title"/>
-<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe redirect ho jao. Free aur 100% browser-local." property="og:description"/>
+<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe redirect ho jao. Free repository explorer with on-site docs and digest." property="og:description"/>
 <meta content="https://reporouter.netlify.app/og-image.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
@@ -21,7 +21,7 @@
 
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" name="twitter:title"/>
-<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe redirect ho jao. Free aur 100% browser-local." name="twitter:description"/>
+<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe redirect ho jao. Free repository explorer with on-site docs and digest." name="twitter:description"/>
 <meta content="https://reporouter.netlify.app/og-image.png" name="twitter:image"/>
 
 <meta content="#FFFDF8" name="theme-color"/>
@@ -58,9 +58,9 @@
   "mainEntity": [
     { "@type": "Question", "name": "GitMCP kya hota hai?", "acceptedAnswer": { "@type": "Answer", "text": "GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein." } },
     { "@type": "Question", "name": "Gitingest se kya milta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai." } },
-    { "@type": "Question", "name": "Repo Router free hai kya, koi signup chahiye?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao." } },
-    { "@type": "Question", "name": "Kya mera code kahin upload ya store hota hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata." } },
-    { "@type": "Question", "name": "Kya private repos ke saath kaam karega?", "acceptedAnswer": { "@type": "Answer", "text": "Repo Router sirf link redirect karta hai — private repos ke liye aapko gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho." } },
+    { "@type": "Question", "name": "Repo Router free hai kya, koi signup chahiye?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. GitHub link paste karo aur Repo Router par files, digest aur docs explore karo." } },
+    { "@type": "Question", "name": "Kya mera code kahin upload ya store hota hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi. Public repository files GitHub API se load hote hain; integrated docs queries Netlify ke through providers ko forward hoti hain. Details privacy policy mein hain." } },
+    { "@type": "Question", "name": "Kya private repos ke saath kaam karega?", "acceptedAnswer": { "@type": "Answer", "text": "Built-in explorer aur docs public repositories ke liye hain. Private repositories ke liye provider ki documentation dekhein." } },
     { "@type": "Question", "name": "MCP Integration aur Directory Structure mein kya difference hai?", "acceptedAnswer": { "@type": "Answer", "text": "MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain." } },
     { "@type": "Question", "name": "README badge kya hota hai aur kaise use karein?", "acceptedAnswer": { "@type": "Answer", "text": "Jab aap koi valid GitHub repo paste karte ho, Repo Router ek markdown badge snippet generate karta hai. Use apne repo ke README mein paste karo — badge click karne pe seedha Repo Router pe aa jaate hain, repo pre-filled ke saath." } },
     { "@type": "Question", "name": "Model Context Protocol (MCP) kya hai?", "acceptedAnswer": { "@type": "Answer", "text": "MCP ek open protocol hai jo AI assistants ko external tools, data sources aur documentation ke saath structured tarike se connect karne deta hai, taaki assistant ko sirf training data pe depend na rehna pade." } },
@@ -69,13 +69,13 @@
     { "@type": "Question", "name": "DeepWiki kya karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "DeepWiki kisi bhi public repository ke liye AI-generated documentation aur explanations banata hai, jisse naye contributors codebase ko jaldi samajh sakein." } },
     { "@type": "Question", "name": "UIthub kis liye useful hai?", "acceptedAnswer": { "@type": "Answer", "text": "UIthub repository ko ek alternate, LLM-context-friendly view mein present karta hai, jo bade codebases ko browse aur samajhne mein madad karta hai." } },
     { "@type": "Question", "name": "Kya Repo Router repo ka data collect karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi, Repo Router sirf link ka format badalta hai (URL rewriting). Koi analytics, code, ya personal data collect ya store nahi kiya jaata." } },
-    { "@type": "Question", "name": "Kya Repo Router browser-only tool hai?", "acceptedAnswer": { "@type": "Answer", "text": "Haan. Saara URL parsing aur redirection logic client-side JavaScript mein chalta hai — koi backend server involved nahi hota, isliye processing turant hoti hai." } },
+    { "@type": "Question", "name": "Kya Repo Router browser-only tool hai?", "acceptedAnswer": { "@type": "Answer", "text": "URL conversion browser mein hota hai; repository explorer GitHub API aur integrated docs Netlify Functions use karte hain." } },
     { "@type": "Question", "name": "Kya Repo Router kisi bhi browser mein kaam karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, Repo Router modern browsers (Chrome, Firefox, Edge, Safari) mein desktop aur mobile dono pe kaam karta hai, kyunki ye plain HTML, CSS aur JavaScript se bana hai." } },
     { "@type": "Question", "name": "Kya Repo Router paid hai ya iska koi pricing plan hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi, Repo Router poori tarah free hai aur iska koi pricing tier nahi hai. Destination services (jaise GitMCP ya DeepWiki) ki apni alag terms ho sakti hain." } },
     { "@type": "Question", "name": "Kya Repo Router open source hai?", "acceptedAnswer": { "@type": "Answer", "text": "Repo Router ka source code GitHub par available hai (footer mein link diya gaya hai), taaki koi bhi developer code review kar sake ya contribute kar sake." } },
-    { "@type": "Question", "name": "Kya Repo Router ka koi API hai?", "acceptedAnswer": { "@type": "Answer", "text": "Filhaal Repo Router ek simple frontend redirection tool hai, iska koi separate public API nahi hai. Aap README badge ke through deep-linking use kar sakte hain." } },
+    { "@type": "Question", "name": "Kya Repo Router ka koi API hai?", "acceptedAnswer": { "@type": "Answer", "text": "Repo Router ka public developer API nahi hai. Site GitHub API aur internal read-only docs endpoints use karti hai." } },
     { "@type": "Question", "name": "Repo Router GitHub ke alawa aur platforms support karega?", "acceptedAnswer": { "@type": "Answer", "text": "Filhaal Repo Router sirf github.com repository links support karta hai. Future mein GitLab jaise platforms add karne ka plan ho sakta hai." } },
-    { "@type": "Question", "name": "Repo Router kitna fast hai?", "acceptedAnswer": { "@type": "Answer", "text": "Chunki koi server-side processing nahi hoti, redirection almost instant hota hai — sirf destination site ka apna load time lagta hai." } },
+    { "@type": "Question", "name": "Repo Router kitna fast hai?", "acceptedAnswer": { "@type": "Answer", "text": "URL conversion instant hai; previews aur docs ke load times providers par depend karte hain." } },
     { "@type": "Question", "name": "Kya main Repo Router ko mobile pe use kar sakta hoon?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, page fully responsive hai aur mobile browsers pe bhi wahi functionality deta hai jo desktop pe milti hai." } },
     { "@type": "Question", "name": "Agar destination site embed na ho toh kya karein?", "acceptedAnswer": { "@type": "Answer", "text": "Kuch sites security reasons se iframe embedding block karti hain. Aise mein result panel ke 'Open ↗' button se aap us site ko naye tab mein directly open kar sakte hain." } }
   ]
@@ -324,6 +324,10 @@
 </style>
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
+<link rel="stylesheet" href="explorer.css"/>
+<link rel="stylesheet" href="deepwiki.css"/>
+<link rel="stylesheet" href="gitmcp.css"/>
+<link rel="stylesheet" href="gitdiagram.css"/>
 </head>
 <body class="home">
 <div class="grid-pattern"></div>
@@ -404,8 +408,8 @@
       </article>
       <article class="rr-card">
         <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">lock</span></div>
-        <h3 class="rr-h3 mb-2">Browser-only processing</h3>
-        <p class="text-sm text-gray-600 leading-relaxed">Koi server, koi backend nahi. Saara URL transformation aapke browser mein locally hota hai.</p>
+        <h3 class="rr-h3 mb-2">Repository exploration</h3>
+        <p class="text-sm text-gray-600 leading-relaxed">URL conversion browser mein hota hai; files GitHub API aur docs Netlify Functions se load hote hain.</p>
       </article>
       <article class="rr-card">
         <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">rocket_launch</span></div>
@@ -467,7 +471,7 @@
 </div>
 
 <!-- Repo metadata preview -->
-<div class="mb-4 hidden" id="meta-wrap" aria-live="polite"></div>
+<div class="mb-4" id="meta-wrap" hidden aria-live="polite"></div>
 
 <!-- Transformation diff preview -->
 <div class="diff-container" id="diff-wrap">
@@ -493,7 +497,7 @@
 </div>
 
 <!-- README badge generator -->
-<div class="hidden mb-6" id="badge-wrap">
+<div class="mb-6" id="badge-wrap" hidden>
   <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white">
     <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2 flex justify-between items-center">
       <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">README Badge — paste into your repo</span>
@@ -513,7 +517,7 @@
 </div>
 
 <!-- QR code panel -->
-<div class="hidden mb-6" id="qr-section">
+<div class="mb-6" id="qr-section" hidden>
   <div class="border-[2px] border-ink-black rounded-lg overflow-hidden bg-white">
     <div class="bg-gray-100 border-b-[2px] border-ink-black px-4 py-2">
       <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">QR Code — scan to open</span>
@@ -557,6 +561,63 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Repo Router: first-party public GitHub repository explorer. -->
+<section id="explorer-panel" aria-label="Repository Explorer" hidden>
+  <div class="explorer-top">
+    <div><p class="explorer-small">Repository Explorer · public GitHub repositories</p><h2 id="explorer-name">Repository</h2></div>
+    <div class="explorer-actions"><a class="explorer-link" id="explorer-tool-link" href="https://gitmcp.io" target="_blank" rel="noopener noreferrer">Open selected tool ↗</a><a class="explorer-link" id="explorer-external" href="https://github.com" target="_blank" rel="noopener noreferrer">Open on GitHub ↗</a><button id="explorer-close" type="button">Close</button></div>
+  </div>
+  <p class="explorer-status" id="explorer-status" role="status" aria-live="polite">Ready.</p>
+  <div class="explorer-tabs" role="tablist" aria-label="Repository views">
+    <button role="tab" type="button" data-explorer-tab="overview" aria-selected="true">Overview</button>
+    <button role="tab" type="button" data-explorer-tab="files" aria-selected="false">Files</button>
+    <button role="tab" type="button" data-explorer-tab="digest" aria-selected="false">Digest</button>
+    <button role="tab" type="button" data-explorer-tab="deepwiki" aria-selected="false">AI Docs (DeepWiki)</button>
+    <button role="tab" type="button" data-explorer-tab="gitmcp" aria-selected="false">GitMCP Search</button>
+    <button role="tab" type="button" data-explorer-tab="gitdiagram" aria-selected="false">Architecture (GitDiagram)</button>
+  </div>
+  <div data-explorer-pane="overview" role="tabpanel"><div id="explorer-overview"></div><p class="explorer-small">Data is requested from the public GitHub API; no account token is required. For large repositories, GitHub may return only a partial file tree.</p></div>
+  <div data-explorer-pane="files" role="tabpanel" hidden>
+    <label for="explorer-filter">Find a path</label><input id="explorer-filter" type="search" placeholder="src/, README, .js…" />
+    <div class="explorer-layout" style="margin-top:1rem"><div id="explorer-tree" class="explorer-tree" aria-label="Repository file paths"></div><div><h3 id="explorer-file-name">File preview</h3><pre id="explorer-viewer">Choose a file to preview.</pre></div></div>
+  </div>
+  <div data-explorer-pane="digest" role="tabpanel" hidden>
+    <p class="explorer-small">Create a limited plain-text snapshot from eligible files. Generated, binary, potentially sensitive, and oversized files are excluded. No files are executed.</p>
+    <label for="explorer-include">Include patterns (optional; e.g. <code>src/**, README.md</code>)</label><input id="explorer-include" placeholder="Leave blank for all supported text files" />
+    <label for="explorer-exclude">Additional exclude patterns (optional)</label><input id="explorer-exclude" placeholder="tests/**, *.min.js" />
+    <div class="explorer-actions"><button type="button" class="explorer-primary" id="explorer-generate">Generate digest</button><button type="button" id="explorer-copy" disabled>Copy</button><button type="button" id="explorer-download" disabled>Download .txt</button></div>
+    <p id="explorer-digest-info" class="explorer-small">No digest generated.</p>
+    <label for="explorer-digest">Generated digest</label><textarea id="explorer-digest" spellcheck="false" aria-label="Generated repository text digest"></textarea>
+    <p class="explorer-small">Review the digest before sharing it with AI services. A public repository can still contain sensitive or copyrighted material.</p>
+  </div>
+  <div data-explorer-pane="deepwiki" role="tabpanel" hidden>
+    <p class="deepwiki-note">View AI-generated wiki structure, documentation, or ask a question about a public repository using DeepWiki's MCP service. Your repository name and any question are forwarded to DeepWiki through Repo Router. DeepWiki results may be unavailable or outdated. Verify important details against GitHub.</p>
+    <div class="deepwiki-controls"><button type="button" id="deepwiki-structure">Wiki structure</button><button type="button" id="deepwiki-contents">Full wiki</button></div>
+    <label for="deepwiki-question">Ask DeepWiki a question about this repository</label>
+    <input id="deepwiki-question" type="text" maxlength="500" placeholder="Where is authentication handled?" />
+    <div class="deepwiki-controls"><button type="button" id="deepwiki-ask">Ask question</button><a class="explorer-link" id="deepwiki-link" href="https://deepwiki.com" target="_blank" rel="noopener noreferrer">Open in DeepWiki ↗</a></div>
+    <p class="explorer-status" id="deepwiki-status" role="status" aria-live="polite">Open a repository to use DeepWiki.</p>
+    <pre id="deepwiki-output">Select Wiki structure, Full wiki, or ask a question.</pre>
+  </div>
+  <div data-explorer-pane="gitmcp" role="tabpanel" hidden>
+    <p class="gitmcp-note">Search documentation and source code from a public GitHub repository through GitMCP. Your repository identifier and search text are sent to GitMCP via Repo Router. Availability, indexing, and accuracy depend on the provider. Verify all important results against GitHub.</p>
+    <div class="gitmcp-controls"><button type="button" class="explorer-primary" id="gitmcp-documentation">Fetch documentation</button><a class="explorer-link" id="gitmcp-link" href="https://gitmcp.io" target="_blank" rel="noopener noreferrer">Open in GitMCP ↗</a></div>
+    <label for="gitmcp-query">Search documentation or source code</label>
+    <input id="gitmcp-query" type="search" maxlength="180" placeholder="e.g. how to configure authentication" autocomplete="off" />
+    <div class="gitmcp-controls"><button id="gitmcp-search" type="button">Search documentation</button><button id="gitmcp-code" type="button">Search code</button><label for="gitmcp-page">Code results page</label><input id="gitmcp-page" type="number" min="1" max="10" value="1" /></div>
+    <p class="explorer-status" id="gitmcp-status" role="status" aria-live="polite">Open a public repository to use GitMCP.</p>
+    <pre id="gitmcp-output">Fetch documentation or search this repository.</pre>
+  </div>
+  <div data-explorer-pane="gitdiagram" role="tabpanel" hidden>
+    <p class="explorer-small">Visualize an existing AI-generated architecture diagram from GitDiagram. Repository identifiers are forwarded to GitDiagram via a Netlify Function. New diagrams must be generated at GitDiagram. Verify every architectural claim against the repository.</p>
+    <div class="gitdiagram-toolbar"><button id="gitdiagram-load" type="button">Load diagram</button><a id="gitdiagram-external" target="_blank" rel="noopener noreferrer" href="https://gitdiagram.com">Open GitDiagram ↗</a><button id="gitdiagram-copy" type="button" disabled>Copy Mermaid</button></div>
+    <p class="explorer-status" id="gitdiagram-status" role="status" aria-live="polite">Open a repository to use GitDiagram.</p>
+    <p id="gitdiagram-summary">Architecture overview will appear here.</p>
+    <div id="gitdiagram-graphic" role="region" aria-label="Interactive architecture overview"></div>
+    <details><summary>View Mermaid source</summary><pre id="gitdiagram-source"></pre></details>
   </div>
 </section>
 
@@ -708,7 +769,7 @@
         <a href="#g-docs-practices">Documentation best practices</a>
         <a href="#g-benefits">Benefits for AI Developers</a>
         <a href="#g-security">Security &amp; Privacy</a>
-        <a href="#g-architecture">Browser-only architecture</a>
+        <a href="#g-architecture">Explorer architecture</a>
         <a href="#g-workflows">Common workflows</a>
         <a href="#g-best-practices">Best practices</a>
       </aside>
@@ -779,7 +840,7 @@
         </div>
         <p>Private repositories ke liye, aapko destination site par unke instructions ke mutabik authenticate karna hoga — Repo Router iska koi hissa nahi hai aur na hi kisi credential ko handle karta hai.</p>
 
-        <h2 id="g-architecture">Browser-only architecture</h2>
+        <h2 id="g-architecture">Explorer architecture</h2>
         <p>Repo Router poori tarah client-side chalta hai. Jab aap ek URL paste karte ho, JavaScript locally us string ko parse karta hai (owner aur repo name nikaal ke), phir select ki gayi destination ke pattern ke hisaab se naya URL construct karta hai. Yeh process milliseconds mein hota hai kyunki koi network round-trip involved nahi hota is step ke liye.</p>
         <div class="rr-code">// Simplified transformation logic
 const [ , owner, repo ] = url.match(/github\.com\/([^/]+)\/([^/]+)/);
@@ -855,12 +916,12 @@ const destinations = {
 
     <div class="rr-faq-cat">Tool ke baare mein</div>
     <div class="space-y-3">
-      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Repo Router free hai kya, koi signup chahiye?</summary><p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. Sirf GitHub link paste karo aur ek click mein redirect ho jao.</p></details>
-      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya mera code kahin upload ya store hota hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Nahi. Repo Router sirf URL ko transform karta hai aur ye sab kuch aapke browser mein locally hota hai. Koi data server pe bheja nahi jaata.</p></details>
-      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router browser-only tool hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Haan. Saara URL parsing aur redirection logic client-side JavaScript mein chalta hai — koi backend server involved nahi hota, isliye processing turant hoti hai.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Repo Router free hai kya, koi signup chahiye?</summary><p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. GitHub link paste karo aur Repo Router par files, digest aur docs explore karo.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya mera code kahin upload ya store hota hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Nahi. Public repository files GitHub API se load hote hain; integrated docs queries Netlify ke through providers ko forward hoti hain. Details privacy policy mein hain.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router browser-only tool hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">URL conversion browser mein hota hai; repository explorer GitHub API aur integrated docs Netlify Functions use karte hain.</p></details>
       <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router paid hai ya iska koi pricing plan hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Nahi, Repo Router poori tarah free hai aur iska koi pricing tier nahi hai. Destination services ki apni alag terms ho sakti hain.</p></details>
       <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router open source hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Repo Router ka source code GitHub par available hai (footer mein link diya gaya hai), taaki koi bhi developer code review kar sake ya contribute kar sake.</p></details>
-      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router ka koi API hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Filhaal Repo Router ek simple frontend redirection tool hai, iska koi separate public API nahi hai. README badge ke through deep-linking use kar sakte hain.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router ka koi API hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Repo Router ka public developer API nahi hai. Site GitHub API aur internal read-only docs endpoints use karti hai.</p></details>
       <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">README badge kya hota hai aur kaise use karein?</summary><p class="text-gray-700 mt-3 leading-relaxed">Jab aap koi valid GitHub repo paste karte ho, Repo Router ek markdown badge snippet generate karta hai. Use apne repo ke README mein paste karo — badge click karne pe seedha Repo Router pe aa jaate hain, repo pre-filled ke saath.</p></details>
     </div>
 
@@ -882,11 +943,11 @@ const destinations = {
 
     <div class="rr-faq-cat">Privacy, Security &amp; Compatibility</div>
     <div class="space-y-3">
-      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya private repos ke saath kaam karega?</summary><p class="text-gray-700 mt-3 leading-relaxed">Repo Router sirf link redirect karta hai — private repos ke liye aapko destination site (GitMCP, DeepWiki, Gitingest, UIthub) pe authentication karni hogi, jaisa unki site par instruct kiya gaya ho.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya private repos ke saath kaam karega?</summary><p class="text-gray-700 mt-3 leading-relaxed">Built-in explorer aur docs public repositories ke liye hain. Private repositories ke liye provider ki documentation dekhein.</p></details>
       <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router repo ka data collect karta hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Nahi, Repo Router sirf link ka format badalta hai. Koi analytics, code, ya personal data collect ya store nahi kiya jaata.</p></details>
       <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Kya Repo Router kisi bhi browser mein kaam karta hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Haan, Repo Router modern browsers (Chrome, Firefox, Edge, Safari) mein desktop aur mobile dono pe kaam karta hai.</p></details>
       <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Repo Router GitHub ke alawa aur platforms support karega?</summary><p class="text-gray-700 mt-3 leading-relaxed">Filhaal Repo Router sirf github.com repository links support karta hai. Future mein GitLab jaise platforms add karne ka plan ho sakta hai.</p></details>
-      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Repo Router kitna fast hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">Chunki koi server-side processing nahi hoti, redirection almost instant hota hai — sirf destination site ka apna load time lagta hai.</p></details>
+      <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Repo Router kitna fast hai?</summary><p class="text-gray-700 mt-3 leading-relaxed">URL conversion instant hai; previews aur docs ke load times providers par depend karte hain.</p></details>
       <details class="border-[2px] border-ink-black rounded-lg bg-white p-4 open:shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] transition-all"><summary class="font-bold cursor-pointer list-none">Agar destination site embed na ho toh kya karein?</summary><p class="text-gray-700 mt-3 leading-relaxed">Kuch sites security reasons se iframe embedding block karti hain. Aise mein result panel ke "Open ↗" button se aap us site ko naye tab mein directly open kar sakte hain.</p></details>
     </div>
   </div>
@@ -928,7 +989,7 @@ const destinations = {
 <section class="home-about" aria-labelledby="about-heading">
   <h2 id="about-heading">Repo Router Kya Hai?</h2>
   <p>
-    Agar aap ek developer ho aur roz <strong>GitHub</strong> repos explore karte ho, toh aapne already <code>gitmcp.io</code>, <code>gitingest.com</code>, <code>deepwiki.com</code> aur <code>uithub.com</code> ke baare mein suna hoga. Manually URL mein <code>github.com</code> ko replace karna thoda time-waste hai — isiliye <strong>Repo Router</strong> bana hai. Bas apna repo link paste karo, destination select karo, aur ek click mein seedha sahi jagah pohonch jao. Koi installation nahi, koi signup nahi — sab kuch aapke browser mein hi process hota hai.
+    Agar aap ek developer ho aur roz <strong>GitHub</strong> repos explore karte ho, toh aapne already <code>gitmcp.io</code>, <code>gitingest.com</code>, <code>deepwiki.com</code> aur <code>uithub.com</code> ke baare mein suna hoga. Manually URL mein <code>github.com</code> ko replace karna thoda time-waste hai — isiliye <strong>Repo Router</strong> bana hai. Bas GitHub link paste karo aur files, digest, aur docs Repo Router ke andar explore karo. URL conversion browser mein hota hai; public repository files aur docs providers se load hote hain.
   </p>
   <p>
     <strong>MCP Server</strong> Claude, Cursor, ya kisi bhi AI coding assistant ke liye perfect hai. <strong>Dir Tree</strong> poora codebase LLM-friendly format mein deta hai. <strong>DeepWiki</strong> AI-generated documentation banata hai. <strong>UIthub</strong> ek alternate LLM-context viewer hai. Aur ab aap apne README mein ek badge bhi laga sakte ho jo directly yahan deep-link karta hai!
@@ -944,7 +1005,7 @@ const destinations = {
     <div class="footer-grid">
       <div>
         <h2>Repo Router</h2>
-        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+        <p>A free GitHub repository explorer with code digests, documentation integrations, destination links, and practical AI-coding guides.</p>
       </div>
       <div>
         <h2>Guides</h2>
@@ -982,6 +1043,10 @@ const destinations = {
 <!-- QRCode library (needed for QR feature) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="script.js"></script>
+<script src="explorer.js" defer></script>
+<script src="deepwiki.js" defer></script>
+<script src="gitmcp.js" defer></script>
+<script src="gitdiagram.js" defer></script>
 
 </body>
 </html>
