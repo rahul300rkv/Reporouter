@@ -326,6 +326,7 @@
 <script src="/nav.js" defer></script>
 <link rel="stylesheet" href="explorer.css"/>
 <link rel="stylesheet" href="repository-intelligence.css"/>
+<link rel="stylesheet" href="repository-phase2.css"/>
 <link rel="stylesheet" href="deepwiki.css"/>
 <link rel="stylesheet" href="deepwiki-recovery.css"/>
 <link rel="stylesheet" href="gitmcp.css"/>
@@ -576,6 +577,10 @@
   <p class="explorer-status" id="explorer-status" role="status" aria-live="polite">Ready.</p>
   <div class="explorer-tabs" role="tablist" aria-label="Repository views">
     <button role="tab" type="button" data-explorer-tab="overview" aria-selected="true">Overview</button>
+    <button role="tab" type="button" data-explorer-tab="health" aria-selected="false">Health</button>
+    <button role="tab" type="button" data-explorer-tab="evidence" aria-selected="false">Architecture Evidence</button>
+    <button role="tab" type="button" data-explorer-tab="compare" aria-selected="false">Compare &amp; Changes</button>
+    <button role="tab" type="button" data-explorer-tab="workspace" aria-selected="false">My Workspace</button>
     <button role="tab" type="button" data-explorer-tab="context" aria-selected="false">AI Context Builder</button>
     <button role="tab" type="button" data-explorer-tab="tricks" aria-selected="false">URL Tricks</button>
     <button role="tab" type="button" data-explorer-tab="files" aria-selected="false">Files</button>
@@ -588,6 +593,39 @@
     <div id="rr-intelligence" aria-label="Repository intelligence dashboard"></div>
     <details><summary>Raw GitHub repository facts</summary><div id="explorer-overview"></div></details>
     <p class="explorer-small">Repository facts come from GitHub metadata and a public file tree. File and framework detection are filename-based, not verified code semantics. Large trees may be partial.</p>
+  </div>
+  <div data-explorer-pane="health" role="tabpanel" hidden>
+    <p class="rr-phase2-intro">Evidence-based maintenance signals from GitHub metadata and observed repository filenames. These are not security scan results, vulnerability assessments, or quality certifications.</p>
+    <p id="rr-health-status" class="rr-phase2-status" role="status" aria-live="polite">Open a repository to inspect its health signals.</p>
+    <div id="rr-health-output" aria-label="Repository health signals"></div>
+  </div>
+  <div data-explorer-pane="evidence" role="tabpanel" hidden>
+    <p class="rr-phase2-intro">Inspect a limited sample of public JavaScript, TypeScript and Python source files and identify relative imports that resolve to files in GitHub. Unlike AI-inferred edges, each link is backed by an observed import statement. It is not a complete dependency graph.</p>
+    <div class="rr-phase2-actions"><button id="rr-architecture-analyze" type="button" class="explorer-primary" disabled>Inspect source relationships</button><a class="explorer-link" href="https://gitdiagram.com" target="_blank" rel="noopener noreferrer">Open GitDiagram ↗</a></div>
+    <p id="rr-architecture-status" class="rr-phase2-status" role="status" aria-live="polite">Open a repository to inspect source relationships.</p>
+    <div id="rr-architecture-output" aria-label="Observed import relationships"></div>
+  </div>
+  <div data-explorer-pane="compare" role="tabpanel" hidden>
+    <h3>Compare two public repositories</h3>
+    <p class="rr-phase2-intro">Compare GitHub metadata, primary languages, licenses and common dependency manifest filenames. The comparison is descriptive; it does not rank project safety or quality.</p>
+    <label for="rr-compare-repo">Second GitHub repository (owner/repo or URL)</label><input id="rr-compare-repo" type="text" maxlength="200" placeholder="e.g. vuejs/vue" autocomplete="off"/>
+    <div class="rr-phase2-actions"><button id="rr-compare-run" type="button" class="explorer-primary" disabled>Compare repositories</button></div>
+    <div id="rr-compare-output" aria-label="Repository comparison results"></div>
+    <h3>What changed between branches or tags?</h3>
+    <p class="rr-phase2-intro">Compare two revision names in the currently opened repository. GitHub may truncate results for large comparisons.</p>
+    <div class="rr-phase2-controls"><div><label for="rr-change-base">Base branch or tag</label><input id="rr-change-base" type="text" maxlength="100" placeholder="main" autocomplete="off"/></div><div><label for="rr-change-head">Head branch or tag</label><input id="rr-change-head" type="text" maxlength="100" placeholder="v2.0.0" autocomplete="off"/></div></div>
+    <div class="rr-phase2-actions"><button id="rr-change-run" type="button" disabled>Inspect changes</button></div>
+    <p id="rr-compare-status" class="rr-phase2-status" role="status" aria-live="polite">Open a repository to compare.</p>
+    <div id="rr-change-output" aria-label="GitHub branch and tag changes"></div>
+  </div>
+  <div data-explorer-pane="workspace" role="tabpanel" hidden>
+    <h3>My Repository Workspace</h3>
+    <p class="rr-phase2-intro">Save public repository bookmarks and private notes in your browser's local storage. No account, remote synchronization, or server storage. This workspace is specific to this browser and can be erased when browser data is cleared.</p>
+    <label for="rr-workspace-notes">Your note for the current repository (max 2,000 characters)</label><textarea id="rr-workspace-notes" maxlength="2000" placeholder="What matters about this project?"></textarea>
+    <div class="rr-phase2-actions"><button id="rr-workspace-save" type="button" class="explorer-primary" disabled>Save repository &amp; note</button><button id="rr-workspace-export" type="button">Export workspace JSON</button><button id="rr-workspace-import" type="button">Import JSON</button><button id="rr-workspace-clear" type="button">Clear all local entries</button></div>
+    <input id="rr-workspace-file" type="file" accept=".json,application/json" hidden aria-label="Import a Repo Router workspace file"/>
+    <p id="rr-workspace-status" class="rr-phase2-status" role="status" aria-live="polite">No local data is sent to a server.</p>
+    <div id="rr-workspace-list" aria-label="Saved public repositories"></div>
   </div>
   <div data-explorer-pane="context" role="tabpanel" hidden>
     <h3>Smart AI Context Builder</h3>
@@ -1082,6 +1120,10 @@ const destinations = {
 <script src="script.js"></script>
 <script src="explorer.js" defer></script>
 <script src="repository-intelligence.js" defer></script>
+<script src="repository-health.js" defer></script>
+<script src="architecture-evidence.js" defer></script>
+<script src="repository-compare.js" defer></script>
+<script src="repository-workspace.js" defer></script>
 <script src="deepwiki.js" defer></script>
 <script src="gitmcp.js" defer></script>
 <script src="gitdiagram.js" defer></script>
