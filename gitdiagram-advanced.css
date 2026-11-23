@@ -8,3 +8,15 @@
 [data-explorer-pane="gitdiagram"]:fullscreen{background:#fff;color:#111827;padding:1rem;overflow:auto}
 [data-explorer-pane="gitdiagram"]:fullscreen #gitdiagram-graphic{max-height:calc(100vh - 250px);min-height:45vh}
 @media(max-width:600px){.gitdiagram-toolbar .rr-diagram-actions button{font-size:.78rem;min-height:44px}}
+
+/* Mobile fullscreen fallback: iOS Safari may not expose Element.requestFullscreen. */
+html.rr-diagram-lock-scroll{overflow:hidden!important}
+[data-explorer-pane="gitdiagram"].rr-diagram-pseudo-fullscreen{
+ position:fixed!important;inset:0!important;z-index:2147483000!important;
+ display:block!important;overflow:auto!important;background:#fff!important;color:#111827!important;
+ padding:env(safe-area-inset-top,12px) max(12px,env(safe-area-inset-right,12px))
+ env(safe-area-inset-bottom,12px) max(12px,env(safe-area-inset-left,12px))!important
+}
+[data-explorer-pane="gitdiagram"].rr-diagram-pseudo-fullscreen #gitdiagram-graphic{
+ max-height:calc(100dvh - 260px);min-height:40dvh
+}
