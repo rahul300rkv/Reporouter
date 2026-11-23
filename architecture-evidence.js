@@ -64,20 +64,20 @@ async function analyze(){
   }
   if(own!==version)return;
   out.append(make("h3","Observed local import relationships"));
-  out.append(make("p","These edges were parsed from relative imports in JavaScript/TypeScript and Python source; they are code evidence, not AI-generated architectural assumptions. External package imports and unresolved paths are excluded."));
+  out.append(make("p","These edges are potential relationships found by matching relative-import syntax in JavaScript/TypeScript and Python text and resolving target filenames. They are not AI-inferred edges, but comments, conditional imports and build aliases can cause false matches or missing connections. Verify against the code."));
   const rows=make("div");rows.className="rr-phase2-edges";
   edges.slice(0,80).forEach(edge=>{
    const row=make("div");row.className="rr-phase2-edge";
    const a=make("a",edge.from),b=make("a",edge.to);
    a.href=href(s,edge.from);b.href=href(s,edge.to);
    for(const el of [a,b]){el.rel="noopener noreferrer";el.target="_blank";}
-   row.append(a,make("span","→"),b,make("small","Verified import statement; target path resolved"));
+   row.append(a,make("span","→"),b,make("small","Matched relative import syntax; target filename exists"));
    rows.append(row);
   });
   if(!edges.length)rows.append(make("p","No resolvable relative imports found in the sampled files. This does not mean the repository has no dependencies."));
   out.append(rows);
   status.textContent="Inspected "+readCount+" of "+all.length+" eligible source files; "+
-   edges.length+" resolvable imports"+(edges.length>80?" (first 80 shown)":"")+
+   edges.length+" potential source edges"+(edges.length>80?" (first 80 shown)":"")+
    "; "+errors.length+" files unavailable"+(s.truncated?"; GitHub returned a partial tree":"")+".";
  }finally{if(own===version){busy=false;button.disabled=false;}}
 }
