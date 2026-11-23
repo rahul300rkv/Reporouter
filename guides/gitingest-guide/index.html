@@ -10,18 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
-<title>Gitingest Guide: Turn a Repository Into a Prompt-Friendly Text Digest | Repo Router</title>
-<meta name="description" content="How Gitingest converts a GitHub repository into a single text digest for LLM prompts, with filtering tips and mistakes to avoid."/>
+<title>How to Use Gitingest: GitHub Repository to Text Guide | Repo Router</title>
+<meta name="description" content="How to use Gitingest step by step: convert a GitHub repository into a text digest, filter files, manage context size, and share code safely with AI tools."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://reporouter.netlify.app/guides/gitingest-guide/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Repo Router"/>
-<meta property="og:title" content="Gitingest Guide: Turn a Repository Into a Prompt-Friendly Text Digest"/>
-<meta property="og:description" content="How Gitingest converts a GitHub repository into a single text digest for LLM prompts, with filtering tips and mistakes to avoid."/>
+<meta property="og:title" content="How to Use Gitingest: GitHub Repository to Text"/>
+<meta property="og:description" content="How to use Gitingest step by step: convert a GitHub repository into a text digest, filter files, manage context size, and share code safely with AI tools."/>
 <meta property="og:url" content="https://reporouter.netlify.app/guides/gitingest-guide/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Gitingest Guide: Turn a Repository Into a Prompt-Friendly Text Digest", "description": "How Gitingest converts a GitHub repository into a single text digest for LLM prompts, with filtering tips and mistakes to avoid.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/gitingest-guide/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Use Gitingest: GitHub Repository to Text","description":"How to use Gitingest step by step: convert a GitHub repository into a text digest, filter files, manage context size, and share code safely with AI tools.","datePublished":"2026-11-17","dateModified":"2026-11-24","inLanguage":"en","mainEntityOfPage":"https://reporouter.netlify.app/guides/gitingest-guide/","image":"https://reporouter.netlify.app/og-image.png","author":{"@type":"Organization","name":"Repo Router"},"publisher":{"@type":"Organization","name":"Repo Router","url":"https://reporouter.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "Gitingest guide", "item": "https://reporouter.netlify.app/guides/gitingest-guide/"}]}</script>
 </head>
 <body class="page">
@@ -39,11 +39,11 @@
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">Gitingest guide</li></ol></nav>
 <article class="article-shell">
 <span class="tag">Guide</span>
-<h1>Gitingest Guide: Turn a Repository Into a Prompt-Friendly Text Digest</h1>
-<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>6 min read</span></p>
+<h1>How to Use Gitingest: GitHub Repository to Text</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 24, 2026</span><span aria-hidden="true">&middot;</span><span>6 min read</span></p>
 <div class="prose">
 
-<p class="lede">Sometimes you do not want a live connection, you just want the whole project as one block of text you can paste into a chat. That is the job Gitingest does.</p>
+<p class="lede">To use Gitingest, paste a public GitHub repository URL into Gitingest, generate a text digest, and copy only the relevant content into your AI tool. The digest typically includes a directory tree and file contents, making it useful for code review and repository questions.</p>
 
 <h2>What a digest contains</h2>
 <p>Gitingest reads a repository and produces a single plain-text document made of a directory tree followed by the contents of the included files. The format is deliberately simple so that a language model can read the structure first and then the code. The site also shows an approximate size so you can judge whether it fits your model's context window.</p>
@@ -55,6 +55,35 @@
 <li><strong>Command line or Python:</strong> the project publishes a <code>gitingest</code> package on PyPI, installed with <code>pip install gitingest</code>, which is useful for scripting or for working with repositories on your own disk.</li>
 </ul>
 
+<h2>How to use Gitingest: step-by-step example</h2>
+<ol>
+<li>Copy a public GitHub repository URL, for example <code>https://github.com/owner/repo</code>.</li>
+<li>Open <a href="https://gitingest.com" rel="noopener noreferrer" target="_blank">Gitingest</a> and paste the URL, or use <a href="/#tool">Repo Router</a> to open the Gitingest destination.</li>
+<li>Review the available include and exclude settings before generating the digest.</li>
+<li>Generate the digest and check the directory tree, included file contents and approximate size.</li>
+<li>Copy only the code needed for your question into your AI tool. Remove credentials and other sensitive information first.</li>
+</ol>
+<h2>What does Gitingest output look like?</h2>
+<p>A digest generally contains repository metadata, a directory structure and text from included files. The following is a simplified illustration, not output from a specific live repository:</p>
+<pre><code>Repository: owner/repo
+Directory structure:
+src/
+  app.py
+README.md
+
+File: README.md
+# Example project
+
+File: src/app.py
+print("Hello")</code></pre>
+<h2>Common Gitingest problems</h2>
+<ul>
+<li><strong>Digest too large:</strong> exclude generated folders and limit the included paths before copying text into an AI tool.</li>
+<li><strong>Missing files:</strong> check filtering, file size and whether the files are available in the selected repository.</li>
+<li><strong>Private code:</strong> do not paste proprietary code or secrets into a third-party service without authorization.</li>
+<li><strong>Need updated answers:</strong> generate a fresh digest; the previous export is only a snapshot.</li>
+</ul>
+<p>For an alternative that searches documentation on demand, read the <a href="/guides/gitmcp-guide/">GitMCP guide</a>. For AI-generated architecture documentation, read the <a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a>.</p>
 <h2>Make the digest smaller</h2>
 <p>A raw digest of a large project can exceed any model's context window. Reduce it before pasting:</p>
 <ul>
