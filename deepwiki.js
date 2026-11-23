@@ -50,7 +50,7 @@
    let question=ui.question.value.trim();
    if(action==='ask'&&(question.length<3||question.length>500)){say('Enter a question of 3–500 characters.',true);return;}
    const myVersion=version,currentRepo=repo,cacheKey=`${repo}:${action}`;
-   if(action!=='ask'&&memo.has(cacheKey)){ui.out.textContent=memo.get(cacheKey);say('Loaded cached DeepWiki documentation.');return;}
+   if(action!=='ask'&&memo.has(cacheKey)){ui.out.textContent=memo.get(cacheKey);recovery.hidden=false;say('Loaded cached DeepWiki documentation.');return;}
    busy=true;controller=new AbortController();const ownController=controller;syncButtons();recovery.hidden=true;
    ui.out.textContent='Loading DeepWiki documentation…';say('Connecting to DeepWiki MCP…');
    try{
@@ -58,7 +58,12 @@
      const body=await r.json();
      if(myVersion!==version)return;
      if(!r.ok){
-       if(r.status===429){recovery.hidden=false;cooldown(body.retryAfter||Number(r.headers.get('Retry-After'))||60);return;}
+       if(r.status===429){
+         ui.out.textContent='DeepWiki is temporarily limiting requests. You can still browse repository files or search with GitMCP below. Your repository remains open.';
+         recovery.hidden=false;
+         cooldown(body.retryAfter||Number(r.headers.get('Retry-After'))||60);
+         return;
+       }
        throw new Error(body.error||`Documentation request failed (${r.status}).`);
      }
      ui.out.textContent=body.text||'No documentation available.';
