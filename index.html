@@ -325,6 +325,7 @@
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
 <link rel="stylesheet" href="explorer.css"/>
+<link rel="stylesheet" href="repository-intelligence.css"/>
 <link rel="stylesheet" href="deepwiki.css"/>
 <link rel="stylesheet" href="deepwiki-recovery.css"/>
 <link rel="stylesheet" href="gitmcp.css"/>
@@ -575,13 +576,47 @@
   <p class="explorer-status" id="explorer-status" role="status" aria-live="polite">Ready.</p>
   <div class="explorer-tabs" role="tablist" aria-label="Repository views">
     <button role="tab" type="button" data-explorer-tab="overview" aria-selected="true">Overview</button>
+    <button role="tab" type="button" data-explorer-tab="context" aria-selected="false">AI Context Builder</button>
+    <button role="tab" type="button" data-explorer-tab="tricks" aria-selected="false">URL Tricks</button>
     <button role="tab" type="button" data-explorer-tab="files" aria-selected="false">Files</button>
     <button role="tab" type="button" data-explorer-tab="digest" aria-selected="false">Digest</button>
     <button role="tab" type="button" data-explorer-tab="deepwiki" aria-selected="false">AI Docs (DeepWiki)</button>
     <button role="tab" type="button" data-explorer-tab="gitmcp" aria-selected="false">GitMCP Search</button>
     <button role="tab" type="button" data-explorer-tab="gitdiagram" aria-selected="false">Architecture (GitDiagram)</button>
   </div>
-  <div data-explorer-pane="overview" role="tabpanel"><div id="explorer-overview"></div><p class="explorer-small">Data is requested from the public GitHub API; no account token is required. For large repositories, GitHub may return only a partial file tree.</p></div>
+  <div data-explorer-pane="overview" role="tabpanel">
+    <div id="rr-intelligence" aria-label="Repository intelligence dashboard"></div>
+    <details><summary>Raw GitHub repository facts</summary><div id="explorer-overview"></div></details>
+    <p class="explorer-small">Repository facts come from GitHub metadata and a public file tree. File and framework detection are filename-based, not verified code semantics. Large trees may be partial.</p>
+  </div>
+  <div data-explorer-pane="context" role="tabpanel" hidden>
+    <h3>Smart AI Context Builder</h3>
+    <p class="explorer-small">Choose an analysis goal and selected public source files. Ranking uses path/name heuristics rather than an AI model. Code is fetched from GitHub directly into your browser; only the files you check are included. No paid AI API is called.</p>
+    <div class="rr-context-config">
+      <div><label for="rr-context-goal">What do you want to understand?</label><select id="rr-context-goal">
+        <option value="overview">Understand the project</option><option value="setup">Install and run</option><option value="api">Understand APIs</option><option value="auth">Find authentication flow</option><option value="tests">Understand testing</option><option value="bug">Prepare a bug fix</option>
+      </select></div>
+      <div><label for="rr-context-budget">Approximate token budget</label><select id="rr-context-budget">
+        <option value="4000">4,000</option><option value="8000" selected>8,000</option><option value="16000">16,000</option><option value="32000">32,000</option>
+      </select></div>
+    </div>
+    <p class="explorer-small">Review the recommended files before generating context. The tool excludes common binary/build artifacts and sensitive filenames, but you must still review output before sharing it.</p>
+    <div id="rr-context-files" role="group" aria-label="Select source files"></div>
+    <div class="explorer-actions">
+      <button id="rr-context-build" type="button" class="explorer-primary" disabled>Build focused context</button>
+      <button id="rr-context-copy" type="button" disabled>Copy context</button>
+      <button id="rr-context-download" type="button" disabled>Download .txt</button>
+    </div>
+    <p id="rr-context-info" role="status" aria-live="polite">Open a repository to build context.</p>
+    <label for="rr-context-output">Generated AI context</label><textarea id="rr-context-output" readonly spellcheck="false" aria-label="Focused repository source context"></textarea>
+    <p class="explorer-small">Token estimates use approximately four characters per token; actual costs vary by AI model. Selected sources are capped at 12 files and 60 KiB per file.</p>
+  </div>
+  <div data-explorer-pane="tricks" role="tabpanel" hidden>
+    <h3>Verified GitHub URL Tricks</h3>
+    <p class="explorer-small">Open the same public repository in popular tools. Official GitHub shortcuts and third-party services are clearly distinguished. External availability, compatibility and sign-in can vary. These links leave Repo Router.</p>
+    <div id="rr-tricks-list" aria-label="Repository URL shortcuts"></div>
+    <p class="explorer-small">Third-party services can access public repository data. Review their own privacy policies before opening private or sensitive projects.</p>
+  </div>
   <div data-explorer-pane="files" role="tabpanel" hidden>
     <label for="explorer-filter">Find a path</label><input id="explorer-filter" type="search" placeholder="src/, README, .js…" />
     <div class="explorer-layout" style="margin-top:1rem"><div id="explorer-tree" class="explorer-tree" aria-label="Repository file paths"></div><div><h3 id="explorer-file-name">File preview</h3><pre id="explorer-viewer">Choose a file to preview.</pre></div></div>
@@ -1046,6 +1081,7 @@ const destinations = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="script.js"></script>
 <script src="explorer.js" defer></script>
+<script src="repository-intelligence.js" defer></script>
 <script src="deepwiki.js" defer></script>
 <script src="gitmcp.js" defer></script>
 <script src="gitdiagram.js" defer></script>

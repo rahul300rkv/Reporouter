@@ -31,6 +31,7 @@
     if (activeController) activeController.abort();
     activeController = new AbortController();
     ++previewVersion;
+    state = null; // invalidate stale snapshots before new GitHub requests
     const version = ++requestVersion;
     ui.tree.replaceChildren(); ui.viewer.textContent = 'Choose a file to preview.';
     ui.fileName.textContent = 'File preview'; ui.digest.value = '';
@@ -173,6 +174,17 @@
       const tree=(Array.isArray(treeData.tree)?treeData.tree:[]).filter(f=>safePath(f.path) && (f.type==='tree'||f.type==='blob')).sort((a,b)=>a.path.localeCompare(b.path));
       state={owner:parsed.owner,repo:parsed.repo,meta,tree,cache:new Map(),controller:activeController,truncated:Boolean(treeData.truncated)};
       setOverview(meta,tree);listTree();
+      const loadedState=state;
+      window.dispatchEvent(new CustomEvent('reporouter:repository-loaded',{detail:{
+        owner:loadedState.owner,repo:loadedState.repo,meta:loadedState.meta,tree:loadedState.tree,
+        truncated:loadedState.truncated,
+        readFile:async(file)=>{
+          if(state!==loadedState||loadedState.controller.signal.aborted)throw new DOMException('Repository changed','AbortError');
+          const content=await loadText(file,loadedState.controller.signal);
+          if(state!==loadedState)throw new DOMException('Repository changed','AbortError');
+          return content;
+        }
+      }}));
       msg(treeData.truncated?'Loaded a partial tree (GitHub truncated this large repository). Digest may omit files.':'Repository loaded. Browse files or generate a text digest.');
     }catch(e){if(e.name==='AbortError'||version!==requestVersion)return;msg(e.message,true);ui.overview.textContent='Unable to load this repository. Use the GitHub link above or try again later.';}
   }
