@@ -10,18 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
-<title>GitMCP Guide: Turn Any GitHub Repository Into an MCP Server | Repo Router</title>
-<meta name="description" content="How GitMCP works, the URL formats it uses, how to add it to an AI client, what it is good at, and where it falls short."/>
+<title>GitMCP Setup Guide: Connect GitHub Repos to AI Tools | Repo Router</title>
+<meta name="description" content="Learn GitMCP setup for public GitHub repositories: create a GitMCP URL, connect a compatible MCP client, test the tools, and troubleshoot common issues."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://reporouter.netlify.app/guides/gitmcp-guide/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Repo Router"/>
-<meta property="og:title" content="GitMCP Guide: Turn Any GitHub Repository Into an MCP Server"/>
-<meta property="og:description" content="How GitMCP works, the URL formats it uses, how to add it to an AI client, what it is good at, and where it falls short."/>
+<meta property="og:title" content="GitMCP Setup Guide: Connect GitHub Repos to AI Tools"/>
+<meta property="og:description" content="Learn GitMCP setup for public GitHub repositories: create a GitMCP URL, connect a compatible MCP client, test the tools, and troubleshoot common issues."/>
 <meta property="og:url" content="https://reporouter.netlify.app/guides/gitmcp-guide/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GitMCP Guide: Turn Any GitHub Repository Into an MCP Server", "description": "How GitMCP works, the URL formats it uses, how to add it to an AI client, what it is good at, and where it falls short.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/gitmcp-guide/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GitMCP Setup Guide: Connect GitHub Repos to AI Tools","description":"Learn GitMCP setup for public GitHub repositories: create a GitMCP URL, connect a compatible MCP client, test the tools, and troubleshoot common issues.","datePublished":"2026-11-17","dateModified":"2026-11-24","inLanguage":"en","mainEntityOfPage":"https://reporouter.netlify.app/guides/gitmcp-guide/","image":"https://reporouter.netlify.app/og-image.png","author":{"@type":"Organization","name":"Repo Router"},"publisher":{"@type":"Organization","name":"Repo Router","url":"https://reporouter.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "GitMCP guide", "item": "https://reporouter.netlify.app/guides/gitmcp-guide/"}]}</script>
 </head>
 <body class="page">
@@ -39,11 +39,11 @@
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">GitMCP guide</li></ol></nav>
 <article class="article-shell">
 <span class="tag">Guide</span>
-<h1>GitMCP Guide: Turn Any GitHub Repository Into an MCP Server</h1>
-<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>7 min read</span></p>
+<h1>GitMCP Setup Guide: Connect GitHub Repos to AI Tools</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 24, 2026</span><span aria-hidden="true">&middot;</span><span>7 min read</span></p>
 <div class="prose">
 
-<p class="lede">GitMCP is a free, open-source service that exposes a public GitHub repository as a remote MCP server. Your AI assistant can then read that repository's documentation and search its code without you pasting anything.</p>
+<p class="lede">GitMCP exposes documentation and searchable content from a public GitHub repository through a remote Model Context Protocol (MCP) server. To get started, convert a GitHub repository URL to its GitMCP URL, add it to a compatible AI client, and test a documentation search.</p>
 
 <h2>What GitMCP does</h2>
 <p>You point an MCP-capable client at a GitMCP URL for a repository. The service reads the repository's documentation, such as the README, files in a docs folder and an <code>llms.txt</code> file when one exists, and offers tools that let the assistant fetch and search that material. There is nothing to install and no API key to create, because the server runs remotely at <a href="https://gitmcp.io" rel="noopener noreferrer" target="_blank">gitmcp.io</a>.</p>
@@ -77,6 +77,22 @@
 }</code></pre>
 <p>Exact file locations and field names differ by client. Our guides for <a href="/guides/cursor-mcp-setup/">Cursor</a> and <a href="/guides/claude-desktop-mcp-setup/">Claude Desktop</a> show both in context.</p>
 
+<h2>GitMCP setup: step by step</h2>
+<ol>
+<li>Copy a public repository URL such as <code>https://github.com/owner/repo</code>.</li>
+<li>Convert it to <code>https://gitmcp.io/owner/repo</code>, or use <a href="/#tool">Repo Router</a> to generate the destination URL.</li>
+<li>Check whether your MCP client supports remote servers directly or requires a local bridge. Use that client's current documentation for its exact configuration format.</li>
+<li>Add the repository-specific GitMCP endpoint using the appropriate client settings and reconnect or restart the client if required.</li>
+<li>Ask the assistant to find a documented function or search for a term in that repository. Confirm that the MCP tool was actually called and inspect its returned references.</li>
+</ol>
+<h2>GitMCP troubleshooting</h2>
+<ul>
+<li><strong>Server not listed:</strong> check your client's MCP support, configuration location, transport type and logs.</li>
+<li><strong>Connection fails:</strong> verify the URL, network access and any bridge prerequisites. Some clients cannot use a remote URL directly.</li>
+<li><strong>No useful results:</strong> confirm the repository is public and has readable documentation; try a specific search term.</li>
+<li><strong>Incorrect answer:</strong> open the linked source file and verify the result; retrieval does not guarantee correctness.</li>
+</ul>
+<p>For client-specific instructions, use the <a href="/guides/cursor-mcp-setup/">Cursor MCP guide</a> or <a href="/guides/claude-desktop-mcp-setup/">Claude Desktop guide</a>. For an AI-generated architecture overview instead of an MCP connection, see <a href="/guides/deepwiki-tutorial/">DeepWiki</a>. For a one-time text export, see <a href="/guides/gitingest-guide/">Gitingest</a>.</p>
 <h2>What the tools do</h2>
 <p>Names vary by repository and version, but the capabilities fall into four groups:</p>
 <ul>
