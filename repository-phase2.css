@@ -1,0 +1,29 @@
+/* Phase 2: evidence-first insight and local workspace. All styles scoped. */
+#explorer-panel .rr-phase2-intro{line-height:1.55;color:#475569;font-size:.9rem;margin:.7rem 0 1rem}
+#explorer-panel .rr-phase2-signal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+#explorer-panel .rr-phase2-signal{border:1px solid #cbd5e1;border-radius:9px;padding:.75rem;background:#f8fafc;min-width:0}
+#explorer-panel .rr-phase2-signal strong{font-size:.9rem}
+#explorer-panel .rr-phase2-signal p{font-size:.8rem;margin:.25rem 0 0;color:#475569;line-height:1.5}
+#explorer-panel .rr-phase2-disclaimer{font-size:.82rem;color:#475569}
+#explorer-panel .rr-phase2-edges{display:grid;gap:.45rem;margin:.9rem 0;max-height:420px;overflow:auto}
+#explorer-panel .rr-phase2-edge{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;min-width:0;padding:.65rem;border:1px solid #cbd5e1;border-radius:8px}
+#explorer-panel .rr-phase2-edge a{overflow-wrap:anywhere;font:.81rem/1.4 monospace;color:#1d4ed8}
+#explorer-panel .rr-phase2-edge small{color:#475569;flex-basis:100%}
+#explorer-panel .rr-phase2-controls{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;align-items:end}
+#explorer-panel .rr-phase2-controls input{width:100%;min-width:0}
+#explorer-panel .rr-phase2-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:.75rem 0}
+#explorer-panel .rr-phase2-status{background:#eef3ff;border-radius:8px;padding:.75rem;margin:.75rem 0;overflow-wrap:anywhere}
+#explorer-panel .rr-phase2-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.3rem;margin:1rem 0}
+#explorer-panel .rr-phase2-compare-row{border:1px solid #cbd5e1;border-radius:6px;padding:.55rem;min-width:0;overflow-wrap:anywhere}
+#explorer-panel .rr-phase2-compare-row strong{display:block;font-size:.78rem;color:#475569}
+#explorer-panel .rr-phase2-compare-row span{display:block;font-size:.9rem}
+#explorer-panel .rr-workspace-item{display:flex;flex-direction:column;gap:.35rem;border:1px solid #cbd5e1;border-radius:9px;padding:.8rem;margin:.6rem 0;background:#fff;overflow-wrap:anywhere}
+#explorer-panel .rr-workspace-item>a{font-weight:750}
+#explorer-panel .rr-workspace-item p{white-space:pre-wrap;margin:0;color:#334155}
+#explorer-panel .rr-workspace-item small{color:#475569}
+#explorer-panel .rr-workspace-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+#explorer-panel #rr-workspace-notes{min-height:115px;resize:vertical}
+#explorer-panel #rr-change-output ul{padding-left:1.3rem;list-style:disc}
+#explorer-panel #rr-change-output li{margin:.35rem 0;overflow-wrap:anywhere}
+#explorer-panel .rr-phase2-compare-row a,#explorer-panel #rr-change-output a{overflow-wrap:anywhere}
+@media(max-width:680px){#explorer-panel .rr-phase2-signal-grid,#explorer-panel .rr-phase2-controls{grid-template-columns:1fr}}
