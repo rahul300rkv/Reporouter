@@ -10,18 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
-<title>DeepWiki Tutorial: AI-Generated Documentation for Any Repository | Repo Router</title>
-<meta name="description" content="Learn how to use DeepWiki to get an AI-generated wiki for a GitHub repository, when it is useful, and how to check its answers."/>
+<title>DeepWiki Tutorial: How to Use DeepWiki with GitHub | Repo Router</title>
+<meta name="description" content="Learn how to use DeepWiki for GitHub repositories with a step-by-step URL example, AI documentation tips, common problems, and safer ways to verify answers."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://reporouter.netlify.app/guides/deepwiki-tutorial/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Repo Router"/>
-<meta property="og:title" content="DeepWiki Tutorial: AI-Generated Documentation for Any Repository"/>
-<meta property="og:description" content="Learn how to use DeepWiki to get an AI-generated wiki for a GitHub repository, when it is useful, and how to check its answers."/>
+<meta property="og:title" content="DeepWiki Tutorial: How to Use DeepWiki with GitHub"/>
+<meta property="og:description" content="Learn how to use DeepWiki for GitHub repositories with a step-by-step URL example, AI documentation tips, common problems, and safer ways to verify answers."/>
 <meta property="og:url" content="https://reporouter.netlify.app/guides/deepwiki-tutorial/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DeepWiki Tutorial: AI-Generated Documentation for Any Repository", "description": "Learn how to use DeepWiki to get an AI-generated wiki for a GitHub repository, when it is useful, and how to check its answers.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/deepwiki-tutorial/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DeepWiki Tutorial: How to Use DeepWiki with GitHub","description":"Learn how to use DeepWiki for GitHub repositories with a step-by-step URL example, AI documentation tips, common problems, and safer ways to verify answers.","datePublished":"2026-11-17","dateModified":"2026-11-24","inLanguage":"en","mainEntityOfPage":"https://reporouter.netlify.app/guides/deepwiki-tutorial/","image":"https://reporouter.netlify.app/og-image.png","author":{"@type":"Organization","name":"Repo Router"},"publisher":{"@type":"Organization","name":"Repo Router","url":"https://reporouter.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "DeepWiki tutorial", "item": "https://reporouter.netlify.app/guides/deepwiki-tutorial/"}]}</script>
 </head>
 <body class="page">
@@ -39,11 +39,11 @@
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">DeepWiki tutorial</li></ol></nav>
 <article class="article-shell">
 <span class="tag">Guide</span>
-<h1>DeepWiki Tutorial: AI-Generated Documentation for Any Repository</h1>
-<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>6 min read</span></p>
+<h1>DeepWiki Tutorial: How to Use DeepWiki with GitHub</h1>
+<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 24, 2026</span><span aria-hidden="true">&middot;</span><span>6 min read</span></p>
 <div class="prose">
 
-<p class="lede">Opening an unfamiliar repository can feel like walking into a warehouse with no signs. DeepWiki generates a structured, wiki-style overview of a GitHub repository so you can find your bearings in minutes rather than hours.</p>
+<p class="lede">To use DeepWiki with a public GitHub repository, replace <code>github.com</code> in its URL with <code>deepwiki.com</code>. DeepWiki can generate a browsable AI-powered wiki, architecture overview and repository Q&amp;A. This tutorial walks through the process and explains how to check its answers.</p>
 
 <h2>What DeepWiki is</h2>
 <p>DeepWiki, from the team behind the Devin coding agent, analyzes a repository and produces browsable documentation: an architecture summary, pages for major components, diagrams where useful, and a chat box where you can ask questions about the code. It lives at <a href="https://deepwiki.com" rel="noopener noreferrer" target="_blank">deepwiki.com</a>.</p>
@@ -56,6 +56,26 @@
 </ol>
 <p>Repo Router does the substitution for you: choose the <strong>DeepWiki</strong> destination and press Run Route.</p>
 
+<h2>DeepWiki example: GitHub URL to wiki</h2>
+<p>For a repository at <code>https://github.com/owner/repo</code>, the corresponding DeepWiki address is <code>https://deepwiki.com/owner/repo</code>. Replace <code>owner</code> and <code>repo</code> with the actual GitHub owner and repository name. This is a URL-pattern example, not a claim that a particular repository has already been indexed.</p>
+<ol>
+<li>Open the public GitHub repository and copy its URL.</li>
+<li>Open the corresponding DeepWiki URL, or use <a href="/#tool">Repo Router</a> and select DeepWiki.</li>
+<li>If a wiki is available, start with the overview and architecture sections.</li>
+<li>Ask one focused question, then follow its references back to GitHub to verify the answer.</li>
+</ol>
+<h2>DeepWiki not opening or showing a wiki?</h2>
+<ul>
+<li>Check that the GitHub owner and repository name are correct and that the repository is publicly accessible.</li>
+<li>A repository may not have been indexed yet; availability and generation behavior can change.</li>
+<li>For recent changes, compare the generated explanation with the latest GitHub source.</li>
+<li>If you need searchable repository documentation in an AI client instead, see the <a href="/guides/gitmcp-guide/">GitMCP setup guide</a>. To copy code as text for a chat, use the <a href="/guides/gitingest-guide/">Gitingest tutorial</a>.</li>
+</ul>
+<h2>DeepWiki frequently asked questions</h2>
+<h3>Is DeepWiki the same as GitHub?</h3>
+<p>No. GitHub hosts the repository; DeepWiki generates an AI-assisted view of repository content. Verify important claims against the source code.</p>
+<h3>Can DeepWiki explain every repository?</h3>
+<p>Coverage and availability vary. Check the current DeepWiki service and the repository's access settings rather than assuming every repository is supported.</p>
 <h2>A practical reading order</h2>
 <ol>
 <li><strong>Start with the overview page.</strong> Note the stated purpose, main languages and top-level modules.</li>
