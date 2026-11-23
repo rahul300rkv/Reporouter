@@ -24,3 +24,6 @@
 #explorer-panel .rr-trick-item button{align-self:flex-start;min-height:36px;padding:.35rem .65rem;font-size:.8rem}
 @media(max-width:720px){#explorer-panel .rr-intel-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#explorer-panel .rr-context-config,#explorer-panel #rr-tricks-list{grid-template-columns:1fr}}
 @media(max-width:420px){#explorer-panel .rr-intel-grid{grid-template-columns:1fr 1fr}#explorer-panel .rr-context-file small{display:none}}
+
+#explorer-panel .rr-context-config select{display:block;width:100%;border:2px solid #9ca3af;border-radius:8px;padding:.65rem .75rem;background:#fff;color:#111827;font:inherit;min-height:44px}
+#explorer-panel .rr-context-config select:focus-visible{outline:3px solid #2f5ff6;outline-offset:2px}
