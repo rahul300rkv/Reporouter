@@ -5,7 +5,7 @@ const $=id=>document.getElementById(id);
 const ui={dashboard:$("rr-intelligence"),goal:$("rr-context-goal"),budget:$("rr-context-budget"),files:$("rr-context-files"),build:$("rr-context-build"),output:$("rr-context-output"),info:$("rr-context-info"),copy:$("rr-context-copy"),download:$("rr-context-download"),tricks:$("rr-tricks-list")};
 if(Object.values(ui).some(v=>!v))return;
 const SAFE_REPO=/^[a-z0-9](?:[a-z0-9-]{0,38})\/[a-z0-9_.-]{1,100}$/i;
-const EXCLUDE=/(^|\/)(\.env(?:\..*)?|node_modules|vendor|dist|build|\.next|\.venv|venv|coverage|__pycache__|secret|secrets|credentials)(\/|$)|\.(?:png|jpe?g|gif|webp|pdf|zip|gz|lock|map|exe|dll|so|wasm|pyc|mp[34])$/i;
+const EXCLUDE=/(^|\/)(\.env(?:\..*)?|node_modules|vendor|dist|build|\.next|\.venv|venv|coverage|__pycache__|secrets?(?:\.[^/]*)?|credentials(?:\.[^/]*)?)(\/|$)|\.(?:png|jpe?g|gif|webp|pdf|zip|gz|lock|map|exe|dll|so|wasm|pyc|mp[34])$/i;
 const GOALS={
 overview:["readme","docs/","architecture","overview","package.json","pyproject.toml","requirements.txt","go.mod","cargo.toml","src/index","src/main","app/","index.ts","main.py"],
 setup:["readme","getting-started","install","dockerfile","compose","package.json","pyproject.toml","requirements.txt","makefile",".github/workflows","example","config"],
@@ -78,7 +78,7 @@ ui.dashboard.append(list,node("p","Evidence is GitHub metadata and filenames, no
 function relevance(path,goal){
 const p=path.toLowerCase(),base=p.split("/").pop();
 let points=0;
-if(/^readme(?:\.[^/]*)?$/.test(base))points+=22;
+if(/^readme(?:\.[^/]*)?$/.test(base))points+=["overview","setup","bug"].includes(goal)?22:2;
 if(["package.json","pyproject.toml","go.mod","cargo.toml"].includes(p))points+=12;
 if(p.split("/").length>6)points-=4;
 if(/\.min\.js$|\.generated\./.test(base))points-=25;
@@ -117,7 +117,7 @@ try{
 const content=await s.readFile(f,controller.signal);if(id!==version)return;
 const block="\n===== FILE: "+f.path+" =====\nSource: "+fileUrl(s,f.path)+"\n"+content+"\n";
 const cost=Math.ceil(block.length/4);
-if(used+cost>maxTokens){skipped.push(f.path+" (budget)");continue;}
+if(used+cost+350>maxTokens){skipped.push(f.path+" (budget)");continue;}
 used+=cost;chunks.push(block);included++;
 }catch(e){if(e.name==="AbortError")throw e;skipped.push(f.path+" (unavailable)");}
 }
