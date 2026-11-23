@@ -72,7 +72,13 @@ async function notifyReady(session,signal){
   const headers={'Content-Type':'application/json','Accept':'application/json, text/event-stream','MCP-Protocol-Version':PROTOCOL};
   if(session)headers['Mcp-Session-Id']=session;
   const response=await fetch(ENDPOINT,{method:'POST',headers,body:JSON.stringify({jsonrpc:'2.0',method:'notifications/initialized'}),signal,redirect:'error'});
-  if(!response.ok&&response.status!==202&&response.status!==204)throw new Error('DeepWiki MCP initialization failed.');
+  if(!response.ok&&response.status!==202&&response.status!==204){
+    const err = new Error(response.status===429?'DeepWiki initialization is rate-limited.':'DeepWiki MCP initialization failed.');
+    err.status=response.status;
+    const retry=Number(response.headers.get('retry-after'));
+    err.retryAfter=Number.isFinite(retry)&&retry>0?Math.min(600,Math.ceil(retry)):60;
+    throw err;
+  }
 }
 async function handle(event) {
   if(event.httpMethod!=='POST')return reply(405,{error:'POST required.'},{Allow:'POST'});
