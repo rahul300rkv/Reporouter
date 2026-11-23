@@ -1,0 +1,5 @@
+#explorer-panel .deepwiki-recovery{margin:.75rem 0;padding:1rem;border:2px solid #cbd5e1;border-radius:9px;background:#f8fafc}
+#explorer-panel .deepwiki-recovery[hidden]{display:none}
+#explorer-panel .deepwiki-recovery p{margin:0 0 .65rem;font-weight:600}
+#explorer-panel .deepwiki-recovery button{border:2px solid #111827;background:#fff;border-radius:8px;min-height:44px;margin:.25rem .5rem .25rem 0;padding:.55rem .75rem;font-size:.9rem;font-weight:700;font-family:inherit;cursor:pointer}
+#explorer-panel .deepwiki-recovery button:hover{background:#fff2dc}

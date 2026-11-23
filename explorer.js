@@ -154,6 +154,11 @@
     ui.panel.hidden=false;ui.panel.scrollIntoView({behavior:'smooth',block:'start'});
     ui.name.textContent=`${parsed.owner}/${parsed.repo}`;
     window.dispatchEvent(new CustomEvent('reporouter:opened',{detail:{repo:`${parsed.owner}/${parsed.repo}`}}));
+    // Users selecting DeepWiki should see their wiki in Repo Router, not a generic overview.
+    if(typeof selectedToolUrl==='string' && /^https:\/\/deepwiki\.com\//i.test(selectedToolUrl)) {
+      switchTab('deepwiki');
+      window.dispatchEvent(new Event('reporouter:deepwiki-selected'));
+    }
     ui.extLink.href=`https://github.com/${encodeURIComponent(parsed.owner)}/${encodeURIComponent(parsed.repo)}`;
     // Accept only known destination hosts, never a user-supplied arbitrary URL.
     try {const u=new URL(selectedToolUrl);ui.toolLink.href=['gitmcp.io','gitingest.com','deepwiki.com','uithub.com'].includes(u.hostname)&&u.protocol==='https:'?u.href:ui.extLink.href;} catch {ui.toolLink.href=ui.extLink.href;}
