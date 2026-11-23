@@ -1,0 +1,26 @@
+/* Repository Intelligence Phase 1 - scoped to Explorer. */
+#explorer-panel .rr-intel-desc{color:#475569;line-height:1.6;margin:.5rem 0 1rem}
+#explorer-panel .rr-intel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1rem 0}
+#explorer-panel .rr-intel-stat{padding:.8rem;background:#f1f5ff;border:1px solid #dce4fa;border-radius:10px;min-width:0}
+#explorer-panel .rr-intel-stat span{display:block;color:#475569;font-size:.8rem;margin-bottom:.25rem}
+#explorer-panel .rr-intel-stat strong{font-size:1.05rem;overflow-wrap:anywhere}
+#explorer-panel #rr-intelligence h3{font-size:1.25rem;font-weight:800}
+#explorer-panel #rr-intelligence h4{font-weight:750;margin:1rem 0 .5rem}
+#explorer-panel #rr-intelligence ul{list-style:disc;padding-left:1.3rem;line-height:1.7;overflow-wrap:anywhere}
+#explorer-panel .rr-intel-note{font-size:.85rem;color:#475569;margin-top:.8rem}
+#explorer-panel .rr-context-config{display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin:1rem 0}
+#explorer-panel #rr-context-files{display:grid;gap:.4rem;max-height:340px;overflow:auto;border:1px solid #cbd5e1;padding:.75rem;border-radius:10px;background:#f8fafc}
+#explorer-panel label.rr-context-file{display:flex;align-items:center;gap:.6rem;margin:0;padding:.45rem;border-radius:6px;font-weight:500;min-width:0;cursor:pointer}
+#explorer-panel .rr-context-file:hover{background:#eaf0ff}
+#explorer-panel .rr-context-file input[type="checkbox"]{width:17px;height:17px;flex-shrink:0;margin:0}
+#explorer-panel .rr-context-file span{flex:1;min-width:0;overflow-wrap:anywhere;font:500 .82rem/1.4 monospace}
+#explorer-panel .rr-context-file small{color:#64748b;white-space:nowrap;font-size:.75rem}
+#explorer-panel #rr-context-output{font:.82rem/1.5 monospace;min-height:260px;resize:vertical}
+#explorer-panel #rr-context-info{padding:.7rem;border-radius:8px;background:#eef3ff;margin:.8rem 0;overflow-wrap:anywhere}
+#explorer-panel #rr-tricks-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin:1rem 0}
+#explorer-panel .rr-trick-item{padding:.8rem;border:1px solid #cbd5e1;border-radius:10px;display:flex;flex-direction:column;gap:.35rem;min-width:0}
+#explorer-panel .rr-trick-item a{font-weight:750;overflow-wrap:anywhere}
+#explorer-panel .rr-trick-item small{color:#475569;line-height:1.45;flex:1}
+#explorer-panel .rr-trick-item button{align-self:flex-start;min-height:36px;padding:.35rem .65rem;font-size:.8rem}
+@media(max-width:720px){#explorer-panel .rr-intel-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#explorer-panel .rr-context-config,#explorer-panel #rr-tricks-list{grid-template-columns:1fr}}
+@media(max-width:420px){#explorer-panel .rr-intel-grid{grid-template-columns:1fr 1fr}#explorer-panel .rr-context-file small{display:none}}
