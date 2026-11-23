@@ -1,0 +1,22 @@
+
+/* GitDiagram Advanced Viewer toolbar */
+.rr-diagram-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;width:100%;padding-top:.35rem;border-top:1px solid #e5e7eb}
+.gitdiagram-toolbar .rr-diagram-actions button{min-height:42px;font-size:.84rem;padding:.45rem .65rem}
+#gitdiagram-graphic{cursor:grab;max-height:70vh;overscroll-behavior:contain;touch-action:pan-x pan-y}
+#gitdiagram-graphic.rr-diagram-dragging{cursor:grabbing;user-select:none}
+#gitdiagram-graphic svg{max-width:none;height:auto}
+[data-explorer-pane="gitdiagram"]:fullscreen{background:#fff;color:#111827;padding:1rem;overflow:auto}
+[data-explorer-pane="gitdiagram"]:fullscreen #gitdiagram-graphic{max-height:calc(100vh - 250px);min-height:45vh}
+@media(max-width:600px){.gitdiagram-toolbar .rr-diagram-actions button{font-size:.78rem;min-height:44px}}
+
+/* Mobile fullscreen fallback: iOS Safari may not expose Element.requestFullscreen. */
+html.rr-diagram-lock-scroll{overflow:hidden!important}
+[data-explorer-pane="gitdiagram"].rr-diagram-pseudo-fullscreen{
+ position:fixed!important;inset:0!important;z-index:2147483000!important;
+ display:block!important;overflow:auto!important;background:#fff!important;color:#111827!important;
+ padding:env(safe-area-inset-top,12px) max(12px,env(safe-area-inset-right,12px))
+ env(safe-area-inset-bottom,12px) max(12px,env(safe-area-inset-left,12px))!important
+}
+[data-explorer-pane="gitdiagram"].rr-diagram-pseudo-fullscreen #gitdiagram-graphic{
+ max-height:calc(100dvh - 260px);min-height:40dvh
+}
