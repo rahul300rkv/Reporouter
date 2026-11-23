@@ -35,7 +35,29 @@
   toolbar.append(group);
 
   const status = document.getElementById("gitdiagram-status");
-  let svg = null, zoom = 1, baseline = 0, dragging = null, seenRepo = "";
+  let svg = null, zoom = 1, baseline = 0, dragging = null, seenRepo = "", pseudoFullscreen = false;
+  const leavePseudoFullscreen = () => {
+    if(!pseudoFullscreen)return;
+    pseudoFullscreen=false;
+    root.classList.remove("rr-diagram-pseudo-fullscreen");
+    document.documentElement.classList.remove("rr-diagram-lock-scroll");
+    buttons.fullscreen.textContent="Fullscreen";
+    if(diagram())fit();
+  };
+  const toggleFullscreen = async () => {
+    if(document.fullscreenElement===root){await document.exitFullscreen();return;}
+    if(pseudoFullscreen){leavePseudoFullscreen();return;}
+    // iOS Safari does not consistently support Element.requestFullscreen.
+    if(typeof root.requestFullscreen==="function"){
+      try{await root.requestFullscreen();return;}
+      catch{ /* Gracefully fall back to a fixed viewport overlay. */ }
+    }
+    pseudoFullscreen=true;
+    root.classList.add("rr-diagram-pseudo-fullscreen");
+    document.documentElement.classList.add("rr-diagram-lock-scroll");
+    buttons.fullscreen.textContent="Exit fullscreen";
+    if(diagram())fit();
+  };
   const repoFromLink = () => {
     const url = document.getElementById("gitdiagram-external")?.href || "";
     try {
@@ -86,8 +108,8 @@
     svg = diagram();
     if (!svg) return;
     const {w} = dimensions(svg);
-    const available = Math.max(260, graphic.clientWidth - 38);
-    baseline = Math.max(260, Math.min(w, available));
+    const available = Math.max(120, graphic.clientWidth - 24);
+    baseline = Math.min(w, available);
     applyZoom(1);
     graphic.scrollLeft = 0;
     graphic.scrollTop = 0;
@@ -176,10 +198,7 @@
         case "zoom-in": applyZoom(zoom * 1.25); break;
         case "zoom-out": applyZoom(zoom / 1.25); break;
         case "fit": fit(); break;
-        case "fullscreen":
-          if (document.fullscreenElement === root) await document.exitFullscreen();
-          else { if (!root.requestFullscreen) throw Error("Fullscreen is not supported here."); await root.requestFullscreen(); }
-          break;
+        case "fullscreen": await toggleFullscreen(); break;
         case "svg": {
           const {xml} = serializedSvg();
           saveBlob(new Blob([xml],{type:"image/svg+xml;charset=utf-8"}),filename(".svg"));
@@ -206,17 +225,21 @@
 
   // Drag to pan when the diagram is bigger than the viewport.
   graphic.addEventListener("pointerdown",e => {
-    if (!diagram() || e.button !== 0 || e.target.closest("a,button")) return;
-    dragging = {x:e.clientX,y:e.clientY,left:graphic.scrollLeft,top:graphic.scrollTop};
+    // Let touch screens use native, momentum-enabled scrolling.
+    if (!diagram() || e.button !== 0 || e.pointerType === "touch" || e.target.closest("a,button")) return;
+    dragging = {id:e.pointerId,x:e.clientX,y:e.clientY,left:graphic.scrollLeft,top:graphic.scrollTop};
     graphic.setPointerCapture?.(e.pointerId);
     graphic.classList.add("rr-diagram-dragging");
   });
   graphic.addEventListener("pointermove",e => {
-    if (!dragging) return;
+    if (!dragging || e.pointerId !== dragging.id) return;
     graphic.scrollLeft = dragging.left - (e.clientX - dragging.x);
     graphic.scrollTop = dragging.top - (e.clientY - dragging.y);
   });
-  const endDrag = () => {dragging=null;graphic.classList.remove("rr-diagram-dragging");};
+  const endDrag = () => {
+    if(dragging && graphic.hasPointerCapture?.(dragging.id)) graphic.releasePointerCapture(dragging.id);
+    dragging=null;graphic.classList.remove("rr-diagram-dragging");
+  };
   graphic.addEventListener("pointerup",endDrag);
   graphic.addEventListener("pointercancel",endDrag);
   // Native scrolling remains available on touch and trackpads.
@@ -235,10 +258,11 @@
     }
   });
   observer.observe(graphic,{childList:true});
-  window.addEventListener("reporouter:opened",reset);
-  window.addEventListener("reporouter:closed",reset);
+  window.addEventListener("reporouter:opened",()=>{leavePseudoFullscreen();reset();});
+  window.addEventListener("reporouter:closed",()=>{leavePseudoFullscreen();reset();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")leavePseudoFullscreen();});
   document.addEventListener("fullscreenchange",() => {
-    buttons.fullscreen.textContent = document.fullscreenElement===root ? "Exit fullscreen" : "Fullscreen";
+    buttons.fullscreen.textContent = document.fullscreenElement===root || pseudoFullscreen ? "Exit fullscreen" : "Fullscreen";
     if (diagram()) fit();
   });
   window.addEventListener("resize", () => { if (diagram() && zoom===1) fit(); });
