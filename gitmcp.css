@@ -1,0 +1,8 @@
+/* Scoped GitMCP panel styles, inherit phase 1 explorer typography. */
+#explorer-panel .gitmcp-controls{display:flex;flex-wrap:wrap;gap:.65rem;align-items:center;margin:.75rem 0}
+#explorer-panel .gitmcp-controls button{min-height:44px}
+#explorer-panel #gitmcp-page{max-width:100px;min-height:44px}
+#explorer-panel #gitmcp-query{min-height:48px}
+#explorer-panel #gitmcp-output{white-space:pre-wrap;overflow-wrap:anywhere;overflow:auto;max-height:700px;min-height:160px;background:#fff;color:#111827;border:2px solid #111827;border-radius:9px;padding:1rem;font:inherit;line-height:1.6}
+#explorer-panel #gitmcp-status[data-error="true"]{color:#9a3412}
+#explorer-panel .gitmcp-note{font-size:.9rem;color:#4b5563;line-height:1.55}
