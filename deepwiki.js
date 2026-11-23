@@ -69,6 +69,9 @@
    }catch(e){if(myVersion===version){ui.out.textContent='DeepWiki is unavailable right now. You can continue browsing files, reviewing the digest, or searching with GitMCP here.';recovery.hidden=false;say(e.message,true);}}
    finally{if(myVersion===version){controller=null;busy=false;syncButtons();}}
  }
+ window.addEventListener('reporouter:deepwiki-selected',()=>{
+   if(repo&&!busy)query('structure');
+ });
  ui.structure.addEventListener('click',()=>query('structure'));
  ui.contents.addEventListener('click',()=>query('contents'));
  ui.ask.addEventListener('click',()=>query('ask'));
