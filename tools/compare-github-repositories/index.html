@@ -45,12 +45,14 @@
 <p class="lede">Compare public repositories side by side or inspect what changed between branches and tags in a single project.</p>
 <p>Repo Router provides this feature inside its <strong>existing Repository Explorer</strong>. This page explains the task and takes your repository URL to the main tool. It does not claim a separate scanning backend or private-repository access.</p>
 <div class="callout"><strong class="label">Open Compare & Changes</strong>
-<form action="/#tool" method="get" aria-label="Open a public GitHub repository in Repo Router">
+<form action="/#tool" method="get" data-repo-launch aria-label="Open Compare & Changes for a public GitHub repository">
+<input type="hidden" name="view" value="compare"/>
 <label for="repo-entry-compare-github-repositories">Public GitHub repository URL</label>
 <input id="repo-entry-compare-github-repositories" name="repo" type="text" inputmode="url" required placeholder="https://github.com/facebook/react" autocomplete="off" style="display:block;width:100%;min-height:48px;margin:8px 0 12px;padding:10px;border:2px solid #111827;border-radius:8px;background:#fff;color:#111827;font:inherit"/>
-<button class="btn" type="submit">Continue to Repository Explorer</button>
+<button class="btn" type="submit">Open Compare & Changes</button>
+<p role="status" aria-live="polite" data-repo-feedback></p>
 </form>
-<p>The main tool will prefill your repository link. Select <strong>Run Route</strong> to load the Explorer, then choose the <strong>Compare & Changes</strong> tab. You may also <a href="/#tool">open the Explorer without prefilling a repository</a>.</p>
+<p>A valid GitHub URL opens the <strong>Compare & Changes</strong> view directly in Repo Router. To start with a blank form instead, <a href="/#tool">enter a repository URL on the homepage</a>.</p>
 </div>
 <h2 id="how-to">How to use this feature</h2>
 <ol><li>Enter a public GitHub repository to open the Explorer.</li><li>Select Compare & Changes, then choose repository comparison or branch/tag changes.</li><li>For repositories, enter the other public repository; for revisions, specify base and head references and inspect the returned evidence.</li></ol>
@@ -72,7 +74,7 @@
 <p>See the <a href="/guides/how-to-use-repo-router/">complete Repo Router walkthrough</a>, <a href="/editorial-policy/">editorial standards</a> and <a href="/privacy-policy/">privacy policy</a> for evidence, accuracy, privacy and third-party considerations.</p>
 </div>
 <section class="related" aria-labelledby="other-tools"><h2 id="other-tools">Other GitHub exploration tools</h2><div class="card-grid"><a class="card" href="/tools/github-repository-tree/"><h3>GitHub Repository Tree Viewer</h3><p>Explore a public GitHub repository's folder hierarchy and locate important paths without cloning it.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-architecture/"><h3>GitHub Architecture Explorer</h3><p>Inspect potential file relationships in a public repository and distinguish source evidence from illustrative architecture diagrams.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-repository-health/"><h3>GitHub Repository Health Checker</h3><p>Assess evidence of project documentation and maintenance without pretending to certify security or software quality.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-file-explorer/"><h3>GitHub File Explorer</h3><p>Find file paths quickly in a large public GitHub repository and inspect eligible text files directly in the browser.</p><span class="more">Explore tool &rarr;</span></a></div></section>
-<div class="cta-box"><h2>Explore a public GitHub project</h2><p>Enter its repository URL in Repo Router, then select Compare & Changes.</p><div class="btn-row"><a class="btn" href="/#tool">Open the Explorer</a><a class="btn-secondary" href="/tools/">All repository tools</a></div></div>
+<div class="cta-box"><h2>Explore a public GitHub project</h2><p>Enter its GitHub URL above to open the selected Compare & Changes.</p><div class="btn-row"><a class="btn" href="/#tool">Enter a repository URL</a><a class="btn-secondary" href="/tools/">All repository tools</a></div></div>
 </article></main>
 <footer class="site-footer">
   <div class="site-footer-inner">
@@ -112,5 +114,6 @@
     </div>
   </div>
 </footer>
+<script src="/tools/launch.js" defer></script>
 </body>
 </html>
