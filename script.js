@@ -210,7 +210,7 @@ function setStatus(text, tone) {
 
 // --- Core render ------------------------------------------------------
 
-function render() {
+function render(skipMeta = false) {
   const raw = els.input.value.trim();
   const parsed = parseGithubUrl(raw);
   currentParsed = parsed;
@@ -253,20 +253,20 @@ function render() {
   els.shareBtn.hidden = false;
   els.qrBtn.hidden = false;
 
-  fetchMeta(parsed.owner, parsed.repo).then(renderMeta);
+  if (!skipMeta) fetchMeta(parsed.owner, parsed.repo).then(renderMeta);
   renderBadge(parsed);
 }
 
 // --- Mode switching ---------------------------------------------------
 
-function setMode(next) {
+function setMode(next, skipMeta = false) {
   mode = next;
   els.destBtns.forEach((btn) => {
     const active = btn.dataset.mode === mode;
     btn.classList.toggle("active", active);
     btn.setAttribute("aria-pressed", String(active));
   });
-  render();
+  render(skipMeta);
 }
 
 // --- Submit / open ----------------------------------------------------
@@ -375,9 +375,10 @@ function readUrlParams() {
     const viewParam = params.get("view");
     if (repo) {
       els.input.value = /^(?:https?:\/\/)?(?:www\.)?github\.com\//i.test(repo) ? repo : "https://github.com/" + repo;
-      if (modeParam && Object.hasOwn(TARGET_HOST, modeParam)) setMode(modeParam);
-      else render();
-      if (LANDING_VIEWS.has(viewParam)) {
+      const isLandingView = LANDING_VIEWS.has(viewParam);
+      if (modeParam && Object.hasOwn(TARGET_HOST, modeParam)) setMode(modeParam, isLandingView);
+      else render(isLandingView);
+      if (isLandingView) {
         if (!currentParsed) {
           setStatus("Invalid GitHub repository URL. Use https://github.com/owner/repo.", "error");
         } else {
