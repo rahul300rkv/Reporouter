@@ -41,7 +41,7 @@
 <div class="prose">
 <p class="lede">This policy explains what information Repo Router (&ldquo;we&rdquo;, &ldquo;us&rdquo;) handles when you use reporouter.netlify.app. We keep it short because we collect very little.</p>
 <h2>1. What stays in your browser</h2>
-<p>URL conversion runs in your browser, and recent repository identifiers stay in local storage until cleared. Exploring a public repository requests metadata, directory listings, and selected files from GitHub. When using DeepWiki or GitMCP features, public repository identifiers and submitted search terms or questions are sent to our Netlify Functions and forwarded to the respective providers. GitDiagram requests also forward public repository identifiers to retrieve existing diagrams. Do not submit private repository names, confidential code, credentials, or sensitive questions.</p>
+<p>URL conversion runs in your browser. Recent repository identifiers, and any public-repository bookmarks and notes you choose to save in My Workspace, are stored in your browser's local storage until you clear them or clear browser data. Workspace export/import reads and writes JSON files at your explicit request; there is no cloud synchronization. Exploring and comparing public repositories requests metadata, directory listings, Git comparisons and selected files directly from GitHub. The built-in source-context builder and local import analysis operate on those fetched files in the browser. When using DeepWiki or GitMCP features, public repository identifiers and submitted search terms or questions are sent to our Netlify Functions and forwarded to the respective providers. GitDiagram requests also forward public repository identifiers to retrieve existing diagrams. Do not submit private repository names, confidential code, credentials, or sensitive questions.</p>
 <h2>2. Requests made from your browser</h2>
 <p>To work, the page may contact other services directly from your browser, and those services can see your IP address and standard request details:</p>
 <ul>
@@ -74,7 +74,7 @@
 <h2>10. Changes</h2>
 <p>We may update this policy and will change the date above when we do. Continued use of the site after a change means you accept the updated policy.</p>
 <h2>11. Contact</h2>
-<p>Questions about this policy? Write to <a href="mailto:hello@reporouter.netlify.app">hello@reporouter.netlify.app</a> or use the <a href="/contact/">contact page</a>.</p>
+<p>Questions about this policy? Write to <a href="mailto:reporouter@rediffmail.com">reporouter@rediffmail.com</a> or use the <a href="/contact/">contact page</a>.</p>
 </div></div>
 </main>
 <footer class="site-footer">
@@ -82,7 +82,7 @@
     <div class="footer-grid">
       <div>
         <h2>Repo Router</h2>
-        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+        <p>A public GitHub repository explorer with file trees, architecture evidence, comparisons, and helpful guides.</p>
       </div>
       <div>
         <h2>Guides</h2>
@@ -91,7 +91,7 @@
       <div>
         <h2>Company</h2>
         <ul>
-          <li><a href="/about/">About</a></li>
+          <li><a href="/about/">About</a></li><li><a href="/editorial-policy/">Editorial policy</a></li>
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Use</a></li>
@@ -111,7 +111,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Repo Router. All rights reserved.</span>
-      <span>Last updated: November 17, 2026</span>
+      <span>Open-source project · <a href="https://github.com/rahul300rkv/Reporouter" target="_blank" rel="noopener noreferrer">View source</a></span>
     </div>
   </div>
 </footer>

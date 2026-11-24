@@ -6,7 +6,7 @@
 2. **Goal-based AI Context Builder:** goal-specific filename/path ranking, explicit file selection (maximum 12), public GitHub blob fetching, approximate 4k/8k/16k/32k token budgets, copy/download, file source links, and safety/size filters. Uses Explorer's existing API and cache; does not invoke an AI model.
 3. **GitHub URL Tricks Hub:** official GitHub source/editor/actions/commits/releases plus GitHub1s, GitIngest, DeepWiki, GitDiagram, GitMCP, StackBlitz; clearly label third parties and compatibility caveats.
 
-## Phase 2: deeper insight and retention (implemented on feature branch; awaiting approval to merge)
+## Phase 2: deeper insight and retention (merged into main via PR #5)
 
 1. **Repository Health & Maintenance Signals:** inspect returned README/LICENSE/SECURITY.md, CI/test/dependency filenames and GitHub push/issue/archived metadata. Present observed evidence, not speculative safety or quality scores. Does not inspect release histories or run tests.
 2. **Evidence-Linked Architecture:** inspect at most 24 public JavaScript/TypeScript/Python text files; match relative import syntax to existing filenames and link each candidate edge to GitHub source. Parsing is heuristic and may produce false positives; not a complete architecture graph.
@@ -39,5 +39,12 @@ No authentication, remote storage, proprietary LLM hosting, or third-party code-
 ## Deployment boundaries
 
 - Previous DeepWiki and GitDiagram improvements are now part of the main branch.
-- Phase 2 currently remains unmerged until the repository owner approves it.
+- Phase 2 was merged to main in PR #5; production browser acceptance is distinct from code merge.
 - Real GitHub rate limits, mobile browsers, source-graph accuracy, and live Netlify interactions still require end-to-end verification before production acceptance.
+
+## Editorial and trust maintenance
+
+- The [About page](https://reporouter.netlify.app/about/) describes the maintained feature set, GitHub-source ownership and integration limits.
+- The [editorial policy](https://reporouter.netlify.app/editorial-policy/) documents source hierarchy, review approach, correction route and non-affiliation.
+- The Guides index organizes existing material by GitHub structure, architecture, comparisons, project evaluation and optional external tools.
+- Do not claim a Google E-E-A-T score, verified keyword volume, endorsements, or measured security ratings without evidence.

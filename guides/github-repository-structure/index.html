@@ -21,7 +21,7 @@
 <meta property="og:url" content="https://reporouter.netlify.app/guides/github-repository-structure/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GitHub Repository Structure: How to View and Understand Any Repository","description":"Learn GitHub repository structure: common folders, files, tree views, examples and how to explore any public GitHub repository online without cloning.","datePublished":"2026-11-24","dateModified":"2026-11-24","inLanguage":"en","mainEntityOfPage":"https://reporouter.netlify.app/guides/github-repository-structure/","image":"https://reporouter.netlify.app/og-image.png","author":{"@type":"Organization","name":"Repo Router"},"publisher":{"@type":"Organization","name":"Repo Router","url":"https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GitHub Repository Structure: How to View and Understand Any Repository","description":"Learn GitHub repository structure: common folders, files, tree views, examples and how to explore any public GitHub repository online without cloning.","datePublished":"2026-11-24","dateModified":"2026-11-24","inLanguage":"en","mainEntityOfPage":"https://reporouter.netlify.app/guides/github-repository-structure/","image":"https://reporouter.netlify.app/og-image.png","author":{"@type":"Organization","name":"Repo Router","url":"https://reporouter.netlify.app/about/"},"publisher":{"@type":"Organization","name":"Repo Router","url":"https://reporouter.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://reporouter.netlify.app/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://reporouter.netlify.app/guides/"},{"@type":"ListItem","position":3,"name":"GitHub repository structure","item":"https://reporouter.netlify.app/guides/github-repository-structure/"}]}</script>
 </head>
 <body class="page">
@@ -40,7 +40,7 @@
 <article class="article-shell">
 <span class="tag">GitHub Guide</span>
 <h1>GitHub Repository Structure: How to View and Understand Any Repository</h1>
-<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 24, 2026</span><span aria-hidden="true">&middot;</span><span>9 min read</span></p>
+<p class="article-meta"><span>By <a href="/about/">Repo Router project</a></span><span aria-hidden="true">&middot;</span><span>Updated November 24, 2026</span><span aria-hidden="true">&middot;</span><span>Includes verifiable source references</span></p>
 <div class="prose">
 <p class="lede">A GitHub repository structure is the hierarchy of folders and files in a project. Understanding it helps you find source code, dependencies, configuration, tests, and documentation—without opening every file or cloning the repository.</p>
 <p>This guide explains common GitHub directory layouts, shows examples for JavaScript, Python, and Java projects, and walks through three ways to inspect a public repository online.</p>
@@ -155,6 +155,20 @@
 └── README.md</code></pre>
 <p>This Maven convention separates runtime code, resources, and tests.</p>
 
+<h2 id="real-world-example">Real repository example: how Repo Router is organized</h2>
+<p>The following observations are based on <a href="https://github.com/rahul300rkv/Reporouter" target="_blank" rel="noopener noreferrer">Repo Router's publicly inspectable source repository</a>, rather than an invented demonstration tree. You can open each linked file on GitHub and confirm its current contents. This is a static source review, <strong>not a test of the application's runtime behavior</strong>.</p>
+<table><thead><tr><th scope="col">Observed path</th><th scope="col">What the source reveals</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/index.html" target="_blank" rel="noopener noreferrer"><code>index.html</code></a></td><td>The single-page interface contains the Explorer panel and tabs for its different repository views.</td></tr>
+<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/explorer.js" target="_blank" rel="noopener noreferrer"><code>explorer.js</code></a></td><td>Reads GitHub repository metadata and trees, displays file paths, and previews eligible text blobs.</td></tr>
+<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/repository-health.js" target="_blank" rel="noopener noreferrer"><code>repository-health.js</code></a></td><td>Checks for selected documentation, test, CI and manifest filenames, plus maintenance metadata; not a vulnerability scanner.</td></tr>
+<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/repository-compare.js" target="_blank" rel="noopener noreferrer"><code>repository-compare.js</code></a></td><td>Implements public repository metadata comparisons and GitHub branch/tag change requests.</td></tr>
+<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/architecture-evidence.js" target="_blank" rel="noopener noreferrer"><code>architecture-evidence.js</code></a></td><td>Matches potential relative-import relationships in a limited selection of source files. It does not establish a full runtime dependency graph.</td></tr>
+<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/guides/index.html" target="_blank" rel="noopener noreferrer"><code>guides/index.html</code></a></td><td>The index for the separate tutorial and topic-guide pages.</td></tr>
+</tbody></table>
+<p><strong>What this example teaches:</strong> the top-level layout is not necessarily a conventional <code>src/</code> folder. This small static application keeps its browser modules at the repository root and individual guides under <code>guides/</code>. You can identify those modules by inspecting the scripts referenced from <code>index.html</code>, rather than guessing solely from folder names.</p>
+<p><strong>Reproduce it:</strong> open the <a href="https://github.com/rahul300rkv/Reporouter" target="_blank" rel="noopener noreferrer">repository on GitHub</a>, choose the default branch, locate the files above, and inspect their source. Or open <a href="/#tool">Repo Router</a> and enter <code>https://github.com/rahul300rkv/Reporouter</code>. The specific paths and features may evolve as commits are merged.</p>
+<p>Official reference: <a href="https://docs.github.com/en/repositories/working-with-files/using-files/navigating-code-on-github" target="_blank" rel="noopener noreferrer">Navigating code on GitHub</a>.</p>
+
 <h2 id="large-repos">How to understand a large GitHub codebase</h2>
 <ol>
 <li><strong>Start with the README.</strong> Identify the project's purpose and install/run instructions.</li>
@@ -198,6 +212,7 @@
 <h3>Is Repo Router free?</h3>
 <p>Repo Router's public browser explorer does not require a login or a paid subscription. External providers can impose separate availability limits or terms.</p>
 
+<p class="article-meta">Sources and corrections: <a href="https://docs.github.com/en/rest/git/trees#get-a-tree" target="_blank" rel="noopener noreferrer">Git Trees API documentation</a> · <a href="https://docs.github.com/en/repositories/working-with-files/using-files/navigating-code-on-github" target="_blank" rel="noopener noreferrer">GitHub navigation docs</a> · <a href="/editorial-policy/">Repo Router editorial policy</a>.</p>
 <div class="callout"><strong class="label">Explore repository structure online</strong>Paste a public GitHub URL into <a href="/#tool">Repo Router</a> and open the <strong>Files</strong> tab. Filter by path, inspect supported source text, and use the Overview tab to understand the project before downloading anything.</div>
 </div>
 <section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three">
@@ -213,7 +228,7 @@
     <div class="footer-grid">
       <div>
         <h2>Repo Router</h2>
-        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+        <p>A public GitHub repository explorer with file trees, architecture evidence, comparisons, and helpful guides.</p>
       </div>
       <div>
         <h2>Guides</h2>
@@ -222,7 +237,7 @@
       <div>
         <h2>Company</h2>
         <ul>
-          <li><a href="/about/">About</a></li>
+          <li><a href="/about/">About</a></li><li><a href="/editorial-policy/">Editorial policy</a></li>
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Use</a></li>
@@ -242,7 +257,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Repo Router. All rights reserved.</span>
-      <span>Last updated: November 17, 2026</span>
+      <span>Open-source project · <a href="https://github.com/rahul300rkv/Reporouter" target="_blank" rel="noopener noreferrer">View source</a></span>
     </div>
   </div>
 </footer>
