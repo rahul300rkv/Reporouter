@@ -597,7 +597,7 @@
     <button role="tab" type="button" data-explorer-tab="digest" aria-selected="false">Digest</button>
     <button role="tab" type="button" data-explorer-tab="deepwiki" aria-selected="false">AI Docs (DeepWiki)</button>
     <button role="tab" type="button" data-explorer-tab="gitmcp" aria-selected="false">GitMCP Search</button>
-    <button role="tab" type="button" data-explorer-tab="gitdiagram" aria-selected="false">Architecture (GitDiagram)</button>
+    <button role="tab" type="button" data-explorer-tab="gitdiagram" aria-selected="false">Architecture Diagram</button>
   </div>
   <div data-explorer-pane="overview" role="tabpanel">
     <div id="rr-intelligence" aria-label="Repository intelligence dashboard"></div>
@@ -611,7 +611,7 @@
   </div>
   <div data-explorer-pane="evidence" role="tabpanel" hidden>
     <p class="rr-phase2-intro">Inspect a limited sample of public JavaScript, TypeScript and Python source files and identify relative imports that resolve to files in GitHub. Unlike AI-inferred edges, each link is backed by an observed import statement. It is not a complete dependency graph.</p>
-    <div class="rr-phase2-actions"><button id="rr-architecture-analyze" type="button" class="explorer-primary" disabled>Inspect source relationships</button><a class="explorer-link" href="https://gitdiagram.com" target="_blank" rel="noopener noreferrer">Open GitDiagram ↗</a></div>
+    <div class="rr-phase2-actions"><button id="rr-architecture-analyze" type="button" class="explorer-primary" disabled>Inspect source relationships</button><button type="button" class="explorer-primary" id="rr-open-native-diagram">View architecture diagram</button></div>
     <p id="rr-architecture-status" class="rr-phase2-status" role="status" aria-live="polite">Open a repository to inspect source relationships.</p>
     <div id="rr-architecture-output" aria-label="Observed import relationships"></div>
   </div>
@@ -697,11 +697,13 @@
     <pre id="gitmcp-output">Fetch documentation or search this repository.</pre>
   </div>
   <div data-explorer-pane="gitdiagram" role="tabpanel" hidden>
-    <p class="explorer-small">Visualize an existing AI-generated architecture diagram from GitDiagram. Repository identifiers are forwarded to GitDiagram via a Netlify Function. New diagrams must be generated at GitDiagram. Verify every architectural claim against the repository.</p>
-    <div class="gitdiagram-toolbar"><button id="gitdiagram-load" type="button">Load diagram</button><a id="gitdiagram-external" target="_blank" rel="noopener noreferrer" href="https://gitdiagram.com">Open GitDiagram ↗</a><button id="gitdiagram-copy" type="button" disabled>Copy Mermaid</button></div>
-    <p class="explorer-status" id="gitdiagram-status" role="status" aria-live="polite">Open a repository to use GitDiagram.</p>
+    <h3>Repository Architecture Diagram</h3>
+    <p class="explorer-small">Repo Router builds a diagram directly from the public GitHub file tree — no stored diagram, account or external diagram service required. Solid connections show observed directory grouping. Optional dashed connections represent relative-import references found in sampled source files, not verified runtime architecture.</p>
+    <div class="gitdiagram-toolbar"><button id="gitdiagram-load" type="button" disabled>Rebuild diagram</button><button id="gitdiagram-scan" type="button" disabled>Inspect imports</button><a id="gitdiagram-external" target="_blank" rel="noopener noreferrer" href="https://gitdiagram.com">Optional: Open GitDiagram ↗</a><button id="gitdiagram-copy" type="button" disabled>Copy Mermaid</button></div>
+    <p class="explorer-status" id="gitdiagram-status" role="status" aria-live="polite">Open a repository to build a diagram.</p>
     <p id="gitdiagram-summary">Architecture overview will appear here.</p>
-    <div id="gitdiagram-graphic" role="region" aria-label="Interactive architecture overview"></div>
+    <div id="gitdiagram-graphic" role="region" aria-label="Interactive repository structure and architecture evidence diagram"></div>
+    <p class="explorer-small">Click a diagram node to inspect its path on GitHub. First-party diagrams reflect available file paths and optional source evidence; missing or partial results should not be interpreted as complete software architecture.</p>
     <details><summary>View Mermaid source</summary><pre id="gitdiagram-source"></pre></details>
   </div>
 </section>

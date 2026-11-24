@@ -19,7 +19,7 @@
     const view = form.querySelector('input[name="view"]');
     const status = form.querySelector('[data-repo-feedback]');
     const submit = form.querySelector('button[type="submit"]');
-    if (!input || !view || !["files", "evidence", "compare", "health"].includes(view.value)) return;
+    if (!input || !view || !["files", "evidence", "compare", "health", "gitdiagram"].includes(view.value)) return;
     input.addEventListener("input", () => {
       input.setCustomValidity("");
       if (status) status.textContent = "";

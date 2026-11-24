@@ -49,6 +49,12 @@ These pages provide task-specific walkthroughs, clear limitations and a form tha
 
 [All GitHub repository tools](https://reporouter.netlify.app/tools/)
 
+## First-party Architecture Diagram
+
+The **Architecture Diagram** tab generates a clickable SVG diagram directly from the public GitHub tree returned by the Explorer. It does **not** require a pre-generated GitDiagram record or third-party AI diagram service. Root-to-folder edges represent observed path containment, while optional dashed edges reflect relative-import syntax found when a visitor selects **Inspect imports** (bounded, source-evidence based, not a runtime dependency analysis). Click nodes to inspect their GitHub paths. Zoom, fit, fullscreen, SVG/PNG/Mermaid export and README snippets reuse the built-in viewer controls.
+
+The architecture landing page at [GitHub Architecture Explorer](https://reporouter.netlify.app/tools/github-architecture/) can open the native diagram tab directly. GitDiagram remains an optional external link.
+
 ## Guides and tutorials
 
 Our primary editorial focus is **exploring, navigating, visualizing, comparing, and evaluating public GitHub repositories**. See [About Repo Router](https://reporouter.netlify.app/about/) and our [Editorial Standards](https://reporouter.netlify.app/editorial-policy/) for authorship, sourcing, technical limits, and correction requests.

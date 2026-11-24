@@ -50,7 +50,7 @@
 <ul>
 <li><strong>Health:</strong> checks observable README, license, security, CI, test and dependency file signals plus available GitHub maintenance metadata. It does not compute a security or quality certification.</li>
 <li><strong>Architecture Evidence:</strong> inspects a bounded sample of supported source files and surfaces potential local import references. These relationships may be incomplete or contain false positives.</li>
-<li><strong>Architecture (GitDiagram):</strong> tries to load an available third-party diagram; diagram availability and precision depend on the provider.</li>
+<li><strong>Architecture Diagram:</strong> generates a first-party diagram from observed GitHub file-tree paths, with clickable folders. You can optionally inspect source imports to add candidate dashed relationships. GitDiagram is only an optional external tool; verify inferred architecture against the actual code.</li>
 </ul>
 <h2>Step 4: compare projects or revisions</h2>
 <p>Use <strong>Compare &amp; Changes</strong> to compare descriptive information from two public GitHub repositories. You can also request a GitHub branch or tag comparison within the current repository. GitHub imposes API limits and may truncate very large comparisons; the resulting list is not guaranteed exhaustive.</p>

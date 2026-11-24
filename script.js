@@ -127,7 +127,7 @@ let copyResetTimer;
 let qrVisible = false;
 let opening = false;
 // Only these first-party Explorer tabs may be opened directly from /tools/ pages.
-const LANDING_VIEWS = new Set(["files", "evidence", "compare", "health"]);
+const LANDING_VIEWS = new Set(["files", "evidence", "compare", "health", "gitdiagram"]);
 
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (ch) => ({
