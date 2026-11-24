@@ -106,7 +106,7 @@
     { "@type": "HowToStep", "name": "Paste GitHub URL", "text": "Repo Router ke input box mein apne GitHub repository ka link paste karein, jaise https://github.com/owner/repo." },
     { "@type": "HowToStep", "name": "Choose Destination", "text": "Chaar options mein se ek chunein: MCP Server (gitmcp.io), Dir Tree (gitingest.com), DeepWiki (deepwiki.com) ya UIthub (uithub.com)." },
     { "@type": "HowToStep", "name": "Preview Transformation", "text": "Transformation Preview mein dekhein ki original GitHub URL naye destination URL mein kaise convert ho raha hai, aur chahen toh README badge ya QR code generate karein." },
-    { "@type": "HowToStep", "name": "Open AI Tool", "text": "'Run Route' button dabayein — result panel mein destination site load ho jaayega, ya naye tab mein 'Open' se access karein." }
+    { "@type": "HowToStep", "name": "Inspect the repository", "text": "'Run Route' button dabayein — result panel mein destination site load ho jaayega, ya naye tab mein 'Open' se access karein." }
   ]
 }
 </script>
@@ -382,22 +382,21 @@
   </div>
 </header>
 
-<!-- ===================== 2. COMPATIBLE TOOLS (NO ENDORSEMENT) ===================== -->
-<section aria-label="Optional developer services and tools; not endorsements" class="rr-trust-strip">
-  <span class="rr-trust-item"><span class="material-symbols-outlined">smart_toy</span> Claude</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">terminal</span> Cursor</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">chat</span> ChatGPT</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">code</span> GitHub</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">edit_note</span> VS Code</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">air</span> Windsurf</span>
+<!-- ===================== 2. FIRST-PARTY CAPABILITIES ===================== -->
+<section aria-label="Repo Router first-party repository exploration capabilities" class="rr-trust-strip">
+  <span class="rr-trust-item"><span class="material-symbols-outlined">folder_open</span> File Explorer</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">account_tree</span> Architecture</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">compare_arrows</span> Compare Repos</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">fact_check</span> Health Signals</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">bookmark</span> My Workspace</span>
 </section>
 
 <!-- ===================== 3. WHY REPO ROUTER ===================== -->
 <section aria-labelledby="why-heading" class="rr-section">
   <div class="rr-wrap">
     <span class="rr-eyebrow">Why Repo Router</span>
-    <h2 class="rr-h2 mt-3 mb-3" id="why-heading">Ek link, sahi jagah, bina friction ke</h2>
-    <p class="rr-lede mb-10">Manually URL mein <code>github.com</code> ko replace karna chhota kaam lagta hai, lekin din mein 20-30 baar karna time waste karta hai. Repo Router wahi kaam ek click mein karta hai.</p>
+    <h2 class="rr-h2 mt-3 mb-3" id="why-heading">Explore GitHub repositories without cloning</h2>
+    <p class="rr-lede mb-10">Use Repo Router to inspect file trees, project metadata, architecture clues and maintenance signals, then compare public GitHub projects or branch changes. URL shortcuts remain optional.</p>
 
     <div class="rr-grid-4">
       <article class="rr-card">
@@ -700,7 +699,7 @@
 <section aria-labelledby="how-heading" class="rr-section" id="how-it-works">
   <div class="rr-wrap">
     <span class="rr-eyebrow">How It Works</span>
-    <h2 class="rr-h2 mt-3 mb-10" id="how-heading">Chaar steps, ek destination</h2>
+    <h2 class="rr-h2 mt-3 mb-10" id="how-heading">How to explore a public repository</h2>
     <ol class="rr-steps" style="list-style:none; padding:0;">
       <li class="rr-step rr-card">
         <span class="rr-step-num">1</span>
@@ -730,7 +729,7 @@
 <section aria-labelledby="platforms-heading" class="rr-section rr-section-tight" id="platforms">
   <div class="rr-wrap">
     <span class="rr-eyebrow">Supported Platforms</span>
-    <h2 class="rr-h2 mt-3 mb-10" id="platforms-heading">Chaar destinations, chaar alag use case</h2>
+    <h2 class="rr-h2 mt-3 mb-10" id="platforms-heading">Optional third-party destinations</h2>
     <div class="rr-grid-4">
       <article class="rr-card">
         <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">hub</span></div>
@@ -828,7 +827,7 @@
 <section aria-labelledby="guide-heading" class="rr-guide" id="guide">
   <div class="rr-wrap rr-section">
     <span class="rr-eyebrow">In-Depth Guide</span>
-    <h2 class="rr-h2 mt-3 mb-2" id="guide-heading">MCP, GitMCP aur AI-Ready Repositories — Poora Guide</h2>
+    <h2 class="rr-h2 mt-3 mb-2" id="guide-heading">Additional references: MCP and external tools</h2>
     <p class="rr-lede mb-10">Repo Router, Model Context Protocol aur AI coding workflows ko samajhne ke liye ek complete, practical reference.</p>
 
     <div class="rr-guide-inner">
@@ -842,7 +841,7 @@
         <a href="#g-gitmcp-vs-deepwiki">GitMCP vs DeepWiki</a>
         <a href="#g-deepwiki-vs-gitingest">DeepWiki vs Gitingest</a>
         <a href="#g-docs-practices">Documentation best practices</a>
-        <a href="#g-benefits">Benefits for AI Developers</a>
+        <a href="#g-benefits">Benefits of repository exploration</a>
         <a href="#g-security">Security &amp; Privacy</a>
         <a href="#g-architecture">Explorer architecture</a>
         <a href="#g-workflows">Common workflows</a>
@@ -935,7 +934,7 @@ const destinations = {
           <li><strong>Fast onboarding:</strong> Kisi naye project mein join karte waqt DeepWiki se pehle high-level overview padho.</li>
         </ul>
 
-        <h2 id="g-best-practices">Best practices when using AI-repository tools</h2>
+        <h2 id="g-best-practices">Best practices for exploring third-party repositories</h2>
         <p>In tools ka best use tab hota hai jab aap sahi tool ko sahi task ke liye choose karo — jaisa comparison table upar dikhaya gaya hai. Bade repositories ke liye, agar poora Gitingest export context window se bada ho jaaye, toh relevant sub-folders pe focus karna better rehta hai. Aur AI-generated explanations (DeepWiki se) ko hamesha original source code ke saath cross-check karna acchi practice hai, kyunki AI summaries occasionally galat ho sakti hain.</p>
 
       </article>
@@ -1032,7 +1031,7 @@ const destinations = {
 <section aria-labelledby="resources-heading" class="rr-section rr-section-tight">
   <div class="rr-wrap">
     <span class="rr-eyebrow">Keep Learning</span>
-    <h2 class="rr-h2 mt-3 mb-8" id="resources-heading">Guides &amp; resources</h2>
+    <h2 class="rr-h2 mt-3 mb-8" id="resources-heading">GitHub repository structure &amp; guides</h2>
     <div class="rr-grid-4">
       <a class="rr-card rr-resource-card" href="/guides/what-is-mcp/"><span class="rr-resource-badge">Guide &middot; 6 min</span><h3 class="rr-h3">What is MCP?</h3><p class="text-sm text-gray-600">Model Context Protocol explained: clients, servers, tools, resources and prompts.</p><span class="rr-more">Read guide &rarr;</span></a>
       <a class="rr-card rr-resource-card" href="/guides/gitmcp-guide/"><span class="rr-resource-badge">Guide &middot; 7 min</span><h3 class="rr-h3">GitMCP Guide</h3><p class="text-sm text-gray-600">Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="rr-more">Read guide &rarr;</span></a>
