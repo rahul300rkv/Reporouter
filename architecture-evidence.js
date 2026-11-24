@@ -79,6 +79,11 @@ async function analyze(){
   status.textContent="Inspected "+readCount+" of "+all.length+" eligible source files; "+
    edges.length+" potential source edges"+(edges.length>80?" (first 80 shown)":"")+
    "; "+errors.length+" files unavailable"+(s.truncated?"; GitHub returned a partial tree":"")+".";
+  // Share already-inspected evidence with the first-party diagram; no second source scan.
+  window.dispatchEvent(new CustomEvent("reporouter:architecture-evidence",{detail:{
+   owner:s.owner,repo:s.repo,edges,filesInspected:readCount,
+   filesEligible:all.length,filesUnavailable:errors.length,truncated:Boolean(s.truncated)
+  }}));
  }finally{if(own===version){busy=false;button.disabled=false;}}
 }
 button.addEventListener("click",()=>analyze().catch(e=>{status.textContent="Architecture inspection failed: "+e.message;busy=false;button.disabled=false;}));
@@ -91,5 +96,5 @@ window.addEventListener("reporouter:repository-loaded",e=>{
 });
 window.addEventListener("reporouter:closed",reset);
 reset();
-window.RepoRouterArchitectureEvidence={pathResolve,references};
+window.RepoRouterArchitectureEvidence={pathResolve,references,analyze};
 })();
