@@ -54,6 +54,7 @@
     ui.tabPanels.forEach(p => p.hidden = p.dataset.explorerPane !== tab);
   }
   ui.tabButtons.forEach(b => b.addEventListener('click', () => switchTab(b.dataset.explorerTab)));
+  document.getElementById('rr-open-native-diagram')?.addEventListener('click', () => switchTab('gitdiagram'));
   ui.close.addEventListener('click', () => {if(activeController)activeController.abort();++requestVersion;ui.panel.hidden=true;state=null;lastRequest=null;window.dispatchEvent(new Event('reporouter:closed'));});
   ui.retry?.addEventListener('click', () => {
     if (lastRequest) open(lastRequest.parsed, lastRequest.selectedToolUrl, lastRequest.requestedView);
