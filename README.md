@@ -6,7 +6,7 @@
 
 Repo Router combines a public GitHub repository explorer with focused context generation, repository intelligence, and convenient links to specialist tools such as GitMCP, DeepWiki, GitIngest, GitDiagram, and UIthub. The site is built with HTML, CSS, JavaScript, and read-only Netlify functions.
 
-> **Release status:** Repository Health, Architecture Evidence, Compare & Changes, and My Workspace are merged into `main` through [PR #5](https://github.com/rahul300rkv/Reporouter/pull/5). Actual availability may depend on the current deployment; source and change history are public. The new editorial improvements are under review in a separate pull request.
+> **Release status:** Repository Health, Architecture Evidence, Compare & Changes, and My Workspace were merged into `main` in PR #5. Subsequent editorial and privacy improvements were merged in PRs #7 and #8. The five dedicated tool landing pages are under review on a separate branch; the interactive features remain within the main Explorer.
 
 ## Start here
 
@@ -34,6 +34,20 @@ Repo Router combines a public GitHub repository explorer with focused context ge
 | My Workspace | Save public repository bookmarks and private notes in local browser storage; import/export JSON. | [repository-workspace.js](repository-workspace.js) |
 
 These views are integrated into the Explorer on `main`. See [the two-phase roadmap](PHASES.md) for exact scope, limitations, and acceptance criteria.
+
+## GitHub repository tool landing pages
+
+These pages provide task-specific walkthroughs, clear limitations and a form that prefills a public GitHub repository in the main Explorer. They do not duplicate backend functionality.
+
+| Tool | Page | Explorer tab |
+| --- | --- | --- |
+| Repository Tree Viewer | [View GitHub repository tree](https://reporouter.netlify.app/tools/github-repository-tree/) | Files |
+| File Explorer | [Find GitHub repository files](https://reporouter.netlify.app/tools/github-file-explorer/) | Files |
+| Architecture Explorer | [Explore GitHub architecture](https://reporouter.netlify.app/tools/github-architecture/) | Architecture Evidence |
+| Repository Comparison | [Compare GitHub repositories](https://reporouter.netlify.app/tools/compare-github-repositories/) | Compare & Changes |
+| Repository Health | [Check repository health signals](https://reporouter.netlify.app/tools/github-repository-health/) | Health |
+
+[All GitHub repository tools](https://reporouter.netlify.app/tools/)
 
 ## Guides and tutorials
 
