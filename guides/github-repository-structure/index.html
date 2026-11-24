@@ -92,18 +92,16 @@
 }</code></pre>
 <p><em>Illustrative simplified JSON; not a live GitHub API response.</em> For endpoint details see <a href="https://docs.github.com/en/rest/git/trees#get-a-tree" target="_blank" rel="noopener noreferrer">GitHub's Git Trees API documentation</a>.</p>
 
-<h2 id="verified-example">Real repository example: how Repo Router is organized</h2>
-<p>The structure below uses <strong>actual files from Repo Router's publicly inspectable source</strong>, not a fabricated example. To verify each item, open the linked GitHub path. Repo Router is a static site with optional Netlify serverless functions; the structure is therefore different from the illustrative React, Java and Python layouts later in this guide.</p>
-<table><thead><tr><th scope="col">Verified path</th><th scope="col">What it does</th></tr></thead><tbody>
-<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/index.html" target="_blank" rel="noopener noreferrer"><code>index.html</code></a></td><td>Homepage and embedded Repository Explorer interface</td></tr>
-<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/explorer.js" target="_blank" rel="noopener noreferrer"><code>explorer.js</code></a></td><td>Public GitHub repository metadata, file tree, text previews and digest</td></tr>
-<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/repository-health.js" target="_blank" rel="noopener noreferrer"><code>repository-health.js</code></a></td><td>Checks observable repository metadata and common file-path signals</td></tr>
-<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/repository-compare.js" target="_blank" rel="noopener noreferrer"><code>repository-compare.js</code></a></td><td>Public repository and branch/tag comparisons</td></tr>
-<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/guides/github-repository-structure/index.html" target="_blank" rel="noopener noreferrer"><code>guides/github-repository-structure/index.html</code></a></td><td>The source of the guide you are reading</td></tr>
-<tr><td><a href="https://github.com/rahul300rkv/Reporouter/blob/main/sitemap.xml" target="_blank" rel="noopener noreferrer"><code>sitemap.xml</code></a></td><td>A list of published, indexable site URLs</td></tr>
-</tbody></table>
-<p><strong>How this example was checked:</strong> the paths above were inspected in the repository's public source on November 24, 2026. They illustrate file location and responsibility; they do not establish that every code path is invoked in every user session. Check the linked files for later changes.</p>
-
+<h2 id="practical-inspection">Practical example: inspect any public repository</h2>
+<p>Open a public repository you want to understand, such as <a href="https://github.com/facebook/react" target="_blank" rel="noopener noreferrer">facebook/react</a>, and inspect its current directory tree. Begin with the README, identify its manifest files, and browse the main source or package directories. The exact file layout may change between releases, so verify paths directly rather than copying a diagram from another project.</p>
+<ol>
+<li>Read the root README to establish the project's stated purpose.</li>
+<li>Open the root file tree and identify source, documentation and test directories.</li>
+<li>Inspect a dependency manifest relevant to the language or framework.</li>
+<li>Check the project's actual paths before drawing architectural conclusions.</li>
+<li>Use the <a href="/#tool">Repo Router Files tab</a> to filter a public repository's observed file paths.</li>
+</ol>
+<p>This example is a repeatable inspection method, not a claim that any particular directory exists in the current version of the linked project. Refer to <a href="https://docs.github.com/en/repositories/working-with-files/using-files/navigating-code-on-github" target="_blank" rel="noopener noreferrer">GitHub's guide to navigating code</a> for platform instructions.</p>
 <h2 id="folders">Common folders in a GitHub repository</h2>
 <table><thead><tr><th scope="col">Folder</th><th scope="col">Typical purpose</th></tr></thead><tbody>
 <tr><td><code>src/</code></td><td>Main source files</td></tr>
@@ -210,7 +208,7 @@
 <h3>Is Repo Router free?</h3>
 <p>Repo Router's public browser explorer does not require a login or a paid subscription. External providers can impose separate availability limits or terms.</p>
 
-<p><strong>Source and editorial notes:</strong> This guide distinguishes hypothetical directory trees from the linked Repo Router example. GitHub API behavior is based on the <a href="https://docs.github.com/en/rest/git/trees#get-a-tree" target="_blank" rel="noopener noreferrer">official Git Trees REST reference</a>. For attribution, corrections and limitations, read our <a href="/editorial-policy/">editorial standards</a> or <a href="/contact/">contact us</a>.</p>
+<p><strong>Source and editorial notes:</strong> This guide distinguishes hypothetical directory trees from public repositories that you can inspect yourself. GitHub API behavior is based on the <a href="https://docs.github.com/en/rest/git/trees#get-a-tree" target="_blank" rel="noopener noreferrer">official Git Trees REST reference</a>. For attribution, corrections and limitations, read our <a href="/editorial-policy/">editorial standards</a> or <a href="/contact/">contact us</a>.</p>
 <div class="callout"><strong class="label">Explore repository structure online</strong>Paste a public GitHub URL into <a href="/#tool">Repo Router</a> and open the <strong>Files</strong> tab. Filter by path, inspect supported source text, and use the Overview tab to understand the project before downloading anything.</div>
 </div>
 <section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three">
