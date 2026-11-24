@@ -44,18 +44,18 @@
 <div class="prose">
 <p class="lede">Inspect potential file relationships in a public repository and distinguish source evidence from illustrative architecture diagrams.</p>
 <p>Repo Router provides this feature inside its <strong>existing Repository Explorer</strong>. This page explains the task and takes your repository URL to the main tool. It does not claim a separate scanning backend or private-repository access.</p>
-<div class="callout"><strong class="label">Open Architecture Evidence</strong>
-<form action="/#tool" method="get" data-repo-launch aria-label="Open Architecture Evidence for a public GitHub repository">
-<input type="hidden" name="view" value="evidence"/>
+<div class="callout"><strong class="label">Generate a first-party diagram</strong>
+<form action="/#tool" method="get" data-repo-launch aria-label="Open the architecture diagram for a public GitHub repository">
+<input type="hidden" name="view" value="gitdiagram"/>
 <label for="repo-entry-github-architecture">Public GitHub repository URL</label>
 <input id="repo-entry-github-architecture" name="repo" type="text" inputmode="url" required placeholder="https://github.com/facebook/react" autocomplete="off" style="display:block;width:100%;min-height:48px;margin:8px 0 12px;padding:10px;border:2px solid #111827;border-radius:8px;background:#fff;color:#111827;font:inherit"/>
-<button class="btn" type="submit">Open Architecture Evidence</button>
+<button class="btn" type="submit">Generate Architecture Diagram</button>
 <p role="status" aria-live="polite" data-repo-feedback></p>
 </form>
-<p>A valid GitHub URL opens the <strong>Architecture Evidence</strong> view directly in Repo Router. To start with a blank form instead, <a href="/#tool">enter a repository URL on the homepage</a>.</p>
+<p>A valid GitHub URL opens Repo Router’s <strong>Architecture Diagram</strong> tab and generates a structure visualization directly from GitHub paths. No preexisting GitDiagram diagram is needed. To start with a blank form instead, <a href="/#tool">enter a repository URL on the homepage</a>.</p>
 </div>
 <h2 id="how-to">How to use this feature</h2>
-<ol><li>Enter a public GitHub repository address.</li><li>Submit the URL to open Architecture Evidence automatically.</li><li>Review the sampled files and potential relative-import links; open each referenced source file to verify the evidence.</li></ol>
+<ol><li>Enter a public GitHub repository address.</li><li>Submit the URL to open a first-party architecture diagram automatically.</li><li>Click directory nodes to inspect their GitHub paths. Select <strong>Inspect imports</strong> to add candidate source relationships from sampled files.</li></ol>
 <h2 id="evidence">What is actually analyzed?</h2>
 <p>Repo Router samples a bounded set of supported JavaScript, TypeScript and Python text files and looks for relative import references that resolve to observed repository paths. It links potential relationships back to public GitHub source for inspection. This is a <strong>heuristic file-level observation</strong>, not a full compiler analysis or a runtime dependency graph.</p>
 <h2 id="architecture-vs-tree">Architecture versus a directory tree</h2>
@@ -65,8 +65,8 @@
 <tr><td>Generally available from repository metadata</td><td>Requires reading sampled source text</td></tr>
 <tr><td>Does not prove execution flow</td><td>Still does not prove execution flow</td></tr>
 </tbody></table>
-<h2 id="diagram">What about GitDiagram?</h2>
-<p>The Explorer also contains an optional Architecture (GitDiagram) tab that can load a diagram from an external provider when available. That diagram is distinct from Repo Router's own import evidence. Provider availability varies, and generated diagrams should be checked against actual code.</p>
+<h2 id="diagram">How is the architecture diagram generated?</h2>
+<p>Repo Router’s Architecture Diagram tab now builds a clickable structure visualization locally from the public GitHub file tree, without requiring a stored provider diagram. Its optional <strong>Inspect imports</strong> action adds dashed edges based on selected relative-import syntax; these links remain candidates rather than proven runtime relationships. GitDiagram remains an optional external destination for AI-generated views, not a dependency.</p>
 <h2 id="verify">How to validate a proposed relationship</h2>
 <ol><li>Follow the source-file link.</li><li>Inspect the actual import or reference in context.</li><li>Check aliases, conditional imports, build configurations and generated sources.</li><li>Document whether the relationship is observed, inferred or unverified.</li></ol>
 <h2 id="limitations">Important limitations</h2><p>The evidence scan examines a limited sample, supports only selected source syntax, and may have false positives or missed relationships. Third-party diagrams are optional.</p>
@@ -76,7 +76,7 @@
 <p>See the <a href="/guides/how-to-use-repo-router/">complete Repo Router walkthrough</a>, <a href="/editorial-policy/">editorial standards</a> and <a href="/privacy-policy/">privacy policy</a> for evidence, accuracy, privacy and third-party considerations.</p>
 </div>
 <section class="related" aria-labelledby="other-tools"><h2 id="other-tools">Other GitHub exploration tools</h2><div class="card-grid"><a class="card" href="/tools/github-repository-tree/"><h3>GitHub Repository Tree Viewer</h3><p>Explore a public GitHub repository's folder hierarchy and locate important paths without cloning it.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/compare-github-repositories/"><h3>Compare GitHub Repositories Online</h3><p>Compare public repositories side by side or inspect what changed between branches and tags in a single project.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-repository-health/"><h3>GitHub Repository Health Checker</h3><p>Assess evidence of project documentation and maintenance without pretending to certify security or software quality.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-file-explorer/"><h3>GitHub File Explorer</h3><p>Find file paths quickly in a large public GitHub repository and inspect eligible text files directly in the browser.</p><span class="more">Explore tool &rarr;</span></a></div></section>
-<div class="cta-box"><h2>Explore a public GitHub project</h2><p>Use the form above to open architecture evidence directly.</p><div class="btn-row"><a class="btn" href="/#tool">Enter a repository URL</a><a class="btn-secondary" href="/tools/">All repository tools</a></div></div>
+<div class="cta-box"><h2>Explore a public GitHub project</h2><p>Use the form above to generate an architecture structure diagram, then inspect import evidence when useful.</p><div class="btn-row"><a class="btn" href="/#tool">Enter a repository URL</a><a class="btn-secondary" href="/tools/">All repository tools</a></div></div>
 </article></main>
 <footer class="site-footer">
   <div class="site-footer-inner">
