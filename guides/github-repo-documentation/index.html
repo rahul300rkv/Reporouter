@@ -10,18 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
-<title>How to Document a GitHub Repository for Humans and AI Assistants | Repo Router</title>
-<meta name="description" content="Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project."/>
+<title>How to Document a GitHub Repository for Contributors | Repo Router</title>
+<meta name="description" content="Document a GitHub repository with a clear README, architecture guide, contributing instructions, license, and maintenance notes for new contributors."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://reporouter.netlify.app/guides/github-repo-documentation/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Repo Router"/>
-<meta property="og:title" content="How to Document a GitHub Repository for Humans and AI Assistants"/>
-<meta property="og:description" content="Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project."/>
+<meta property="og:title" content="How to Document a GitHub Repository for Contributors"/>
+<meta property="og:description" content="A practical documentation checklist for public GitHub repositories: README, architecture, contribution guide and maintenance evidence."/>
 <meta property="og:url" content="https://reporouter.netlify.app/guides/github-repo-documentation/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Document a GitHub Repository for Humans and AI Assistants", "description": "Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project.", "datePublished": "2026-11-17", "dateModified": "2026-11-24", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/github-repo-documentation/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Document a GitHub Repository for New Contributors", "description": "Practical advice for writing a README, architecture notes, contribution guide, license notes and repository documentation for contributors.", "datePublished": "2026-11-17", "dateModified": "2026-11-24", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/github-repo-documentation/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "Repo documentation", "item": "https://reporouter.netlify.app/guides/github-repo-documentation/"}]}</script>
 </head>
 <body class="page">
@@ -39,7 +39,7 @@
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">Repo documentation</li></ol></nav>
 <article class="article-shell">
 <span class="tag">Guide</span>
-<h1>How to Document a GitHub Repository for Humans and AI Assistants</h1>
+<h1>How to Document a GitHub Repository for New Contributors</h1>
 <p class="article-meta"><span>By <a href="/about/">Repo Router project</a></span><span aria-hidden="true">&middot;</span><span>Updated November 24, 2026</span><span aria-hidden="true">&middot;</span><span>7 min read</span></p>
 <div class="prose">
 
@@ -62,24 +62,22 @@
 <h2>Contribution guide</h2>
 <p>Explain how to set up a development environment, run tests, follow code style and submit a change. If a command is needed to run the checks, write it out in full.</p>
 
-<h2>Instructions for AI coding tools</h2>
-<p>Several coding assistants read a plain-text instructions file from the repository root. A common convention is <code>AGENTS.md</code>, and some tools also have their own rule files. Useful content includes:</p>
+<h2>Repository conventions and maintenance notes</h2>
+<p>Readers should be able to understand where different concerns belong and how to change the project safely. Consider the following files when relevant:</p>
 <ul>
-<li>The exact commands to build, test and lint.</li>
-<li>Language and framework versions.</li>
-<li>Naming and formatting conventions.</li>
-<li>Areas that must not be edited, such as generated code.</li>
+<li><strong><code>CONTRIBUTING.md</code>:</strong> environment setup, issue and pull-request process, and commands for tests.</li>
+<li><strong><code>CODEOWNERS</code>:</strong> which teams or maintainers are responsible for particular source areas.</li>
+<li><strong><code>SECURITY.md</code>:</strong> how to report security vulnerabilities responsibly.</li>
+<li><strong><code>LICENSE</code>:</strong> the legal terms under which the project may be used.</li>
+<li><strong><code>CHANGELOG.md</code>:</strong> meaningful behavior changes by release.</li>
 </ul>
-<p>Keep it short and factual. Long, vague instructions are ignored in practice.</p>
-
-<h2>Make docs machine-friendly</h2>
+<h2>Make documentation easy to navigate</h2>
 <ul>
-<li>Use <strong>descriptive headings</strong> and keep one topic per section.</li>
-<li>Prefer <strong>plain Markdown</strong> over images of text or diagrams without captions.</li>
-<li>Add an <a href="/guides/llms-txt-guide/"><code>llms.txt</code></a> file that points to your best pages.</li>
-<li>Write <strong>code examples that run</strong> and show their expected output.</li>
+<li>Use descriptive headings, direct links to source files and small, runnable examples.</li>
+<li>Keep setup instructions consistent with the scripts or build configuration in the repository.</li>
+<li>Link architecture notes to actual modules rather than claiming relationships without evidence.</li>
+<li>Cross-link related pages, including a <a href="/guides/github-repository-structure/">repository structure walkthrough</a>.</li>
 </ul>
-
 <h2>Inside the code</h2>
 <p>Docstrings and comments should explain intent and constraints, not restate the code. Name things clearly, because names are documentation that cannot go out of date as easily as prose.</p>
 
@@ -94,7 +92,11 @@
 <div class="callout"><strong class="label">Try it</strong>Paste your repository into <a href="/">Repo Router</a>, open it in DeepWiki or GitMCP, and ask a newcomer's question. Where the answer is wrong or thin, your documentation has a gap.</div>
 
 </div>
-<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/llms-txt-guide/"><h3>llms.txt guide</h3><p>A short Markdown file that points AI tools to your most useful pages.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/deepwiki-tutorial/"><h3>DeepWiki tutorial</h3><p>Use DeepWiki to understand an unfamiliar codebase quickly, and verify what it says.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/ai-coding-workflow/"><h3>AI coding workflow</h3><p>A six-stage workflow for using AI on real code without losing control of quality.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three">
+<a class="card" href="/guides/github-repository-structure/"><h3>GitHub repository structure</h3><p>Learn to inspect the file hierarchy and identify project entry points.</p><span class="more">Read guide &rarr;</span></a>
+<a class="card" href="/guides/how-to-use-repo-router/"><h3>Explore a repository</h3><p>Use the built-in browser to view paths, metadata and project evidence.</p><span class="more">Read guide &rarr;</span></a>
+<a class="card" href="/guides/gitingest-guide/"><h3>Repository digests</h3><p>Understand a text-based snapshot of a repository and its limitations.</p><span class="more">Read guide &rarr;</span></a>
+</div></section>
 <div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
 <div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
 </article>
