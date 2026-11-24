@@ -6,10 +6,11 @@
   function isGitHubRepo(value) {
     const raw = value.trim();
     if (!raw || raw.length > 2048) return false;
-    const match = raw.match(/^(?:https?:\/\/)?(?:www\.)?github\.com\/([^/?#]+)\/([^/?#]+)(?:[/?#].*)?$/i);
+    // Keep validation consistent with the homepage's GitHub URL parser.
+    const match = raw.match(/^(?:https?:\/\/)?(?:www\.)?github\.com\/([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+?)(?:\.git)?(\/.*)?\/?$/i);
     if (!match) return false;
     const owner = match[1];
-    const name = match[2].replace(/\.git$/i, "");
+    const name = match[2];
     return ownerRe.test(owner) && repoRe.test(name) && name !== "." && name !== "..";
   }
 
