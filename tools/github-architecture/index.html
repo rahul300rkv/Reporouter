@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#FFFDF8"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AD%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="/site.css" rel="stylesheet"/>
+<script src="/nav.js" defer></script>
+<title>GitHub Repository Architecture Explorer: Evidence and Diagrams | Repo Router</title>
+<meta name="description" content="Explore GitHub repository architecture using source-linked import evidence and optional diagrams. Learn what can and cannot be inferred from public code."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://reporouter.netlify.app/tools/github-architecture/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Repo Router"/>
+<meta property="og:title" content="GitHub Repository Architecture Explorer: Evidence and Diagrams"/>
+<meta property="og:description" content="Explore GitHub repository architecture using source-linked import evidence and optional diagrams. Learn what can and cannot be inferred from public code."/>
+<meta property="og:url" content="https://reporouter.netlify.app/tools/github-architecture/"/>
+<meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"GitHub Repository Architecture Explorer: Evidence and Diagrams","description":"Explore GitHub repository architecture using source-linked import evidence and optional diagrams. Learn what can and cannot be inferred from public code.","url":"https://reporouter.netlify.app/tools/github-architecture/","inLanguage":"en","datePublished":"2026-11-24","dateModified":"2026-11-24","isPartOf":{"@type":"WebSite","name":"Repo Router","url":"https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://reporouter.netlify.app/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://reporouter.netlify.app/tools/"},{"@type":"ListItem","position":3,"name":"GitHub Architecture Explorer","item":"https://reporouter.netlify.app/tools/github-architecture/"}]}</script>
+</head>
+<body class="page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary">
+      <a href="/">Tool</a><a href="/tools/" aria-current="page">Tools</a><a href="/guides/">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="page-main">
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/tools/">Tools</a></li><li aria-current="page">GitHub Architecture Explorer</li></ol></nav>
+<article class="article-shell">
+<span class="tag">Architecture Evidence</span>
+<h1>GitHub Architecture Explorer</h1>
+<p class="article-meta">Repo Router · Updated November 24, 2026 · Public GitHub repositories</p>
+<div class="prose">
+<p class="lede">Inspect potential file relationships in a public repository and distinguish source evidence from illustrative architecture diagrams.</p>
+<p>Repo Router provides this feature inside its <strong>existing Repository Explorer</strong>. This page explains the task and takes your repository URL to the main tool. It does not claim a separate scanning backend or private-repository access.</p>
+<div class="callout"><strong class="label">Open Architecture Evidence</strong>
+<form action="/" method="get" aria-label="Open a public GitHub repository in Repo Router">
+<label for="repo-entry-github-architecture">Public GitHub repository URL</label>
+<input id="repo-entry-github-architecture" name="repo" type="text" inputmode="url" required placeholder="https://github.com/facebook/react" autocomplete="off" style="display:block;width:100%;min-height:48px;margin:8px 0 12px;padding:10px;border:2px solid #111827;border-radius:8px;background:#fff;color:#111827;font:inherit"/>
+<button class="btn" type="submit">Continue to Repository Explorer</button>
+</form>
+<p>The main tool will prefill your repository link. Select <strong>Run Route</strong> to load the Explorer, then choose the <strong>Architecture Evidence</strong> tab. You may also <a href="/#tool">open the Explorer without prefilling a repository</a>.</p>
+</div>
+<h2 id="how-to">How to use this feature</h2>
+<ol><li>Enter a public GitHub repository address.</li><li>Open the Repo Router Explorer and select Architecture Evidence.</li><li>Review the sampled files and potential relative-import links; open each referenced source file to verify the evidence.</li></ol>
+<h2 id="evidence">What is actually analyzed?</h2>
+<p>Repo Router samples a bounded set of supported JavaScript, TypeScript and Python text files and looks for relative import references that resolve to observed repository paths. It links potential relationships back to public GitHub source for inspection. This is a <strong>heuristic file-level observation</strong>, not a full compiler analysis or a runtime dependency graph.</p>
+<h2 id="architecture-vs-tree">Architecture versus a directory tree</h2>
+<table><thead><tr><th scope="col">Directory tree</th><th scope="col">Architecture evidence</th></tr></thead><tbody>
+<tr><td>Where files live</td><td>Where some files may reference other files</td></tr>
+<tr><td>Folders and names</td><td>Potential source relationships</td></tr>
+<tr><td>Generally available from repository metadata</td><td>Requires reading sampled source text</td></tr>
+<tr><td>Does not prove execution flow</td><td>Still does not prove execution flow</td></tr>
+</tbody></table>
+<h2 id="diagram">What about GitDiagram?</h2>
+<p>The Explorer also contains an optional Architecture (GitDiagram) tab that can load a diagram from an external provider when available. That diagram is distinct from Repo Router's own import evidence. Provider availability varies, and generated diagrams should be checked against actual code.</p>
+<h2 id="verify">How to validate a proposed relationship</h2>
+<ol><li>Follow the source-file link.</li><li>Inspect the actual import or reference in context.</li><li>Check aliases, conditional imports, build configurations and generated sources.</li><li>Document whether the relationship is observed, inferred or unverified.</li></ol>
+<h2 id="limitations">Important limitations</h2><p>The evidence scan examines a limited sample, supports only selected source syntax, and may have false positives or missed relationships. Third-party diagrams are optional.</p>
+<h2 id="questions">Frequently asked questions</h2>
+<h3>Is the architecture diagram a guaranteed representation of the application's runtime?</h3><p>No. A directory tree and import evidence cannot establish all runtime calls, deployment topology or data flows.</p><h3>Can it inspect any programming language?</h3><p>The first-party architecture evidence checks a bounded selection of JavaScript, TypeScript and Python source files; other languages are not comprehensively parsed.</p>
+<h2 id="more">Related resources</h2><ul><li><a href="/tools/github-repository-tree/">View directory structure</a></li><li><a href="/guides/github-repository-structure/">Structure versus architecture</a></li><li><a href="/tools/compare-github-repositories/">Compare related projects</a></li></ul>
+<p>See the <a href="/guides/how-to-use-repo-router/">complete Repo Router walkthrough</a>, <a href="/editorial-policy/">editorial standards</a> and <a href="/privacy-policy/">privacy policy</a> for evidence, accuracy, privacy and third-party considerations.</p>
+</div>
+<section class="related" aria-labelledby="other-tools"><h2 id="other-tools">Other GitHub exploration tools</h2><div class="card-grid"><a class="card" href="/tools/github-repository-tree/"><h3>GitHub Repository Tree Viewer</h3><p>Explore a public GitHub repository's folder hierarchy and locate important paths without cloning it.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/compare-github-repositories/"><h3>Compare GitHub Repositories Online</h3><p>Compare public repositories side by side or inspect what changed between branches and tags in a single project.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-repository-health/"><h3>GitHub Repository Health Checker</h3><p>Assess evidence of project documentation and maintenance without pretending to certify security or software quality.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-file-explorer/"><h3>GitHub File Explorer</h3><p>Find file paths quickly in a large public GitHub repository and inspect eligible text files directly in the browser.</p><span class="more">Explore tool &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Explore a public GitHub project</h2><p>Enter its repository URL in Repo Router, then select Architecture Evidence.</p><div class="btn-row"><a class="btn" href="/#tool">Open the Explorer</a><a class="btn-secondary" href="/tools/">All repository tools</a></div></div>
+</article></main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h2>Repo Router</h2>
+        <p>An independent public GitHub repository explorer for files, structure, project comparisons and maintenance signals.</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <ul><li><a href="/guides/what-is-mcp/">What is MCP?</a></li><li><a href="/guides/gitmcp-guide/">GitMCP guide</a></li><li><a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a></li><li><a href="/guides/gitingest-guide/">Gitingest guide</a></li><li><a href="/guides/uithub-guide/">UIthub guide</a></li><li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Tool comparison</a></li><li><a href="/guides/cursor-mcp-setup/">Cursor + MCP</a></li><li><a href="/guides/claude-desktop-mcp-setup/">Claude Desktop setup</a></li><li><a href="/guides/">All guides</a></li></ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/editorial-policy/">Editorial standards</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/">Open the tool</a></li>
+          <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
+          <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
+          <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
+          <li><a href="/sitemap/">Site map</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Repo Router. All rights reserved.</span>
+      <span>See individual pages for their update dates</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
