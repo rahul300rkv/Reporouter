@@ -41,6 +41,7 @@ These views are integrated into the Explorer on the Phase 2 branch. See [the two
 
 | Guide | Topics covered |
 | --- | --- |
+| [GitHub Repository Structure](https://reporouter.netlify.app/guides/github-repository-structure/) | View the file tree, understand common folders, and explore public repositories without cloning. |
 | [What is MCP?](https://reporouter.netlify.app/guides/what-is-mcp/) | Model Context Protocol, clients, servers, tools, and resources. |
 | [GitMCP Guide](https://reporouter.netlify.app/guides/gitmcp-guide/) | Connect public GitHub repositories to compatible MCP clients. |
 | [DeepWiki Tutorial](https://reporouter.netlify.app/guides/deepwiki-tutorial/) | Explore AI-generated repository documentation and verify findings. |
