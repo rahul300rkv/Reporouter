@@ -342,7 +342,7 @@
     <a class="brand" href="/" aria-label="Repo Router home">REPO<span>ROUTER</span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Primary">
-      <a href="/" aria-current="page">Tool</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
+      <a href="/" aria-current="page">Tool</a><a href="/tools/">Tools</a><a href="/guides/">Guides</a><a href="/tools/compare-github-repositories/">Compare</a><a href="/about/">About</a><a href="/contact/">Contact</a>
     </nav>
   </div>
 </header>
@@ -449,7 +449,7 @@
 <div class="mb-4">
   <label class="block text-sm font-bold uppercase tracking-widest mb-3 text-gray-500" for="repo-input">Repository URL</label>
   <div class="relative group">
-    <input autocomplete="off" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text"/>
+    <input autocomplete="off" class="brutalist-input w-full" id="repo-input" placeholder="https://github.com/owner/repo" spellcheck="false" type="text" autocomplete="off" aria-describedby="status-line"/>
   </div>
   <!-- Recent repos chips -->
   <div class="flex flex-wrap gap-2 mt-3" id="recents-wrap"></div>
@@ -563,7 +563,7 @@
         <div class="brutalist-card mt-8 hidden" id="result-panel">
           <div class="bg-gray-100 border-b-[3px] border-ink-black px-4 py-3 flex justify-between items-center rounded-t-xl">
             <span class="text-xs font-bold uppercase tracking-widest text-gray-600 break-all" id="result-url"></span>
-            <a class="shrink-0 ml-3 text-xs font-bold uppercase hover:text-primary transition-colors whitespace-nowrap" href="#" id="result-open-link" rel="noopener noreferrer" target="_blank">Open ↗</a>
+            <a class="shrink-0 ml-3 text-xs font-bold uppercase hover:text-primary transition-colors whitespace-nowrap" href="https://github.com" id="result-open-link" rel="noopener noreferrer" target="_blank">Open ↗</a>
           </div>
           <div class="relative bg-white" style="height:70vh;">
             <iframe class="w-full h-full" id="result-frame" referrerpolicy="no-referrer" title="Repo Router result"></iframe>
@@ -584,6 +584,7 @@
     <div class="explorer-actions"><a class="explorer-link" id="explorer-tool-link" href="https://gitmcp.io" target="_blank" rel="noopener noreferrer">Open selected tool ↗</a><a class="explorer-link" id="explorer-external" href="https://github.com" target="_blank" rel="noopener noreferrer">Open on GitHub ↗</a><button id="explorer-close" type="button">Close</button></div>
   </div>
   <p class="explorer-status" id="explorer-status" role="status" aria-live="polite">Ready.</p>
+  <button id="explorer-retry" type="button" hidden style="min-height:44px;margin:0 0 12px;padding:8px 16px;border:2px solid #111827;border-radius:8px;background:#fff;font-weight:700;cursor:pointer">Retry loading repository</button>
   <div class="explorer-tabs" role="tablist" aria-label="Repository views">
     <button role="tab" type="button" data-explorer-tab="overview" aria-selected="true">Overview</button>
     <button role="tab" type="button" data-explorer-tab="health" aria-selected="false">Health</button>
