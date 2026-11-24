@@ -10,14 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
-<title>Guides for AI-Assisted Coding with GitHub Repositories | Repo Router</title>
-<meta name="description" content="Practical guides on MCP, GitMCP, DeepWiki, Gitingest, UIthub, Cursor and Claude Desktop setup, AI coding workflows and repository documentation."/>
+<title>GitHub Repository Exploration, Structure & Comparison Guides | Repo Router</title>
+<meta name="description" content="Explore GitHub repository structure, architecture, documentation and project maintenance. Practical guides, verified sources and optional AI-tool tutorials."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://reporouter.netlify.app/guides/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Repo Router"/>
-<meta property="og:title" content="Guides for AI-Assisted Coding with GitHub Repositories"/>
-<meta property="og:description" content="Practical guides on MCP, GitMCP, DeepWiki, Gitingest, UIthub, Cursor and Claude Desktop setup, AI coding workflows and repository documentation."/>
+<meta property="og:title" content="GitHub Repository Exploration, Structure & Comparison Guides | Repo Router"/>
+<meta property="og:description" content="Explore GitHub repository structure, architecture, documentation and project maintenance. Practical guides, verified sources and optional AI-tool tutorials."/>
 <meta property="og:url" content="https://reporouter.netlify.app/guides/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -38,17 +38,27 @@
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Guides</li></ol></nav>
 <div class="article-shell" style="max-width:none">
 <span class="tag">Guides</span>
-<h1>Guides for AI-Assisted Coding with GitHub Repositories</h1>
-<p class="lede" style="max-width:46rem">Practical, tool-by-tool explanations of MCP, GitMCP, DeepWiki, Gitingest and UIthub, plus workflows, setup instructions and security advice. Each guide is written to be useful on its own.</p>
-<div class="card-grid"><a class="card" href="/guides/github-repository-structure/"><h2>GitHub repository structure</h2><p>Explore a public repository file tree, understand common folders, and navigate large projects without cloning.</p><span class="more">9 min read &rarr;</span></a><a class="card" href="/guides/what-is-mcp/"><h2>What is MCP?</h2><p>Model Context Protocol explained: clients, servers, tools, resources and prompts.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/gitmcp-guide/"><h2>GitMCP guide</h2><p>Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="more">7 min read &rarr;</span></a><a class="card" href="/guides/deepwiki-tutorial/"><h2>DeepWiki tutorial</h2><p>Use DeepWiki to understand an unfamiliar codebase quickly, and verify what it says.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/gitingest-guide/"><h2>Gitingest guide</h2><p>Create a single-file text digest of a repo, and keep it small enough to be useful.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/uithub-guide/"><h2>UIthub guide</h2><p>Filter a repository by folder or file type and copy it as clean context.</p><span class="more">5 min read &rarr;</span></a><a class="card" href="/guides/gitmcp-vs-deepwiki-vs-gitingest/"><h2>Tool comparison</h2><p>A decision guide for choosing between the four tools Repo Router connects.</p><span class="more">5 min read &rarr;</span></a><a class="card" href="/guides/cursor-mcp-setup/"><h2>Cursor + MCP</h2><p>Add GitMCP or any remote MCP server to Cursor and confirm it works.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/claude-desktop-mcp-setup/"><h2>Claude Desktop setup</h2><p>Edit the Claude Desktop config, add a server, restart, and check it works.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/ai-coding-workflow/"><h2>AI coding workflow</h2><p>A six-stage workflow for using AI on real code without losing control of quality.</p><span class="more">7 min read &rarr;</span></a><a class="card" href="/guides/github-repo-documentation/"><h2>Repo documentation</h2><p>README, architecture notes, llms.txt and AGENTS.md: what to write and why.</p><span class="more">7 min read &rarr;</span></a><a class="card" href="/guides/best-ai-developer-tools/"><h2>AI developer tools</h2><p>Editors, agents, chat assistants and repo tools: what each is for and how to pick.</p><span class="more">7 min read &rarr;</span></a><a class="card" href="/guides/mcp-security-privacy/"><h2>MCP security checklist</h2><p>What to check before connecting an MCP server or pasting code into an AI tool.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/how-to-use-repo-router/"><h2>How to use Repo Router</h2><p>Every feature of the tool explained, with tips and troubleshooting.</p><span class="more">5 min read &rarr;</span></a><a class="card" href="/guides/llms-txt-guide/"><h2>llms.txt guide</h2><p>A short Markdown file that points AI tools to your most useful pages.</p><span class="more">5 min read &rarr;</span></a></div>
-</div>
-</main>
+<h1>GitHub Repository Exploration &amp; Analysis Guides</h1>
+<p class="lede" style="max-width:49rem">Understand a public GitHub project before you install, compare or modify it. Learn how repository folders, manifests, source files, documentation and architecture clues fit together. Optional external services are covered separately.</p>
+<div class="callout"><strong class="label">Start here</strong>New to repository exploration? Read our <a href="/guides/github-repository-structure/">GitHub Repository Structure guide</a>, then inspect a public repository in the <a href="/#tool">Repo Router Explorer</a>. The Explorer offers Overview, Files, Health, Architecture Evidence and Compare &amp; Changes tabs.</div>
+<section aria-label="GitHub repository structure &amp; navigation"><h2>GitHub repository structure &amp; navigation</h2><p>Start with actual files, project layouts and documentation. For a live example, use the public Repository Explorer.</p><div class="card-grid"><a class="card" href="/guides/github-repository-structure/"><h2>GitHub repository structure</h2><p>Explore a public repository file tree, understand common folders, and navigate large projects without cloning.</p><span class="more">9 min read &rarr;</span></a><a class="card" href="/guides/github-repo-documentation/"><h2>Repo documentation</h2><p>README, architecture notes, llms.txt and AGENTS.md: what to write and why.</p><span class="more">7 min read &rarr;</span></a><a class="card" href="/guides/how-to-use-repo-router/"><h2>How to use Repo Router</h2><p>Every feature of the tool explained, with tips and troubleshooting.</p><span class="more">5 min read &rarr;</span></a></div></section>
+<section aria-label="Repository analysis features"><h2>Compare, visualize and evaluate a repository</h2>
+<p>These tools are currently <strong>features inside the main Explorer</strong>, not separate standalone guide pages. Use them to investigate public GitHub projects, then check any important conclusion against source evidence.</p>
+<div class="card-grid">
+<a class="card" href="/#tool"><h3>Compare repositories and branches</h3><p>Inspect GitHub metadata, manifest filenames and branch/tag diffs. GitHub's API may limit large comparisons.</p><span class="more">Open Compare &amp; Changes &rarr;</span></a>
+<a class="card" href="/#tool"><h3>Architecture evidence</h3><p>Find potential relative-import relationships in sampled source files. Not a verified runtime dependency graph.</p><span class="more">Open Architecture Evidence &rarr;</span></a>
+<a class="card" href="/#tool"><h3>Repository health signals</h3><p>Review observed README, license, test, CI and maintenance signals. Not a security or quality certification.</p><span class="more">Open Health &rarr;</span></a>
+</div></section>
+<section aria-label="Repository viewing &amp; tool comparisons"><h2>Repository viewing &amp; tool comparisons</h2><p>Evaluate optional repository views and exported documentation. External providers have their own availability and privacy policies.</p><div class="card-grid"><a class="card" href="/guides/gitingest-guide/"><h2>Gitingest guide</h2><p>Create a single-file text digest of a repo, and keep it small enough to be useful.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/uithub-guide/"><h2>UIthub guide</h2><p>Filter a repository by folder or file type and copy it as clean context.</p><span class="more">5 min read &rarr;</span></a><a class="card" href="/guides/deepwiki-tutorial/"><h2>DeepWiki tutorial</h2><p>Use DeepWiki to understand an unfamiliar codebase quickly, and verify what it says.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/gitmcp-vs-deepwiki-vs-gitingest/"><h2>Tool comparison</h2><p>A decision guide for choosing between the four tools Repo Router connects.</p><span class="more">5 min read &rarr;</span></a></div></section>
+<section aria-label="MCP &amp; developer workflow references"><h2>MCP &amp; developer workflow references</h2><p>Additional material for visitors who need it. These are supporting guides, not the site's primary subject.</p><div class="card-grid"><a class="card" href="/guides/what-is-mcp/"><h2>What is MCP?</h2><p>Model Context Protocol explained: clients, servers, tools, resources and prompts.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/gitmcp-guide/"><h2>GitMCP guide</h2><p>Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="more">7 min read &rarr;</span></a><a class="card" href="/guides/cursor-mcp-setup/"><h2>Cursor + MCP</h2><p>Add GitMCP or any remote MCP server to Cursor and confirm it works.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/claude-desktop-mcp-setup/"><h2>Claude Desktop setup</h2><p>Edit the Claude Desktop config, add a server, restart, and check it works.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/ai-coding-workflow/"><h2>AI coding workflow</h2><p>A six-stage workflow for using AI on real code without losing control of quality.</p><span class="more">7 min read &rarr;</span></a><a class="card" href="/guides/best-ai-developer-tools/"><h2>AI developer tools</h2><p>Editors, agents, chat assistants and repo tools: what each is for and how to pick.</p><span class="more">7 min read &rarr;</span></a><a class="card" href="/guides/mcp-security-privacy/"><h2>MCP security checklist</h2><p>What to check before connecting an MCP server or pasting code into an AI tool.</p><span class="more">6 min read &rarr;</span></a><a class="card" href="/guides/llms-txt-guide/"><h2>llms.txt guide</h2><p>A short Markdown file that points AI tools to your most useful pages.</p><span class="more">5 min read &rarr;</span></a></div></section>
+<p>Read <a href="/about/">about the project</a>, our <a href="/editorial-policy/">editorial and correction standards</a>, and the <a href="/privacy-policy/">privacy policy</a> for how these guides and integrations work.</p>
+</div></main>
 <footer class="site-footer">
   <div class="site-footer-inner">
     <div class="footer-grid">
       <div>
         <h2>Repo Router</h2>
-        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+        <p>An independent public GitHub repository explorer for files, structure, project comparisons and maintenance signals.</p>
       </div>
       <div>
         <h2>Guides</h2>
@@ -61,7 +71,7 @@
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Use</a></li>
-          <li><a href="/disclaimer/">Disclaimer</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/editorial-policy/">Editorial standards</a></li>
         </ul>
       </div>
       <div>
@@ -77,7 +87,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Repo Router. All rights reserved.</span>
-      <span>Last updated: November 17, 2026</span>
+      <span>See individual pages for their update dates</span>
     </div>
   </div>
 </footer>

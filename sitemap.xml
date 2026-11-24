@@ -133,6 +133,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://reporouter.netlify.app/editorial-policy/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://reporouter.netlify.app/sitemap/</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>

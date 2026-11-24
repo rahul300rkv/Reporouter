@@ -10,19 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
-<title>How to Use Repo Router: A Complete Walkthrough | Repo Router</title>
-<meta name="description" content="Step-by-step instructions for Repo Router: paste a GitHub URL, pick a destination, preview the new link, and use the badge, QR code and share features."/>
+<title>How to Explore a GitHub Repository with Repo Router | Repo Router</title>
+<meta name="description" content="Use Repo Router to explore public GitHub files, inspect structure and maintenance signals, compare repositories and branches, and access optional external tools."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://reporouter.netlify.app/guides/how-to-use-repo-router/"/>
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Repo Router"/>
-<meta property="og:title" content="How to Use Repo Router: A Complete Walkthrough"/>
-<meta property="og:description" content="Step-by-step instructions for Repo Router: paste a GitHub URL, pick a destination, preview the new link, and use the badge, QR code and share features."/>
+<meta property="og:title" content="How to Explore a GitHub Repository with Repo Router"/>
+<meta property="og:description" content="Use Repo Router to explore public GitHub files, inspect structure and maintenance signals, compare repositories and branches, and access optional external tools."/>
 <meta property="og:url" content="https://reporouter.netlify.app/guides/how-to-use-repo-router/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Use Repo Router: A Complete Walkthrough", "description": "Step-by-step instructions for Repo Router: paste a GitHub URL, pick a destination, preview the new link, and use the badge, QR code and share features.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/how-to-use-repo-router/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "How to use Repo Router", "item": "https://reporouter.netlify.app/guides/how-to-use-repo-router/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Explore a GitHub Repository with Repo Router","description":"Use Repo Router to explore public GitHub files, inspect structure and maintenance signals, compare repositories and branches, and access optional external tools.","datePublished":"2026-11-17","dateModified":"2026-11-24","inLanguage":"en","mainEntityOfPage":"https://reporouter.netlify.app/guides/how-to-use-repo-router/","image":"https://reporouter.netlify.app/og-image.png","author":{"@type":"Organization","name":"Repo Router"},"publisher":{"@type":"Organization","name":"Repo Router","url":"https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://reporouter.netlify.app/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://reporouter.netlify.app/guides/"},{"@type":"ListItem","position":3,"name":"How to Explore a GitHub Repository with Repo Router","item":"https://reporouter.netlify.app/guides/how-to-use-repo-router/"}]}</script>
 </head>
 <body class="page">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -36,63 +36,47 @@
   </div>
 </header>
 <main id="main" class="page-main">
-<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">How to use Repo Router</li></ol></nav>
-<article class="article-shell">
-<span class="tag">Guide</span>
-<h1>How to Use Repo Router: A Complete Walkthrough</h1>
-<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>5 min read</span></p>
+<nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li aria-current="page">Using Repo Router</li></ol></nav>
+<article class="article-shell"><span class="tag">Product Guide</span><h1>How to Explore a GitHub Repository with Repo Router</h1>
+<p class="article-meta">By the <a href="/about/">Repo Router project</a> &middot; Updated November 24, 2026</p>
 <div class="prose">
-
-<p class="lede">Repo Router turns a GitHub repository link into the matching address for four AI-friendly tools. This walkthrough covers each step and each extra feature.</p>
-
-<h2>Step 1: paste a repository URL</h2>
-<p>On the <a href="/">home page</a>, paste an address such as <code>https://github.com/owner/repo</code> into the Repository URL box. The <code>https://</code> prefix and a trailing <code>.git</code> are optional. Links that point to a folder or file inside the repository keep their extra path in the converted address.</p>
-
-<h2>Step 2: choose a destination</h2>
+<p class="lede">Repo Router helps you inspect public GitHub repositories from one browser workspace. This walkthrough starts with directory structure and file navigation, then introduces architecture evidence, health signals, comparisons, bookmarks and optional external tools.</p>
+<h2>Step 1: open a public repository</h2>
+<p>Visit <a href="/#tool">Repo Router</a> and enter a repository URL such as <code>https://github.com/owner/repo</code>. Repo Router recognizes public GitHub repository identifiers and loads data through the public GitHub API. A private or unavailable repository cannot be explored anonymously.</p>
+<h2>Step 2: browse its structure</h2>
+<p>Open the integrated repository Explorer. Start with <strong>Overview</strong> to see metadata and common project paths, then use <strong>Files</strong> to filter the returned directory tree and read supported text files.</p>
+<p>For an explanation of folder and manifest conventions, see <a href="/guides/github-repository-structure/">GitHub Repository Structure</a>.</p>
+<h2>Step 3: inspect evidence and maintenance signals</h2>
 <ul>
-<li><strong>MCP Server</strong> sends you to GitMCP, for assistants that support MCP. See the <a href="/guides/gitmcp-guide/">GitMCP guide</a>.</li>
-<li><strong>Dir Tree</strong> sends you to Gitingest for a text digest. See the <a href="/guides/gitingest-guide/">Gitingest guide</a>.</li>
-<li><strong>DeepWiki</strong> sends you to generated documentation. See the <a href="/guides/deepwiki-tutorial/">DeepWiki tutorial</a>.</li>
-<li><strong>UIthub</strong> sends you to a filterable file view. See the <a href="/guides/uithub-guide/">UIthub guide</a>.</li>
+<li><strong>Health:</strong> checks observable README, license, security, CI, test and dependency file signals plus available GitHub maintenance metadata. It does not compute a security or quality certification.</li>
+<li><strong>Architecture Evidence:</strong> inspects a bounded sample of supported source files and surfaces potential local import references. These relationships may be incomplete or contain false positives.</li>
+<li><strong>Architecture (GitDiagram):</strong> tries to load an available third-party diagram; diagram availability and precision depend on the provider.</li>
 </ul>
-<p>Not sure which to pick? Read the <a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">comparison</a>.</p>
-
-<h2>Step 3: check the preview</h2>
-<p>The Transformation Preview shows your original GitHub URL beside the new one so you can confirm it before you leave the page. Repo Router may also show basic repository details such as the star count, main language and last update, loaded directly from GitHub's public API.</p>
-
-<h2>Step 4: run the route</h2>
-<p>Press <strong>Run Route</strong>. The destination loads in the result panel, or you can use the open link to view it in a new tab. Some sites may not allow embedding, in which case the new tab is the reliable option.</p>
-
-<h2>Extra features</h2>
-<ul>
-<li><strong>Recent repositories:</strong> the last repositories you entered appear as quick buttons. They are stored in your own browser only, and you can clear them.</li>
-<li><strong>Surprise me:</strong> loads a random well-known repository so you can try the tool without typing.</li>
-<li><strong>README badge:</strong> generates a Markdown badge that links back to Repo Router with your repository pre-filled, so visitors to your README can open it in one click.</li>
-<li><strong>Copy and share:</strong> copy the converted link, or use your device's share sheet where available.</li>
-<li><strong>QR code:</strong> create a code you can scan to open the result on another device.</li>
-</ul>
-
-<h2>Troubleshooting</h2>
-<ul>
-<li><strong>The button is disabled:</strong> the link is not a recognized GitHub repository address. It must include both an owner and a repository name.</li>
-<li><strong>No repository details appear:</strong> GitHub's public API can rate-limit anonymous requests, and private repositories will not load. The conversion still works.</li>
-<li><strong>The destination says the repository is not found:</strong> private repositories need authentication on the destination site, or are unsupported there.</li>
-</ul>
-
-<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">Browse all guides</a></div>
-
+<h2>Step 4: compare projects or revisions</h2>
+<p>Use <strong>Compare &amp; Changes</strong> to compare descriptive information from two public GitHub repositories. You can also request a GitHub branch or tag comparison within the current repository. GitHub imposes API limits and may truncate very large comparisons; the resulting list is not guaranteed exhaustive.</p>
+<h2>Step 5: save notes locally</h2>
+<p><strong>My Workspace</strong> lets you bookmark public repositories and write private notes in this browser's local storage. You can export a JSON backup, import one, or clear local entries. This feature does not synchronize data between devices or upload notes to Repo Router's server. Avoid storing passwords or confidential material in browser notes.</p>
+<h2>Step 6: use other views only if needed</h2>
+<p>Repo Router also offers a bounded digest and an optional goal-based context builder. Separate provider links to GitMCP, DeepWiki, GitIngest and UIthub can be opened when those external tools fit your task. Provider requests may process public repository identifiers or submitted questions; see our <a href="/privacy-policy/">privacy policy</a> before using integrations.</p>
+<h2>Common problems</h2>
+<ul><li><strong>File tree missing paths:</strong> large recursive GitHub API trees may be truncated.</li>
+<li><strong>Text preview unavailable:</strong> binary, large, potentially sensitive and unsupported files are skipped.</li>
+<li><strong>API rate limit:</strong> anonymous GitHub API requests can be throttled; retry later or open the repository directly on GitHub.</li>
+<li><strong>Third-party tab fails:</strong> an external service can be offline, rate-limited or unavailable for a repository.</li></ul>
+<p><strong>Source and correction notes:</strong> feature behavior can be reviewed in <a href="https://github.com/rahul300rkv/Reporouter" rel="noopener noreferrer" target="_blank">the public project source</a>. Please report errors through the <a href="/contact/">contact page</a>; our <a href="/editorial-policy/">editorial standards</a> explain how we check technical claims.</p>
 </div>
-<section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/gitmcp-vs-deepwiki-vs-gitingest/"><h3>Tool comparison</h3><p>A decision guide for choosing between the four tools Repo Router connects.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/gitmcp-guide/"><h3>GitMCP guide</h3><p>Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/what-is-mcp/"><h3>What is MCP?</h3><p>Model Context Protocol explained: clients, servers, tools, resources and prompts.</p><span class="more">Read guide &rarr;</span></a></div></section>
-<div class="cta-box"><h2>Try Repo Router</h2><p>Paste a GitHub link and open it in GitMCP, DeepWiki, Gitingest or UIthub in one click.</p>
-<div class="btn-row"><a class="btn" href="/#tool">Open the tool</a><a class="btn-secondary" href="/guides/">All guides</a></div></div>
-</article>
-</main>
+<section class="related"><h2>Related guides</h2><div class="card-grid three">
+<a class="card" href="/guides/github-repository-structure/"><h3>GitHub repository structure</h3><p>Understand folders, entry points and directory trees.</p><span class="more">Read guide &rarr;</span></a>
+<a class="card" href="/guides/github-repo-documentation/"><h3>Repository documentation</h3><p>Understand project README files and architecture notes.</p><span class="more">Read guide &rarr;</span></a>
+<a class="card" href="/guides/gitingest-guide/"><h3>GitIngest</h3><p>Explore an optional external repository text viewer.</p><span class="more">Read guide &rarr;</span></a></div></section>
+<div class="cta-box"><h2>Open a public repository</h2><p>Explore structure, architecture clues, comparisons, and documentation in one workspace.</p><div class="btn-row"><a class="btn" href="/#tool">Open Repo Router</a><a class="btn-secondary" href="/guides/">Browse all guides</a></div></div>
+</article></main>
 <footer class="site-footer">
   <div class="site-footer-inner">
     <div class="footer-grid">
       <div>
         <h2>Repo Router</h2>
-        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+        <p>An independent public GitHub repository explorer for files, structure, project comparisons and maintenance signals.</p>
       </div>
       <div>
         <h2>Guides</h2>
@@ -105,7 +89,7 @@
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Use</a></li>
-          <li><a href="/disclaimer/">Disclaimer</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/editorial-policy/">Editorial standards</a></li>
         </ul>
       </div>
       <div>
@@ -121,7 +105,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Repo Router. All rights reserved.</span>
-      <span>Last updated: November 17, 2026</span>
+      <span>See individual pages for their update dates</span>
     </div>
   </div>
 </footer>

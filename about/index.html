@@ -11,13 +11,13 @@
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
 <title>About Repo Router | Repo Router</title>
-<meta name="description" content="Repo Router is a free, browser-only tool that converts GitHub links for GitMCP, DeepWiki, Gitingest and UIthub. Learn who built it and how it works."/>
+<meta name="description" content="About Repo Router: an independent public GitHub repository explorer for file structure, architecture evidence, project comparison and maintenance signals."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://reporouter.netlify.app/about/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="Repo Router"/>
 <meta property="og:title" content="About Repo Router"/>
-<meta property="og:description" content="Repo Router is a free, browser-only tool that converts GitHub links for GitMCP, DeepWiki, Gitingest and UIthub. Learn who built it and how it works."/>
+<meta property="og:description" content="About Repo Router: an independent public GitHub repository explorer for file structure, architecture evidence, project comparison and maintenance signals."/>
 <meta property="og:url" content="https://reporouter.netlify.app/about/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -36,33 +36,35 @@
 </header>
 <main id="main" class="page-main">
 <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">About</li></ol></nav>
-<div class="article-shell"><span class="tag">About</span><h1>About Repo Router</h1>
+<article class="article-shell"><span class="tag">About</span><h1>About Repo Router</h1>
 <div class="prose">
-<p class="lede">Repo Router is a small, free tool that saves developers a repetitive step: turning a GitHub repository link into the address a different AI-oriented tool expects.</p>
-<h2>Why it exists</h2>
-<p>Tools such as GitMCP, DeepWiki, Gitingest and UIthub each use a slightly different version of the GitHub URL. Editing addresses by hand is easy to get wrong and tedious when you try several repositories in a row. Repo Router does the conversion, shows you the result before you leave the page, and keeps the original repository in one place while you switch destinations.</p>
-<h2>What you can do with it</h2>
-<ul>
-<li>Convert a repository link for <a href="/guides/gitmcp-guide/">GitMCP</a>, <a href="/guides/deepwiki-tutorial/">DeepWiki</a>, <a href="/guides/gitingest-guide/">Gitingest</a> or <a href="/guides/uithub-guide/">UIthub</a>.</li>
-<li>Preview the transformation, copy the link, share it or turn it into a QR code.</li>
-<li>Generate a README badge that opens Repo Router with your repository filled in.</li>
-</ul>
-<h2>How it works</h2>
-<p>Everything happens in your browser. Repo Router rewrites the address locally and only contacts GitHub's public API to display basic repository details such as stars and language. It does not upload your code, require an account, or store your repository list on a server. Details are in our <a href="/privacy-policy/">privacy policy</a>.</p>
-<h2>About the guides</h2>
-<p>The <a href="/guides/">guide library</a> grew out of questions people ask when they start using these tools: what MCP is, how to connect it to an editor, how to keep context small, and how to stay safe. We aim to write original, practical explanations and to say plainly when something may have changed. If you spot an error or out-of-date step, please tell us through the <a href="/contact/">contact page</a> and we will correct it.</p>
-<h2>Who builds it</h2>
-<p>Repo Router is an independent project created and maintained by a developer who wanted a faster way to move between these tools. It is not affiliated with GitHub, Anthropic, Cognition, GitMCP, Gitingest or UIthub. All product names belong to their respective owners.</p>
-<h2>Get in touch</h2>
-<p>Questions, bug reports and suggestions are welcome at <a href="mailto:reporouter@rediffmail.com">Mail</a> or through the <a href="/contact/">contact form</a>.</p>
-</div></div>
-</main>
+<p class="lede">Repo Router is an independent, free tool for exploring and understanding public GitHub repositories. It combines repository file navigation, observed metadata, architecture clues, project comparison and optional links to specialist tools.</p>
+<h2>Why we built it</h2>
+<p>Understanding an unfamiliar repository should not require downloading it just to see how it is organized. Repo Router makes it easier to inspect public project files, identify common manifests, find entry points, and compare GitHub projects in a browser. URL shortcuts to services such as GitMCP, DeepWiki, GitIngest, UIthub and GitDiagram are optional integrations, not the sole purpose of the site.</p>
+<h2>What you can do</h2>
+<ul><li><strong>Explore:</strong> browse public GitHub paths, preview supported text files, and inspect repository metadata.</li>
+<li><strong>Understand:</strong> view directory and manifest evidence, prepare a scoped text digest, and follow potential relative-import relationships.</li>
+<li><strong>Compare:</strong> contrast repository metadata and inspect branch/tag changes through GitHub APIs.</li>
+<li><strong>Evaluate:</strong> observe README, license, testing, CI, dependency and maintenance signals without a fabricated safety score.</li>
+<li><strong>Save:</strong> keep repository bookmarks and notes in this browser using local storage, with explicit JSON export and import.</li></ul>
+<p>Start with the <a href="/guides/github-repository-structure/">GitHub repository structure guide</a> or open the <a href="/#tool">Repository Explorer</a>.</p>
+<h2>Who maintains Repo Router?</h2>
+<p>Repo Router is maintained as an independent software project under the public GitHub repository <a href="https://github.com/rahul300rkv/Reporouter" rel="noopener noreferrer" target="_blank">rahul300rkv/Reporouter</a>. Its source code and change history can be inspected there. Articles are attributed to the Repo Router editorial team until individual writer biographies and professional credentials are independently documented. We do not claim third-party certification or affiliation.</p>
+<h2>How information is checked</h2>
+<p>Our repository guides prioritize directly inspectable file paths, official GitHub documentation, and examples whose source is linked. We distinguish sample directory trees from real repository observations, and avoid presenting inferred architecture or metadata-based health signals as verified runtime behavior or a security audit. See our <a href="/editorial-policy/">editorial standards and correction policy</a> for our approach.</p>
+<h2>Privacy and third-party services</h2>
+<p>URL rewriting and note storage happen in the browser; the Explorer requests public repository metadata, file trees and eligible selected files from GitHub's API. Some integrated documentation and diagram features send public repository identifiers and queries to Netlify Functions and external providers. An external destination receives information when you open it. See the <a href="/privacy-policy/">Privacy Policy</a> for details. Do not submit secret code or credentials to these tools.</p>
+<h2>Limitations and independence</h2>
+<p>GitHub's unauthenticated API can enforce rate limits and return partial trees. Architecture links are heuristic observations rather than a definitive graph. A repository with a license, test folder or recent commit is not automatically secure or maintained to any particular standard. Repo Router is not endorsed by GitHub or any external service it links to.</p>
+<h2>Corrections and contact</h2>
+<p>See an inaccurate description, missing citation, broken feature or outdated step? Use the <a href="/contact/">contact form</a> or email <a href="mailto:reporouter@rediffmail.com">reporouter@rediffmail.com</a> with the specific page and supporting reference. Verified corrections are made in the site source and reflected in the page update date.</p>
+</div></article></main>
 <footer class="site-footer">
   <div class="site-footer-inner">
     <div class="footer-grid">
       <div>
         <h2>Repo Router</h2>
-        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+        <p>An independent public GitHub repository explorer for files, structure, project comparisons and maintenance signals.</p>
       </div>
       <div>
         <h2>Guides</h2>
@@ -75,7 +77,7 @@
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Use</a></li>
-          <li><a href="/disclaimer/">Disclaimer</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/editorial-policy/">Editorial standards</a></li>
         </ul>
       </div>
       <div>
@@ -91,7 +93,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Repo Router. All rights reserved.</span>
-      <span>Last updated: November 17, 2026</span>
+      <span>See individual pages for their update dates</span>
     </div>
   </div>
 </footer>

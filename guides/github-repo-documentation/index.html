@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="/site.css" rel="stylesheet"/>
 <script src="/nav.js" defer></script>
-<title>How to Document a GitHub Repository for Humans and AI Assistants | Repo Router</title>
-<meta name="description" content="Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project."/>
+<title>How to Document a GitHub Repository: README, Structure and Architecture | Repo Router</title>
+<meta name="description" content="Learn to document a GitHub project with a useful README, folder map, architecture notes, contributor instructions and accurate technical references."/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://reporouter.netlify.app/guides/github-repo-documentation/"/>
 <meta property="og:type" content="article"/>
@@ -21,7 +21,7 @@
 <meta property="og:url" content="https://reporouter.netlify.app/guides/github-repo-documentation/"/>
 <meta property="og:image" content="https://reporouter.netlify.app/og-image.png"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Document a GitHub Repository for Humans and AI Assistants", "description": "Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project.", "datePublished": "2026-11-17", "dateModified": "2026-11-17", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/github-repo-documentation/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Document a GitHub Repository for Humans and AI Assistants", "description": "Practical advice for writing a README, architecture notes, contribution guide, llms.txt and AGENTS.md so both people and AI tools understand your project.", "datePublished": "2026-11-17", "dateModified": "2026-11-24", "inLanguage": "en", "mainEntityOfPage": "https://reporouter.netlify.app/guides/github-repo-documentation/", "image": "https://reporouter.netlify.app/og-image.png", "author": {"@type": "Organization", "name": "Repo Router"}, "publisher": {"@type": "Organization", "name": "Repo Router", "url": "https://reporouter.netlify.app/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://reporouter.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://reporouter.netlify.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "Repo documentation", "item": "https://reporouter.netlify.app/guides/github-repo-documentation/"}]}</script>
 </head>
 <body class="page">
@@ -40,10 +40,10 @@
 <article class="article-shell">
 <span class="tag">Guide</span>
 <h1>How to Document a GitHub Repository for Humans and AI Assistants</h1>
-<p class="article-meta"><span>By the Repo Router team</span><span aria-hidden="true">&middot;</span><span>Updated November 17, 2026</span><span aria-hidden="true">&middot;</span><span>7 min read</span></p>
+<p class="article-meta"><span>By the <a href="/about/">Repo Router project</a></span><span aria-hidden="true">&middot;</span><span>Updated November 24, 2026</span><span aria-hidden="true">&middot;</span><span>7 min read</span></p>
 <div class="prose">
 
-<p class="lede">Good documentation has always saved time for people. It now also decides how well AI tools can explain and modify your code, because they read the same files you do.</p>
+<p class="lede">Good repository documentation explains what a project does, where its important files live, how to run it, and what contributors must understand before making changes.</p>
 
 <h2>The README: your front door</h2>
 <p>A strong README answers five questions quickly:</p>
@@ -55,27 +55,28 @@
 <li><strong>Where do I go next?</strong> Links to deeper docs, issues and the license.</li>
 </ol>
 
+<h2>Map the repository structure</h2><p>Document key directories and the reason each exists. Link to real paths and explain the difference between file organization and software architecture. See <a href="/guides/github-repository-structure/">how to read a GitHub repository structure</a> for a practical walkthrough.</p>
 <h2>Architecture notes</h2>
-<p>Create an <code>ARCHITECTURE.md</code> or a section in <code>docs/</code> that explains the shape of the project: main folders, how a request or command flows through the code, and the key design decisions with their reasons. One page is usually enough. This is the single most valuable file for newcomers and for tools that summarize your repository.</p>
+<p>Create an <code>ARCHITECTURE.md</code> or a section in <code>docs/</code> that explains the shape of the project: main folders, how a request or command flows through the code, and the key design decisions with their reasons. One page is usually enough. It can be a useful starting point for newcomers, but it must be kept consistent with the actual code.</p>
 
 <h2>Contribution guide</h2>
 <p>Explain how to set up a development environment, run tests, follow code style and submit a change. If a command is needed to run the checks, write it out in full.</p>
 
-<h2>Instructions for AI coding tools</h2>
-<p>Several coding assistants read a plain-text instructions file from the repository root. A common convention is <code>AGENTS.md</code>, and some tools also have their own rule files. Useful content includes:</p>
+<h2>Optional instructions for automated developer tools</h2>
+<p>Some automated developer tools read instruction files from the repository root. A common convention is <code>AGENTS.md</code>, and some tools also have their own rule files. Useful content includes:</p>
 <ul>
 <li>The exact commands to build, test and lint.</li>
 <li>Language and framework versions.</li>
 <li>Naming and formatting conventions.</li>
 <li>Areas that must not be edited, such as generated code.</li>
 </ul>
-<p>Keep it short and factual. Long, vague instructions are ignored in practice.</p>
+<p>Keep instructions short, actionable and factual. Verify the format expected by each tool.</p>
 
 <h2>Make docs machine-friendly</h2>
 <ul>
 <li>Use <strong>descriptive headings</strong> and keep one topic per section.</li>
 <li>Prefer <strong>plain Markdown</strong> over images of text or diagrams without captions.</li>
-<li>Add an <a href="/guides/llms-txt-guide/"><code>llms.txt</code></a> file that points to your best pages.</li>
+<li>If you serve documentation on the web, consider a concise index of important pages; <a href="/guides/llms-txt-guide/"><code>llms.txt</code></a> is one optional convention, not a substitute for navigation and readable documentation.</li>
 <li>Write <strong>code examples that run</strong> and show their expected output.</li>
 </ul>
 
@@ -89,7 +90,8 @@
 <li>Delete outdated pages instead of leaving them to mislead readers.</li>
 </ul>
 
-<div class="callout"><strong class="label">Try it</strong>Paste your repository into <a href="/">Repo Router</a>, open it in DeepWiki or GitMCP, and ask a newcomer's question. Where the answer is wrong or thin, your documentation has a gap.</div>
+<p><strong>Editorial notes:</strong> Verify any path or configuration example against the referenced repository; see our <a href="/editorial-policy/">editorial standards</a> and <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/about-readmes" target="_blank" rel="noopener noreferrer">GitHub README documentation</a>.</p>
+<div class="callout"><strong class="label">Try it</strong>Open your public repository in <a href="/#tool">Repo Router</a>, browse its structure and key manifests, then check whether the README and architecture notes accurately explain the files you actually find.</div>
 
 </div>
 <section class="related" aria-labelledby="related-h"><h2 id="related-h">Related guides</h2><div class="card-grid three"><a class="card" href="/guides/llms-txt-guide/"><h3>llms.txt guide</h3><p>A short Markdown file that points AI tools to your most useful pages.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/deepwiki-tutorial/"><h3>DeepWiki tutorial</h3><p>Use DeepWiki to understand an unfamiliar codebase quickly, and verify what it says.</p><span class="more">Read guide &rarr;</span></a><a class="card" href="/guides/ai-coding-workflow/"><h3>AI coding workflow</h3><p>A six-stage workflow for using AI on real code without losing control of quality.</p><span class="more">Read guide &rarr;</span></a></div></section>
@@ -102,7 +104,7 @@
     <div class="footer-grid">
       <div>
         <h2>Repo Router</h2>
-        <p>A free, browser-only tool that turns GitHub repository links into AI-ready formats, plus practical guides for AI-assisted coding.</p>
+        <p>An independent public GitHub repository explorer for files, structure, project comparisons and maintenance signals.</p>
       </div>
       <div>
         <h2>Guides</h2>
@@ -115,7 +117,7 @@
           <li><a href="/contact/">Contact</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Use</a></li>
-          <li><a href="/disclaimer/">Disclaimer</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/editorial-policy/">Editorial standards</a></li>
         </ul>
       </div>
       <div>
@@ -131,7 +133,7 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Repo Router. All rights reserved.</span>
-      <span>Last updated: November 17, 2026</span>
+      <span>See individual pages for their update dates</span>
     </div>
   </div>
 </footer>

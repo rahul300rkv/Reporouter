@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo</title>
-<meta content="Repo Router se apna GitHub repo link instantly gitmcp.io (MCP server), gitingest.com (directory structure), deepwiki.com (AI docs) ya uithub.com mein convert karo. Free, no signup, sab kuch browser mein local — Indian developers ke liye bana hua tool. Plus MCP, GitMCP aur AI coding workflows ka pura guide." name="description"/>
-<meta content="gitmcp, gitingest, github mcp server, github to mcp, mcp integration github, github directory structure viewer, github repo router, ai coding tools india, claude mcp github, deepwiki, uithub, model context protocol, cursor mcp" name="keywords"/>
+<title>Repo Router — Explore, Compare &amp; Understand GitHub Repositories</title>
+<meta content="Explore public GitHub repositories: browse structure and files, inspect architecture evidence and maintenance signals, compare repositories, and discover useful guides." name="description"/>
+<meta content="github repository explorer, github repository structure, github file tree, github repository compare, github architecture, repository health, github url tools" name="keywords"/>
 <meta content="index, follow" name="robots"/>
-<meta content="Rahul" name="author"/>
+<meta content="Repo Router project" name="author"/>
 <link href="https://reporouter.netlify.app/" rel="canonical"/>
 
 <meta content="website" property="og:type"/>
 <meta content="https://reporouter.netlify.app/" property="og:url"/>
-<meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" property="og:title"/>
-<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe redirect ho jao. Free repository explorer with on-site docs and digest." property="og:description"/>
+<meta content="Repo Router — Explore and Compare GitHub Repositories" property="og:title"/>
+<meta content="Browse public GitHub repository files, understand structure, inspect architecture clues, compare changes and evaluate project signals." property="og:description"/>
 <meta content="https://reporouter.netlify.app/og-image.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="en_IN" property="og:locale"/>
 
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Repo Router — GitHub Link ko MCP &amp; Directory Structure mein Convert Karo" name="twitter:title"/>
-<meta content="GitHub repo ka link daalo, ek click mein gitmcp.io, deepwiki.com, gitingest.com ya uithub.com pe redirect ho jao. Free repository explorer with on-site docs and digest." name="twitter:description"/>
+<meta content="Repo Router — Explore and Compare GitHub Repositories" name="twitter:title"/>
+<meta content="Explore repository structure, files, architecture evidence, maintenance and changes on public GitHub projects." name="twitter:description"/>
 <meta content="https://reporouter.netlify.app/og-image.png" name="twitter:image"/>
 
 <meta content="#FFFDF8" name="theme-color"/>
@@ -39,7 +39,7 @@
   "@type": "WebApplication",
   "name": "Repo Router",
   "url": "https://reporouter.netlify.app/",
-  "description": "GitHub repo link ko ek click mein gitmcp.io (MCP integration), deepwiki.com (AI documentation), gitingest.com (directory structure) ya uithub.com mein convert karne wala free browser tool.",
+  "description": "A free browser-based public GitHub repository explorer for file structure, architecture evidence, repository comparisons, maintenance signals, and optional documentation integrations.",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
   "offers": {
@@ -59,7 +59,7 @@
     { "@type": "Question", "name": "GitMCP kya hota hai?", "acceptedAnswer": { "@type": "Answer", "text": "GitMCP ek free service hai jo kisi bhi public GitHub repo ko ek Model Context Protocol (MCP) server mein badal deta hai, taaki Claude, Cursor jaise AI tools us repo ko directly samajh sakein aur reference de sakein." } },
     { "@type": "Question", "name": "Gitingest se kya milta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Gitingest aapke repo ka clean directory structure aur file content ek readable, LLM-friendly text format mein generate karta hai, jisse poora codebase samajhna easy ho jaata hai." } },
     { "@type": "Question", "name": "Repo Router free hai kya, koi signup chahiye?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, Repo Router bilkul free hai aur koi signup ya login nahi chahiye. GitHub link paste karo aur Repo Router par files, digest aur docs explore karo." } },
-    { "@type": "Question", "name": "Kya mera code kahin upload ya store hota hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi. Public repository files GitHub API se load hote hain; integrated docs queries Netlify ke through providers ko forward hoti hain. Details privacy policy mein hain." } },
+    { "@type": "Question", "name": "Kya mera code kahin upload ya store hota hai?", "acceptedAnswer": { "@type": "Answer", "text": "Browser explorer public GitHub files GitHub API se load karta hai. Kuch integrated services public repo identifiers aur queries Netlify Functions aur external providers ke saath process karti hain. Local Workspace notes browser storage mein rehte hain jab tak aap export ya remove na karein. Details privacy policy mein hain." } },
     { "@type": "Question", "name": "Kya private repos ke saath kaam karega?", "acceptedAnswer": { "@type": "Answer", "text": "Built-in explorer aur docs public repositories ke liye hain. Private repositories ke liye provider ki documentation dekhein." } },
     { "@type": "Question", "name": "MCP Integration aur Directory Structure mein kya difference hai?", "acceptedAnswer": { "@type": "Answer", "text": "MCP Integration (gitmcp.io) AI assistants ke liye hai jo aapke repo ko tool ke through query karna chahte hain. Directory Structure (gitingest.com) un logo ke liye hai jo jaldi se repo ka layout aur code samajhna chahte hain." } },
     { "@type": "Question", "name": "README badge kya hota hai aur kaise use karein?", "acceptedAnswer": { "@type": "Answer", "text": "Jab aap koi valid GitHub repo paste karte ho, Repo Router ek markdown badge snippet generate karta hai. Use apne repo ke README mein paste karo — badge click karne pe seedha Repo Router pe aa jaate hain, repo pre-filled ke saath." } },
@@ -68,7 +68,7 @@
     { "@type": "Question", "name": "Cursor ke saath GitMCP kaise kaam karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Cursor mein aap GitMCP se generate hui MCP server URL ko apni AI tool settings mein add kar sakte hain, jisse Cursor us specific repository ka context directly access kar sake." } },
     { "@type": "Question", "name": "DeepWiki kya karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "DeepWiki kisi bhi public repository ke liye AI-generated documentation aur explanations banata hai, jisse naye contributors codebase ko jaldi samajh sakein." } },
     { "@type": "Question", "name": "UIthub kis liye useful hai?", "acceptedAnswer": { "@type": "Answer", "text": "UIthub repository ko ek alternate, LLM-context-friendly view mein present karta hai, jo bade codebases ko browse aur samajhne mein madad karta hai." } },
-    { "@type": "Question", "name": "Kya Repo Router repo ka data collect karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi, Repo Router sirf link ka format badalta hai (URL rewriting). Koi analytics, code, ya personal data collect ya store nahi kiya jaata." } },
+    { "@type": "Question", "name": "Kya Repo Router repo ka data collect karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "URL routing browser mein hoti hai. Public repo browsing GitHub API se hoti hai; bookmarks aur notes optional browser localStorage mein rehte hain. Kuch integrations public repo names aur queries Netlify Functions aur third-party services ko bhejti hain. Details privacy policy mein hain." } },
     { "@type": "Question", "name": "Kya Repo Router browser-only tool hai?", "acceptedAnswer": { "@type": "Answer", "text": "URL conversion browser mein hota hai; repository explorer GitHub API aur integrated docs Netlify Functions use karte hain." } },
     { "@type": "Question", "name": "Kya Repo Router kisi bhi browser mein kaam karta hai?", "acceptedAnswer": { "@type": "Answer", "text": "Haan, Repo Router modern browsers (Chrome, Firefox, Edge, Safari) mein desktop aur mobile dono pe kaam karta hai, kyunki ye plain HTML, CSS aur JavaScript se bana hai." } },
     { "@type": "Question", "name": "Kya Repo Router paid hai ya iska koi pricing plan hai?", "acceptedAnswer": { "@type": "Answer", "text": "Nahi, Repo Router poori tarah free hai aur iska koi pricing tier nahi hai. Destination services (jaise GitMCP ya DeepWiki) ki apni alag terms ho sakti hain." } },
@@ -106,7 +106,7 @@
     { "@type": "HowToStep", "name": "Paste GitHub URL", "text": "Repo Router ke input box mein apne GitHub repository ka link paste karein, jaise https://github.com/owner/repo." },
     { "@type": "HowToStep", "name": "Choose Destination", "text": "Chaar options mein se ek chunein: MCP Server (gitmcp.io), Dir Tree (gitingest.com), DeepWiki (deepwiki.com) ya UIthub (uithub.com)." },
     { "@type": "HowToStep", "name": "Preview Transformation", "text": "Transformation Preview mein dekhein ki original GitHub URL naye destination URL mein kaise convert ho raha hai, aur chahen toh README badge ya QR code generate karein." },
-    { "@type": "HowToStep", "name": "Open AI Tool", "text": "'Run Route' button dabayein — result panel mein destination site load ho jaayega, ya naye tab mein 'Open' se access karein." }
+    { "@type": "HowToStep", "name": "Inspect the repository", "text": "'Run Route' button dabayein — result panel mein destination site load ho jaayega, ya naye tab mein 'Open' se access karein." }
   ]
 }
 </script>
@@ -359,8 +359,8 @@
     <span class="font-display text-3xl md:text-4xl font-extrabold tracking-tighter">REPO<span class="text-primary">ROUTER</span></span>
   </div>
 
-  <h1 id="hero-heading">Convert Any GitHub Repository Into <span class="rr-accent">AI-Ready Formats</span> Instantly</h1>
-  <p class="rr-sub">Generate GitMCP, Gitingest, DeepWiki and UIthub links in one click. Perfect for Claude, Cursor, ChatGPT and modern AI coding workflows.</p>
+  <h1 id="hero-heading">Explore Any Public GitHub Repository: <span class="rr-accent">Structure, Architecture &amp; Changes</span></h1>
+  <p class="rr-sub">Browse repository files and metadata, inspect maintenance signals, compare projects and revisions, and open optional documentation or diagram tools. No account needed for public repositories.</p><p class="text-sm mt-3">New to GitHub projects? Read the <a href="/guides/github-repository-structure/" class="underline font-semibold">GitHub repository structure guide</a> or see our <a href="/editorial-policy/" class="underline">editorial standards</a>.</p>
 
   <div class="rr-hero-ctas">
     <a class="rr-btn-primary" href="#tool">Try Repo Router <span class="material-symbols-outlined" style="font-size:18px;">arrow_downward</span></a>
@@ -382,22 +382,21 @@
   </div>
 </header>
 
-<!-- ===================== 2. TRUSTED BY ===================== -->
-<section aria-label="Works alongside popular AI coding tools" class="rr-trust-strip">
-  <span class="rr-trust-item"><span class="material-symbols-outlined">smart_toy</span> Claude</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">terminal</span> Cursor</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">chat</span> ChatGPT</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">code</span> GitHub</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">edit_note</span> VS Code</span>
-  <span class="rr-trust-item"><span class="material-symbols-outlined">air</span> Windsurf</span>
+<!-- ===================== 2. FIRST-PARTY CAPABILITIES ===================== -->
+<section aria-label="Repo Router first-party repository exploration capabilities" class="rr-trust-strip">
+  <span class="rr-trust-item"><span class="material-symbols-outlined">folder_open</span> File Explorer</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">account_tree</span> Architecture</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">compare_arrows</span> Compare Repos</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">fact_check</span> Health Signals</span>
+  <span class="rr-trust-item"><span class="material-symbols-outlined">bookmark</span> My Workspace</span>
 </section>
 
 <!-- ===================== 3. WHY REPO ROUTER ===================== -->
 <section aria-labelledby="why-heading" class="rr-section">
   <div class="rr-wrap">
     <span class="rr-eyebrow">Why Repo Router</span>
-    <h2 class="rr-h2 mt-3 mb-3" id="why-heading">Ek link, sahi jagah, bina friction ke</h2>
-    <p class="rr-lede mb-10">Manually URL mein <code>github.com</code> ko replace karna chhota kaam lagta hai, lekin din mein 20-30 baar karna time waste karta hai. Repo Router wahi kaam ek click mein karta hai.</p>
+    <h2 class="rr-h2 mt-3 mb-3" id="why-heading">Explore GitHub repositories without cloning</h2>
+    <p class="rr-lede mb-10">Use Repo Router to inspect file trees, project metadata, architecture clues and maintenance signals, then compare public GitHub projects or branch changes. URL shortcuts remain optional.</p>
 
     <div class="rr-grid-4">
       <article class="rr-card">
@@ -700,7 +699,7 @@
 <section aria-labelledby="how-heading" class="rr-section" id="how-it-works">
   <div class="rr-wrap">
     <span class="rr-eyebrow">How It Works</span>
-    <h2 class="rr-h2 mt-3 mb-10" id="how-heading">Chaar steps, ek destination</h2>
+    <h2 class="rr-h2 mt-3 mb-10" id="how-heading">How to explore a public repository</h2>
     <ol class="rr-steps" style="list-style:none; padding:0;">
       <li class="rr-step rr-card">
         <span class="rr-step-num">1</span>
@@ -730,7 +729,7 @@
 <section aria-labelledby="platforms-heading" class="rr-section rr-section-tight" id="platforms">
   <div class="rr-wrap">
     <span class="rr-eyebrow">Supported Platforms</span>
-    <h2 class="rr-h2 mt-3 mb-10" id="platforms-heading">Chaar destinations, chaar alag use case</h2>
+    <h2 class="rr-h2 mt-3 mb-10" id="platforms-heading">Optional third-party destinations</h2>
     <div class="rr-grid-4">
       <article class="rr-card">
         <div class="rr-icon-badge mb-4"><span class="material-symbols-outlined">hub</span></div>
@@ -828,7 +827,7 @@
 <section aria-labelledby="guide-heading" class="rr-guide" id="guide">
   <div class="rr-wrap rr-section">
     <span class="rr-eyebrow">In-Depth Guide</span>
-    <h2 class="rr-h2 mt-3 mb-2" id="guide-heading">MCP, GitMCP aur AI-Ready Repositories — Poora Guide</h2>
+    <h2 class="rr-h2 mt-3 mb-2" id="guide-heading">Additional references: MCP and external tools</h2>
     <p class="rr-lede mb-10">Repo Router, Model Context Protocol aur AI coding workflows ko samajhne ke liye ek complete, practical reference.</p>
 
     <div class="rr-guide-inner">
@@ -842,7 +841,7 @@
         <a href="#g-gitmcp-vs-deepwiki">GitMCP vs DeepWiki</a>
         <a href="#g-deepwiki-vs-gitingest">DeepWiki vs Gitingest</a>
         <a href="#g-docs-practices">Documentation best practices</a>
-        <a href="#g-benefits">Benefits for AI Developers</a>
+        <a href="#g-benefits">Benefits of repository exploration</a>
         <a href="#g-security">Security &amp; Privacy</a>
         <a href="#g-architecture">Explorer architecture</a>
         <a href="#g-workflows">Common workflows</a>
@@ -935,7 +934,7 @@ const destinations = {
           <li><strong>Fast onboarding:</strong> Kisi naye project mein join karte waqt DeepWiki se pehle high-level overview padho.</li>
         </ul>
 
-        <h2 id="g-best-practices">Best practices when using AI-repository tools</h2>
+        <h2 id="g-best-practices">Best practices for exploring third-party repositories</h2>
         <p>In tools ka best use tab hota hai jab aap sahi tool ko sahi task ke liye choose karo — jaisa comparison table upar dikhaya gaya hai. Bade repositories ke liye, agar poora Gitingest export context window se bada ho jaaye, toh relevant sub-folders pe focus karna better rehta hai. Aur AI-generated explanations (DeepWiki se) ko hamesha original source code ke saath cross-check karna acchi practice hai, kyunki AI summaries occasionally galat ho sakti hain.</p>
 
       </article>
@@ -1032,7 +1031,7 @@ const destinations = {
 <section aria-labelledby="resources-heading" class="rr-section rr-section-tight">
   <div class="rr-wrap">
     <span class="rr-eyebrow">Keep Learning</span>
-    <h2 class="rr-h2 mt-3 mb-8" id="resources-heading">Guides &amp; resources</h2>
+    <h2 class="rr-h2 mt-3 mb-8" id="resources-heading">GitHub repository structure &amp; guides</h2>
     <div class="rr-grid-4">
       <a class="rr-card rr-resource-card" href="/guides/what-is-mcp/"><span class="rr-resource-badge">Guide &middot; 6 min</span><h3 class="rr-h3">What is MCP?</h3><p class="text-sm text-gray-600">Model Context Protocol explained: clients, servers, tools, resources and prompts.</p><span class="rr-more">Read guide &rarr;</span></a>
       <a class="rr-card rr-resource-card" href="/guides/gitmcp-guide/"><span class="rr-resource-badge">Guide &middot; 7 min</span><h3 class="rr-h3">GitMCP Guide</h3><p class="text-sm text-gray-600">Step-by-step guide to GitMCP, the free remote MCP server for GitHub repos.</p><span class="rr-more">Read guide &rarr;</span></a>
@@ -1080,7 +1079,7 @@ const destinations = {
     <div class="footer-grid">
       <div>
         <h2>Repo Router</h2>
-        <p>A free GitHub repository explorer with code digests, documentation integrations, destination links, and practical AI-coding guides.</p>
+        <p>A free public GitHub repository explorer for file structure, architecture evidence, comparisons and project signals. Optional third-party integrations.</p>
       </div>
       <div>
         <h2>Guides</h2>
@@ -1103,13 +1102,13 @@ const destinations = {
           <li><a href="/guides/how-to-use-repo-router/">How to use it</a></li>
           <li><a href="/guides/gitmcp-vs-deepwiki-vs-gitingest/">Compare tools</a></li>
           <li><a href="/guides/mcp-security-privacy/">MCP security</a></li>
-          <li><a href="/sitemap/">Site map</a></li>
+          <li><a href="/editorial-policy/">Editorial standards</a></li><li><a href="/sitemap/">Site map</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Repo Router. All rights reserved.</span>
-      <span>Last updated: November 17, 2026</span>
+      <span>Site information reviewed: November 24, 2026</span>
     </div>
   </div>
 </footer>

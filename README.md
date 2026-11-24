@@ -6,7 +6,7 @@
 
 Repo Router combines a public GitHub repository explorer with focused context generation, repository intelligence, and convenient links to specialist tools such as GitMCP, DeepWiki, GitIngest, GitDiagram, and UIthub. The site is built with HTML, CSS, JavaScript, and read-only Netlify functions.
 
-> **Release status:** The main website contains the Phase 1 features and the existing DeepWiki/GitDiagram integrations. The four Phase 2 features below are being developed on [the Phase 2 branch](https://github.com/rahul300rkv/Reporouter/tree/feat/repository-intelligence-phase2-2026-11-24) and are **not yet published on the production website**. They can be reviewed through [PR #5](https://github.com/rahul300rkv/Reporouter/pull/5) and its deployment preview when available.
+> **Release status:** Repository Health, Architecture Evidence, Compare & Changes, and My Workspace are merged into `main` through [PR #5](https://github.com/rahul300rkv/Reporouter/pull/5). Actual availability may depend on the current deployment; source and change history are public. The new editorial improvements are under review in a separate pull request.
 
 ## Start here
 
@@ -24,7 +24,7 @@ Repo Router combines a public GitHub repository explorer with focused context ge
 
 **Navigation note:** These tools are **tabs within the main repository Explorer**, not separate published pages. Open the main tool, enter a public GitHub `owner/repo` URL, and choose the relevant tab. The links above intentionally lead to the shared tool section rather than pretending each tab has a standalone route.
 
-### Phase 2 — available on the feature branch only
+### Phase 2 — merged into main
 
 | Feature | Purpose | Source |
 | --- | --- | --- |
@@ -33,9 +33,11 @@ Repo Router combines a public GitHub repository explorer with focused context ge
 | Compare & Changes | Compare public repository metadata or inspect differences between Git branches/tags. | [repository-compare.js](repository-compare.js) |
 | My Workspace | Save public repository bookmarks and private notes in local browser storage; import/export JSON. | [repository-workspace.js](repository-workspace.js) |
 
-These views are integrated into the Explorer on the Phase 2 branch. See [the two-phase roadmap](PHASES.md) for exact scope, limitations, and acceptance criteria.
+These views are integrated into the Explorer on `main`. See [the two-phase roadmap](PHASES.md) for exact scope, limitations, and acceptance criteria.
 
 ## Guides and tutorials
+
+Our primary editorial focus is **exploring, navigating, visualizing, comparing, and evaluating public GitHub repositories**. See [About Repo Router](https://reporouter.netlify.app/about/) and our [Editorial Standards](https://reporouter.netlify.app/editorial-policy/) for authorship, sourcing, technical limits, and correction requests.
 
 ### Repository tools
 
