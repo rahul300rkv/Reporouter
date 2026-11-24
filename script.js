@@ -34,7 +34,8 @@ function parseGithubUrl(raw) {
   const match = trimmed.match(GITHUB_URL_RE);
   if (!match) return null;
   const [, owner, repo, rest] = match;
-  if (!owner || !repo) return null;
+  if (!/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/.test(owner) ||
+      !/^[A-Za-z0-9_.-]{1,100}$/.test(repo) || repo === "." || repo === "..") return null;
   return { owner, repo, rest: rest ?? "" };
 }
 
@@ -124,6 +125,9 @@ let currentParsed = null;
 let lastTransformed = null;
 let copyResetTimer;
 let qrVisible = false;
+let opening = false;
+// Only these first-party Explorer tabs may be opened directly from /tools/ pages.
+const LANDING_VIEWS = new Set(["files", "evidence", "compare", "health"]);
 
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (ch) => ({
@@ -244,7 +248,7 @@ function render() {
   els.diffNewText.textContent = transformed;
   els.diffWrap.classList.add("visible");
   setStatus("Ready to route!", "ready");
-  els.submit.disabled = false;
+  els.submit.disabled = opening;
   els.copyBtn.disabled = false;
   els.shareBtn.hidden = false;
   els.qrBtn.hidden = false;
@@ -267,20 +271,36 @@ function setMode(next) {
 
 // --- Submit / open ----------------------------------------------------
 
-function submit() {
+async function submit(requestedView = null) {
+  if (opening) return;
   if (!lastTransformed || !currentParsed) { render(); return; }
-  saveRecent(`${currentParsed.owner}/${currentParsed.repo}`);
+  const parsed = currentParsed;
+  const target = lastTransformed;
+  const view = LANDING_VIEWS.has(requestedView) ? requestedView : null;
+  opening = true;
+  els.submit.disabled = true;
+  const originalLabel = els.submit.innerHTML;
+  els.submit.textContent = "Opening repository…";
+  saveRecent(`${parsed.owner}/${parsed.repo}`);
   renderRecents();
-  els.resultUrl.textContent = lastTransformed.replace("https://", "");
-  els.resultOpenLink.href = lastTransformed;
-  // First-party explorer replaces the blocked iframe; preserve external fallback URL.
+  els.resultUrl.textContent = target.replace("https://", "");
+  els.resultOpenLink.href = target;
   els.resultFrame.removeAttribute("src");
   els.resultPanel.classList.add("hidden");
-  if (window.RepoRouterExplorer) {
-    window.RepoRouterExplorer.open(currentParsed, lastTransformed);
-  } else {
-    els.resultPanel.classList.remove("hidden");
-    els.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  try {
+    if (window.RepoRouterExplorer) {
+      await window.RepoRouterExplorer.open(parsed, target, view);
+    } else {
+      // The fallback panel provides a working external destination if Explorer is unavailable.
+      els.resultPanel.classList.remove("hidden");
+      els.resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  } catch {
+    setStatus("Could not open the repository. Please retry or open it on GitHub.", "error");
+  } finally {
+    opening = false;
+    els.submit.innerHTML = originalLabel;
+    render();
   }
 }
 
@@ -352,10 +372,26 @@ function readUrlParams() {
     const params = new URLSearchParams(window.location.search);
     const repo = params.get("repo");
     const modeParam = params.get("mode");
+    const viewParam = params.get("view");
     if (repo) {
-      els.input.value = repo.includes("github.com") ? repo : "https://github.com/" + repo;
-      if (modeParam && modeParam in TARGET_HOST) setMode(modeParam);
+      els.input.value = /^(?:https?:\/\/)?(?:www\.)?github\.com\//i.test(repo) ? repo : "https://github.com/" + repo;
+      if (modeParam && Object.hasOwn(TARGET_HOST, modeParam)) setMode(modeParam);
       else render();
+      if (LANDING_VIEWS.has(viewParam)) {
+        if (!currentParsed) {
+          setStatus("Invalid GitHub repository URL. Use https://github.com/owner/repo.", "error");
+        } else {
+          // explorer.js is deferred; DOMContentLoaded ensures it has registered its API.
+          const openRequested = () => {
+            if (currentParsed) submit(viewParam);
+          };
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", openRequested, { once: true });
+          } else {
+            openRequested();
+          }
+        }
+      }
     }
   } catch { /* noop */ }
 }
@@ -371,7 +407,7 @@ els.destBtns.forEach((btn) => {
   btn.addEventListener("click", () => setMode(btn.dataset.mode));
 });
 
-els.submit.addEventListener("click", submit);
+els.submit.addEventListener("click", () => submit());
 els.copyBtn.addEventListener("click", copyResult);
 els.shareBtn.addEventListener("click", shareLink);
 els.qrBtn.addEventListener("click", toggleQr);
