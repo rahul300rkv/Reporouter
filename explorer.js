@@ -156,7 +156,7 @@
   ui.download.addEventListener('click',()=>{if(!state||!ui.digest.value)return;const blob=new Blob([ui.digest.value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`${state.owner}-${state.repo}-digest.txt`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);});
   async function open(parsed, selectedToolUrl, requestedView = null){
     if(!parsed || !/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/.test(parsed.owner) || !/^[A-Za-z0-9_.-]{1,100}$/.test(parsed.repo) || parsed.repo==='.' || parsed.repo==='..'){msg('Enter a valid GitHub owner/repository URL.',true);return;}
-    const allowedView = ['files', 'health', 'evidence', 'compare'].includes(requestedView) ? requestedView : null;
+    const allowedView = ['files', 'health', 'evidence', 'compare', 'gitdiagram'].includes(requestedView) ? requestedView : null;
     lastRequest = {parsed, selectedToolUrl, requestedView: allowedView};
     const {version,signal}=reset();
     ui.panel.hidden=false;ui.panel.scrollIntoView({behavior:'smooth',block:'start'});
