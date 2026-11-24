@@ -15,13 +15,14 @@
     digestInfo: $('explorer-digest-info'), create: $('explorer-generate'),
     copy: $('explorer-copy'), download: $('explorer-download'),
     include: $('explorer-include'), exclude: $('explorer-exclude'),
-    extLink: $('explorer-external'), toolLink: $('explorer-tool-link'), close: $('explorer-close'),
+    extLink: $('explorer-external'), toolLink: $('explorer-tool-link'), close: $('explorer-close'), retry: $('explorer-retry'),
   };
   if (!ui.panel || !ui.tree || !ui.digest) return;
   let state = null;
   let requestVersion = 0;
   let activeController = null;
   let previewVersion = 0;
+  let lastRequest = null;
   const DEFAULT_EXCLUDE = /(^|\/)(\.git|node_modules|vendor|dist|build|coverage|\.next|\.venv|venv|target|__pycache__)(\/|$)|\.(?:png|jpg|jpeg|gif|webp|svg|ico|pdf|zip|gz|tar|7z|exe|dll|so|dylib|woff2?|ttf|mp[34]|mov|lock|map|class|pyc|wasm)$/i;
   const SECRET = /(^|\/)(\.env(?:\..*)?|id_rsa|id_ed25519|[^/]*\.(?:pem|key|p12|pfx)|credentials(?:\.[^/]*)?|secrets?(?:\.[^/]*)?)(\/|$)/i;
   const errText = (code) => code === 403 ? 'GitHub API rate limit or access restriction. Try later or open GitHub directly.' : code === 404 ? 'Public repository or file not found.' : `GitHub request failed (HTTP ${code}).`;
@@ -39,6 +40,7 @@
     ui.copy.disabled = true; ui.download.disabled = true; ui.create.disabled = false;
     ui.filter.value = '';
     ui.overview.replaceChildren();
+    if (ui.retry) ui.retry.hidden = true;
     switchTab('overview');
     return {version, signal: activeController.signal};
   }
@@ -52,7 +54,10 @@
     ui.tabPanels.forEach(p => p.hidden = p.dataset.explorerPane !== tab);
   }
   ui.tabButtons.forEach(b => b.addEventListener('click', () => switchTab(b.dataset.explorerTab)));
-  ui.close.addEventListener('click', () => {if(activeController)activeController.abort();++requestVersion;ui.panel.hidden=true;state=null;window.dispatchEvent(new Event('reporouter:closed'));});
+  ui.close.addEventListener('click', () => {if(activeController)activeController.abort();++requestVersion;ui.panel.hidden=true;state=null;lastRequest=null;window.dispatchEvent(new Event('reporouter:closed'));});
+  ui.retry?.addEventListener('click', () => {
+    if (lastRequest) open(lastRequest.parsed, lastRequest.selectedToolUrl, lastRequest.requestedView);
+  });
   const linkFor = (owner,repo,path) => `https://github.com/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/blob/${encodeURIComponent(state?.meta?.default_branch || 'HEAD')}/${path.split('/').map(encodeURIComponent).join('/')}`;
   function setOverview(meta, tree) {
     ui.overview.replaceChildren();
@@ -149,19 +154,23 @@
   ui.create.addEventListener('click',generate);
   ui.copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(ui.digest.value);msg('Digest copied.');}catch{msg('Clipboard unavailable. Select and copy the text manually.',true);}});
   ui.download.addEventListener('click',()=>{if(!state||!ui.digest.value)return;const blob=new Blob([ui.digest.value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`${state.owner}-${state.repo}-digest.txt`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);});
-  async function open(parsed, selectedToolUrl){
+  async function open(parsed, selectedToolUrl, requestedView = null){
     if(!parsed || !/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$/.test(parsed.owner) || !/^[A-Za-z0-9_.-]{1,100}$/.test(parsed.repo) || parsed.repo==='.' || parsed.repo==='..'){msg('Enter a valid GitHub owner/repository URL.',true);return;}
+    const allowedView = ['files', 'health', 'evidence', 'compare'].includes(requestedView) ? requestedView : null;
+    lastRequest = {parsed, selectedToolUrl, requestedView: allowedView};
     const {version,signal}=reset();
     ui.panel.hidden=false;ui.panel.scrollIntoView({behavior:'smooth',block:'start'});
+    if (allowedView) switchTab(allowedView);
     ui.name.textContent=`${parsed.owner}/${parsed.repo}`;
     window.dispatchEvent(new CustomEvent('reporouter:opened',{detail:{repo:`${parsed.owner}/${parsed.repo}`}}));
     // Users selecting DeepWiki should see their wiki in Repo Router, not a generic overview.
-    if(typeof selectedToolUrl==='string' && /^https:\/\/deepwiki\.com\//i.test(selectedToolUrl)) {
+    if(!allowedView && typeof selectedToolUrl==='string' && /^https:\/\/deepwiki\.com\//i.test(selectedToolUrl)) {
       switchTab('deepwiki');
       window.dispatchEvent(new Event('reporouter:deepwiki-selected'));
     }
     ui.extLink.href=`https://github.com/${encodeURIComponent(parsed.owner)}/${encodeURIComponent(parsed.repo)}`;
     // Accept only known destination hosts, never a user-supplied arbitrary URL.
+    ui.toolLink.hidden = Boolean(allowedView);
     try {const u=new URL(selectedToolUrl);ui.toolLink.href=['gitmcp.io','gitingest.com','deepwiki.com','uithub.com'].includes(u.hostname)&&u.protocol==='https:'?u.href:ui.extLink.href;} catch {ui.toolLink.href=ui.extLink.href;}
     msg('Fetching repository information from GitHub…');
     try {
@@ -186,7 +195,12 @@
         }
       }}));
       msg(treeData.truncated?'Loaded a partial tree (GitHub truncated this large repository). Digest may omit files.':'Repository loaded. Browse files or generate a text digest.');
-    }catch(e){if(e.name==='AbortError'||version!==requestVersion)return;msg(e.message,true);ui.overview.textContent='Unable to load this repository. Use the GitHub link above or try again later.';}
+    }catch(e){
+      if(e.name==='AbortError'||version!==requestVersion)return;
+      msg(e.message || 'Repository could not be loaded.',true);
+      ui.overview.textContent='Unable to load this public repository. It may be private, missing or temporarily rate-limited. Check the GitHub link above, or try again later.';
+      if (ui.retry) ui.retry.hidden = false;
+    }
   }
   window.RepoRouterExplorer={open};
 })();
