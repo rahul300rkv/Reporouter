@@ -52,7 +52,7 @@ Start with the [GitHub Repository Structure guide](https://reporouter.netlify.ap
 | [GitIngest Guide](https://reporouter.netlify.app/guides/gitingest-guide/) | Create LLM-readable repository digests. |
 | [UIthub Guide](https://reporouter.netlify.app/guides/uithub-guide/) | Filter repository content into context-friendly text. |
 | [GitMCP vs DeepWiki vs GitIngest](https://reporouter.netlify.app/guides/gitmcp-vs-deepwiki-vs-gitingest/) | Choose the appropriate repository tool. |
-| [Repository Documentation](https://reporouter.netlify.app/guides/github-repo-documentation/) | README files, architecture notes, `llms.txt`, and `AGENTS.md`. |
+| [Repository Documentation](https://reporouter.netlify.app/guides/github-repo-documentation/) | README files, architecture notes, contribution guides and repository conventions. |
 
 ### AI-assisted coding workflows
 
