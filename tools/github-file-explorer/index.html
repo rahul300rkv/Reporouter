@@ -45,15 +45,17 @@
 <p class="lede">Find file paths quickly in a large public GitHub repository and inspect eligible text files directly in the browser.</p>
 <p>Repo Router provides this feature inside its <strong>existing Repository Explorer</strong>. This page explains the task and takes your repository URL to the main tool. It does not claim a separate scanning backend or private-repository access.</p>
 <div class="callout"><strong class="label">Open File Explorer</strong>
-<form action="/#tool" method="get" aria-label="Open a public GitHub repository in Repo Router">
+<form action="/#tool" method="get" data-repo-launch aria-label="Open File Explorer for a public GitHub repository">
+<input type="hidden" name="view" value="files"/>
 <label for="repo-entry-github-file-explorer">Public GitHub repository URL</label>
 <input id="repo-entry-github-file-explorer" name="repo" type="text" inputmode="url" required placeholder="https://github.com/facebook/react" autocomplete="off" style="display:block;width:100%;min-height:48px;margin:8px 0 12px;padding:10px;border:2px solid #111827;border-radius:8px;background:#fff;color:#111827;font:inherit"/>
-<button class="btn" type="submit">Continue to Repository Explorer</button>
+<button class="btn" type="submit">Open File Explorer</button>
+<p role="status" aria-live="polite" data-repo-feedback></p>
 </form>
-<p>The main tool will prefill your repository link. Select <strong>Run Route</strong> to load the Explorer, then choose the <strong>Files</strong> tab. You may also <a href="/#tool">open the Explorer without prefilling a repository</a>.</p>
+<p>A valid GitHub URL opens the <strong>File Explorer</strong> view directly in Repo Router. To start with a blank form instead, <a href="/#tool">enter a repository URL on the homepage</a>.</p>
 </div>
 <h2 id="how-to">How to use this feature</h2>
-<ol><li>Enter a public GitHub repository link into the form below.</li><li>Open its Explorer workspace and select Files.</li><li>Filter visible paths by names such as README, src/, .py or package.json; open an eligible text file to preview it.</li></ol>
+<ol><li>Enter a public GitHub repository link into the form below.</li><li>Submit the URL to open the Files view automatically.</li><li>Filter visible paths by names such as README, src/, .py or package.json; open an eligible text file to preview it.</li></ol>
 <h2 id="find-files">Find a file without knowing its folder</h2>
 <p>Start with a filename fragment, extension or known directory name. For example, <code>README</code> often finds documentation files; <code>.github/workflows/</code> narrows CI configuration; <code>requirements.txt</code> or <code>package.json</code> identifies common dependency manifests.</p>
 <h2 id="path-filter">Path filtering versus searching file contents</h2>
@@ -69,7 +71,7 @@
 <p>See the <a href="/guides/how-to-use-repo-router/">complete Repo Router walkthrough</a>, <a href="/editorial-policy/">editorial standards</a> and <a href="/privacy-policy/">privacy policy</a> for evidence, accuracy, privacy and third-party considerations.</p>
 </div>
 <section class="related" aria-labelledby="other-tools"><h2 id="other-tools">Other GitHub exploration tools</h2><div class="card-grid"><a class="card" href="/tools/github-repository-tree/"><h3>GitHub Repository Tree Viewer</h3><p>Explore a public GitHub repository's folder hierarchy and locate important paths without cloning it.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-architecture/"><h3>GitHub Architecture Explorer</h3><p>Inspect potential file relationships in a public repository and distinguish source evidence from illustrative architecture diagrams.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/compare-github-repositories/"><h3>Compare GitHub Repositories Online</h3><p>Compare public repositories side by side or inspect what changed between branches and tags in a single project.</p><span class="more">Explore tool &rarr;</span></a><a class="card" href="/tools/github-repository-health/"><h3>GitHub Repository Health Checker</h3><p>Assess evidence of project documentation and maintenance without pretending to certify security or software quality.</p><span class="more">Explore tool &rarr;</span></a></div></section>
-<div class="cta-box"><h2>Explore a public GitHub project</h2><p>Enter its repository URL in Repo Router, then select Files.</p><div class="btn-row"><a class="btn" href="/#tool">Open the Explorer</a><a class="btn-secondary" href="/tools/">All repository tools</a></div></div>
+<div class="cta-box"><h2>Explore a public GitHub project</h2><p>Enter its GitHub URL above to open the selected Files.</p><div class="btn-row"><a class="btn" href="/#tool">Enter a repository URL</a><a class="btn-secondary" href="/tools/">All repository tools</a></div></div>
 </article></main>
 <footer class="site-footer">
   <div class="site-footer-inner">
@@ -109,5 +111,6 @@
     </div>
   </div>
 </footer>
+<script src="/tools/launch.js" defer></script>
 </body>
 </html>
